@@ -9,9 +9,8 @@ import { Sidebar } from './Components/Sidebar/Sidebar.jsx'
 export const App = () => {
   return (
     <>
-    <Sidebar />
+
     <Outlet />
-    <Footer />
     </>
   )
 }
