@@ -24,7 +24,7 @@ export const RegisterPage = () => {
                                     KNL <br />
                                     <span className="text-primary">Practices</span>
                                 </h1>
-                                <p style={{ color: 'hsl(217, 10%, 50.8%)' }}>
+                                <p style={{ color: 'hsl(217, 10%, 50.9%)' }}>
                                     Ingresa tu nombre de usuario y contraseña para acceder a las funcionalidades
                                 </p>
                             </div>
