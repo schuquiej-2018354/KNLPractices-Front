@@ -6,6 +6,7 @@ import { NotFoundPage } from './Pages/NotFoundPage';
 import { RegisterPage } from './Pages/RegisterPage';
 import { LoginPage } from './Pages/LoginPage/LoginPage';
 import { UserPage } from './Pages/UserPage/UserPage';
+import { RegisterPage } from './Pages/RegisterPage/RegisterPage';
 
 
 export const Index = () => {
@@ -31,6 +32,10 @@ export const Index = () => {
                 {
                     path: '/user',
                     element: <UserPage></UserPage>
+                },
+                {
+                    path: '/register',
+                    element: <RegisterPage></RegisterPage>
                 }
             ]
         }
