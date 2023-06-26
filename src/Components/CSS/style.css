@@ -266,7 +266,9 @@ input {
 .containerLog .form-content{
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
+  margin-top: -20px;
 }
 .form-content .login-form,
 .form-content .signup-form{

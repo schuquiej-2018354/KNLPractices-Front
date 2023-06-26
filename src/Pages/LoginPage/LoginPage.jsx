@@ -19,7 +19,7 @@ export const LoginPage = () => {
                     <div className="forms">
                         <div className="form-content">
                             <div className="login-form">
-                                <div className="title">Login</div>
+                                <div className="title" style={{paddingRight: '310px'}}>Login</div>
                                 <form action="#">
                                     <div className="input-boxes">
                                         <div className="input-box">
@@ -32,7 +32,7 @@ export const LoginPage = () => {
                                         </div>
                                         <div className="text"><a href="#">Forgot password?</a></div>
                                         <div className="button input-box">
-                                            <input type="submit" value="Sumbit" />
+                                            <input type="submit" value="Submit" />
                                         </div>
                                         <div className="text sign-up-text">Don't have an account? <label>Sign up</label></div>
                                     </div>
