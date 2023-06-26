@@ -8,6 +8,14 @@ import { Outlet } from 'react-router-dom'
 
 export const App = () => {
   return (
-    <Outlet></Outlet>
+    <>
+    <section className='theMain'>
+      <Sidebar />
+    </section>
+    <section>
+      <Footer></Footer>
+    </section>
+    <Outlet />
+    </>
   )
 }
