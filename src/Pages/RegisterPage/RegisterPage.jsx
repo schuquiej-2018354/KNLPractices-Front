@@ -35,7 +35,7 @@ export const RegisterPage = () => {
                                     width: '25rem',
                                     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
                                 }}>
-                                <div className="containerLog">
+                                <div /* className="containerLog" */>
                                     <div className="forms">
                                         <div className="form-content">
                                             <form>
@@ -51,11 +51,9 @@ export const RegisterPage = () => {
                                                         <i className="fas fa-lock"></i>
                                                         <input type="password" placeholder="Enter your password" required />
                                                     </div>
-
                                                     <div className="button input-box">
                                                         <input type="submit" value="Submit" />
                                                     </div>
-
                                                 </div>
                                                 <div>
                                                     <div style={{ display: 'flex', alignItems: 'flex-start' }}>
