@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import { Outlet } from 'react-router-dom'
 import { Footer } from './Components/Footer/Footer.jsx'
 import { Navbar } from './Components/Navbar/Navbar.jsx'
+import './Components/CSS/style.css'
 
 
 

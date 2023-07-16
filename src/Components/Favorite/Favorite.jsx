@@ -4,7 +4,7 @@ import { ModelFavorite } from "../Model/ModelFavorite";
 
 export const Favorite = () => {
 
-const [fav, setFav] = useState([{}]);
+  const [fav, setFav] = useState([{}]);
 
   const getFavorites = async () => {
     try {
@@ -16,43 +16,45 @@ const [fav, setFav] = useState([{}]);
   };
 
 
-  useEffect(()=> { 
-    getFavorites() 
-}, []);
+  useEffect(() => {
+    getFavorites()
+  }, []);
 
   return (
     <>
-      <div className="row">
-        <div className="col-8">
-          <input
-            className="form-control"
-            type="text"
-            name=""
-            id="inputFav"
-            placeholder="Search"
-          />
+      <div style={{ width: '98%' }}>
+        <div className="row" style={{marginBottom: '5px'}}>
+          <div className="col-8">
+            <input
+              className="form-control"
+              type="text"
+              name=""
+              id="inputFav"
+              placeholder="Search"
+            />
+          </div>
+          <div className="col">
+            <button className="btn btn-primary">Click</button>
+          </div>
         </div>
-        <div className="col">
-          <button className="btn btn-primary">Click</button>
-        </div>
-      </div>
-      <div className="card" style={{ height: "88vh" }}>
-        <h2 className="text-center">FAVORITES</h2>
-        {
-            fav.map(({_id, owner, publication}, i)=>{
-                return(
-                    <div key={i}>
-                        <ModelFavorite
-                        user={owner?.name}
-                        empress={publication?.empress}
-                        location={publication?.location}
-                        phone={publication?.phone}
-                        description={publication?.description}
-                        ></ModelFavorite>
-                    </div>
-                )
+        <div className="card overflow-auto" style={{ height: "88vh", maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin' }}>
+          <h2 className="text-center">FAVORITES</h2>
+          {
+            fav.map(({ _id, owner, publication }, i) => {
+              return (
+                <div key={i}>
+                  <ModelFavorite
+                    user={owner?.name}
+                    empress={publication?.empress}
+                    location={publication?.location}
+                    phone={publication?.phone}
+                    description={publication?.description}
+                  ></ModelFavorite>
+                </div>
+              )
             })
-        }
+          }
+        </div>
       </div>
     </>
   );

@@ -1,8 +1,7 @@
 import React from 'react'
-import user from '../../assets/img/User.png'
-import '../../Components/CSS/style.css'
+import user from '../assets/img/User.png'
 import { useNavigate } from 'react-router-dom'
-import Background from '../../assets/img/fondoLogin.png'
+import Background from '../assets/img/fondoLogin.png'
 
 export const UserPage = () => {
   const navigate = useNavigate();

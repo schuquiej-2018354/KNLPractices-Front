@@ -1,7 +1,6 @@
 import React from 'react'
-import imgFond from '../../assets/img/logimg.jpg'
-import logo from '../../assets/img/KNLLogoS.png'
-import '../../Components/CSS/style.css'
+import imgFond from '../assets/img/logimg.jpg'
+import logo from '../assets/img/KNLLogoS.png'
 import { useNavigate } from 'react-router-dom'
 
 export const LoginPage = () => {
@@ -23,19 +22,19 @@ export const LoginPage = () => {
                         <div className="form-content">
                             <div className="login-form">
                                 <div className="title" style={{paddingRight: '310px'}}>Login</div>
+                                <br />
                                 <form action="#">
                                     <div className="input-boxes">
                                         <div className="input-box">
                                             <i className="fas fa-envelope"></i>
-                                            <input type="text" placeholder="Enter your email" required />
+                                            <input type="email" placeholder="Email" required />
                                         </div>
                                         <div className="input-box">
                                             <i className="fas fa-lock"></i>
-                                            <input type="password" placeholder="Enter your password" required />
+                                            <input type="password" placeholder="Password" required />
                                         </div>
-                                        <div className="text"><a href="#">Forgot password?</a></div>
                                         <div className="button input-box">
-                                            <input type="submit" value="Submit" />
+                                            <input type="submit" value="Login" />
                                         </div>
                                         <div className="text sign-up-text">Don't have an account? <label onClick={() => navigate('/register')}>Sign up</label></div>
                                     </div>

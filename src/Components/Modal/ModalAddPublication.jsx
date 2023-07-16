@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Modal } from 'react-bootstrap'
+import { Modal, ModalFooter } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 export const ModalAddPublication = ({ isOpen, onClose, update }) => {
@@ -61,31 +61,37 @@ export const ModalAddPublication = ({ isOpen, onClose, update }) => {
                     </button>
                 </Modal.Header>
                 <Modal.Body>
-                <form action='#' encType='multipart/form-data'>
-                        <div className='user_details'>
-                            <div className='input_box'>
-                                <label htmlFor='inputName'>Name</label>
-                                <input type='text' id='inputName' placeholder='Enter your name' name='name' onChange={registerHandleChange} required />
+                    <form action='#' encType='multipart/form-data'>
+                        <div>
+                            <div>
+                                <label className='form-label' htmlFor='inputName'>Name</label>
+                                <input className='form-control' type='text' id='inputName' placeholder='Enter your name' name='name' onChange={registerHandleChange} required />
                             </div>
-                            <div className='input_box'>
-                                <label htmlFor='inputUsername'>Empresa</label>
-                                <input type='text' id='inputUsername' placeholder='Enter your username' name='empress' onChange={registerHandleChange} required />
+                            <div className="row">
+                                <div className="col">
+                                    <div>
+                                        <label className='form-label' htmlFor='inputUsername'>Empresa</label>
+                                        <input className='form-control' type='text' id='inputUsername' placeholder='Enter your username' name='empress' onChange={registerHandleChange} required />
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div>
+                                        <label className='form-label' htmlFor='inputPhone'>Phone Number</label>
+                                        <input className='form-control input-number' type='number' id='inputPhone' placeholder='Telephone' name='phone' onChange={registerHandleChange} required />
+                                    </div>
+                                </div>
                             </div>
-                            <div className='input_box'>
-                                <label htmlFor='inputEmail'>Location</label>
-                                <input type='email' id='inputEmail' placeholder='Enter your email' name='location' onChange={registerHandleChange} required />
+                            <div>
+                                <label className='form-label' htmlFor='inputEmail'>Location</label>
+                                <textarea className='form-control' type='email' id='inputEmail' placeholder='Location' name='location' onChange={registerHandleChange} required />
                             </div>
-                            <div className='input_box'>
-                                <label htmlFor='inputPhone'>Phone Number</label>
-                                <input type='number' id='inputPhone' placeholder='Enter your number' name='phone' onChange={registerHandleChange} required />
+                            <div>
+                                <label className='form-label' htmlFor='inputDescriptiony'>Description</label>
+                                <textarea className='form-control' type='number' id='inputDescriptiony' placeholder='Description' name='description' onChange={registerHandleChange} required />
                             </div>
-                            <div className='input_box'>
-                                <label htmlFor='inputDescriptiony'>Description</label>
-                                <input type='number' id='inputDescriptiony' placeholder='Enter your No.Account' name='description' onChange={registerHandleChange} required />
-                            </div>
-                            <div className='input_box'>
-                                <label htmlFor='inputImage'>Imge</label>
-                                <input type="file" id='inputImage' placeholder='Enter your Image' name='image' onChange={(e) => {
+                            <div>
+                                <label className='form-label' htmlFor='inputImage'>Imge</label>
+                                <input className='form-control' type="file" id='inputImage' placeholder='Enter your Image' name='image' onChange={(e) => {
                                     setForm({
                                         ...form,
                                         image: e.target.files[0]
@@ -93,12 +99,13 @@ export const ModalAddPublication = ({ isOpen, onClose, update }) => {
                                 }} required />
                             </div>
                         </div>
-                        <br />
-                        <div className='reg_btn'>
-                            <button type='button' onClick={(e) => save(e)} >Add</button>
-                        </div>
                     </form>
                 </Modal.Body>
+                <Modal.Footer>
+                    <div className='reg_btn'>
+                        <button className='btn btn-success' type='button' onClick={(e) => save(e)} >Add</button>
+                    </div>
+                </Modal.Footer>
             </Modal>
         </>
     )

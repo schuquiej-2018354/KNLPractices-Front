@@ -1,7 +1,10 @@
 import React from 'react';
 import User from '../../assets/img/User.png'
+import { useNavigate } from 'react-router-dom';
 
 export const Sidebar = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{ width: '280px' }}>
@@ -16,12 +19,12 @@ export const Sidebar = () => {
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
                             <a href="#" class="nav-link active" aria-current="page">
-                                <svg class="bi me-2" width="16" height="16"><use xlink: href="#people-circle" /></svg>
+                                
                                 Options
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link text-white">
+                            <a href="#" class="nav-link text-white" onClick={() => navigate('/user')}>
                                 <svg class="bi me-2" width="16" height="16"><use xlink: href="#home" /></svg>
                                 User
                             </a>
