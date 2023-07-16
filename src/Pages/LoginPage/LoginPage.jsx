@@ -2,14 +2,17 @@ import React from 'react'
 import imgFond from '../../assets/img/logimg.jpg'
 import logo from '../../assets/img/KNLLogoS.png'
 import '../../Components/CSS/style.css'
+import { useNavigate } from 'react-router-dom'
 
 export const LoginPage = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <div className='contt'>
-                <div className="containerLog">
+                <div className="containerLog" style={{maxWidth: '850px'}}>
                     <input type="checkbox" id="flip" />
-                    <div className="cover">
+                    <div className="cover" style={{left: '50%'}}>
                         <div className="front" style={{backgroundImage: `url(${imgFond})`, backgroundSize: 'cover'}} >
                             <div className="text">
                             <div className='imgs'><img src={logo}/></div>
@@ -34,7 +37,7 @@ export const LoginPage = () => {
                                         <div className="button input-box">
                                             <input type="submit" value="Submit" />
                                         </div>
-                                        <div className="text sign-up-text">Don't have an account? <label>Sign up</label></div>
+                                        <div className="text sign-up-text">Don't have an account? <label onClick={() => navigate('/register')}>Sign up</label></div>
                                     </div>
                                 </form>
                             </div>
