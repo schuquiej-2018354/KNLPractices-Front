@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Sidebar } from '../Components/Sidebar/Sidebar'
 import { Favorite } from '../Components/Favorite/Favorite'
 
 export const HomePage = () => {
+
+
+
   return (
     <>
       <div className="row">
