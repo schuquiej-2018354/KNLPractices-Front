@@ -11,7 +11,9 @@ import { Navbar } from './Components/Navbar/Navbar.jsx'
 export const App = () => {
   return (
     <>
+      <Navbar />
       <Outlet />
+      <Footer />
     </>
   )
 }
