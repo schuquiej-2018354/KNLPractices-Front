@@ -335,7 +335,63 @@ main {
     display: none;
   }
 }
-
 .imgg{
   width: 20px;
 }
+
+/* -------------------Card container-------------------------- */
+
+/* Card user avatar */
+.card1-avatar1 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.card1-avatar1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card user information */
+.card1-info1 {
+  margin-top: 20px;
+}
+
+.card1-info1 h2 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: orange;
+}
+
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.button1 {
+  margin-right: 50px;
+  background-color: #fff;
+  border-color: black;
+  border-width: 3px;
+  transition-duration: 0.3s;
+}
+
+/* Card container */
+.card1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 70vb;
+    padding: 10px;
+  }
