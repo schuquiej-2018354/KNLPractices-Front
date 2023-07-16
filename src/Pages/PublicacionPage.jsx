@@ -39,6 +39,9 @@ export const PublicacionPage = () => {
                 </div>
                 <div className="col col-7 overflow-auto" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
                     <h2 className='text-center'>Informatica</h2>
+                    <div>
+                        <button onClick={handleOpenModal} className='btn btn-primary '>Publicar</button>
+                    </div>
                     {
                         publication.map(({_id, user, image, empress, location, phone, description, time}, i) => {
                             return(
@@ -57,11 +60,8 @@ export const PublicacionPage = () => {
                             )
                         })
                     }
-                    <div>
-                        <button onClick={handleOpenModal}>Publicar</button>
-                    </div>
                 </div>
-                <div className="col t" >
+                <div className="col t">
                     <Favorite />
                 </div>
             </div>
