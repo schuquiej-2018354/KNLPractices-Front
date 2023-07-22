@@ -4,17 +4,29 @@ import imgFond from '../assets/img/register.png'
 import logo from '../assets/img/KNLLogo.png'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { useEffect } from 'react'
 
 export const RegisterPage = () => {
     const navigate = useNavigate();
+    const [career, setCareer] = useState([{}])
     const [form, setForm] = useState({
         name: '',
         surname: '',
         username: '',
         email: '',
         phone: '',
-        password: ''
+        password: '',
+        career: ''
     })
+
+    const getCareers = async (e) => {
+        try {
+            const { data } = await axios('http://localhost:3200/career/get')
+            setCareer(data.careers)
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     const registerHandleChange = (e) => {
         setForm({
@@ -33,8 +45,10 @@ export const RegisterPage = () => {
         } catch (e) {
             console.log(e);
         }
-
     }
+
+
+    useEffect(() => getCareers, [])
 
     return (
         <>
@@ -82,11 +96,15 @@ export const RegisterPage = () => {
                                                     <input type="password" placeholder="Password" onChange={registerHandleChange} name='password' required />
                                                 </div>
                                                 <div className="input-box">
-                                                    <select class="form-select " aria-label="Default select example">
-                                                        <option selected>Select to career</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                    <select class="form-select" aria-label="Default select example" name="career" value={form.career} onChange={registerHandleChange}>
+                                                        <option defaultValue={'Select to career'}>Select to career</option>
+                                                        {
+                                                            career.map(({ _id, name }, i) => {
+                                                                return (
+                                                                    <option key={i} value={_id} className=''>{name}</option>
+                                                                )
+                                                            })
+                                                        }
                                                     </select>
                                                 </div>
                                                 <div className="row">
