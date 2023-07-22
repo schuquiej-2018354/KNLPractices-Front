@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HomePage } from './Pages/HomePage';
 import { App } from './App';
@@ -8,8 +8,36 @@ import { UserPage } from './Pages/UserPage';
 import { RegisterPage } from './Pages/RegisterPage';
 import { PublicacionPage } from './Pages/PublicacionPage';
 
+export const AuthContext = createContext()
 
 export const Index = () => {
+
+    const [loggedIn, setLoggedIn] = useState(false)
+    const [dataUser, setDataUser] = useState({
+        id: '',
+        name: '',
+        surname: '',
+        phone: '',
+        email: '',
+        username: ''
+    })
+
+    const handleLogout = () => {
+        setLoggedIn(false);
+        setDataUser({
+            id: '',
+            name: '',
+            surname: '',
+            phone: '',
+            email: '',
+            username: ''
+        });
+    };
+
+    useEffect(() => {
+        let token = localStorage.getItem('token')
+        if (token) setLoggedIn(true)
+    }, [])
 
     const routes = createBrowserRouter([
         {
@@ -24,7 +52,7 @@ export const Index = () => {
                 {
                     path: '/register',
                     element: <RegisterPage></RegisterPage>
-                }, 
+                },
                 {
                     path: '/login',
                     element: <LoginPage></LoginPage>
@@ -36,11 +64,14 @@ export const Index = () => {
                 {
                     path: '/publicacion',
                     element: <PublicacionPage />
-                }
+                },
+
             ]
         }
     ])
     return (
-        <RouterProvider router={routes} />
+        <AuthContext.Provider value={{ loggedIn, setLoggedIn, dataUser, setDataUser, handleLogout }}>
+            <RouterProvider router={routes} />
+        </AuthContext.Provider>
     )
 }
