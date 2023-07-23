@@ -32,19 +32,24 @@ export const LoginPage = () => {
             if (data.token) {
                 setLoggedIn(true)
                 localStorage.setItem('token', data.token)
-                setDataUser({
+
+                //Se guardan los datos en el LocalStorage
+                localStorage.setItem('userData', JSON.stringify({
                     id: data.userLogged.id,
                     name: data.userLogged.name,
                     username: data.userLogged.username,
                     surname: data.userLogged.surname,
                     email: data.userLogged.email,
-                    phone: data.userLogged.phone
-                })
+                    phone: data.userLogged.phone,
+                    career: data.userLogged.career,
+                    role: data.userLogged.role
+                }));
                 Swal.fire({
                     icon: 'success',
                     title: data.message,
                 })
             }
+            navigate('/user')
         } catch (err) {
             console.log(err)
         }
