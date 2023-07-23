@@ -3,19 +3,10 @@ import { Sidebar } from '../Components/Sidebar/Sidebar'
 import { Favorite } from '../Components/Favorite/Favorite'
 import axios from 'axios';
 import { ModelPublications } from '../Components/Model/ModelPublications';
-import { ModalAddPublication } from '../Components/Modal/ModalAddPublication';
 
 export const PublicacionPage = () => {
 
     const [publication, setPublication] = useState([{}]);
-    const [showModalAddPublication, setShowModalAddPublication] = useState(false);
-
-    const handleOpenModal = () => {
-        setShowModalAddPublication(true);
-    } 
-    const handleCloseModal = () => {
-        setShowModalAddPublication(false);
-    }
 
     const getPublications = async() =>{
         try{
@@ -37,11 +28,8 @@ export const PublicacionPage = () => {
                 <div className="col col-2" style={{ width: '20%' }}>
                     <Sidebar />
                 </div>
-                <div className="col col-7 overflow-auto" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
+                <div className="col col-7 overflow-auto scroll-invisible-container" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
                     <h2 className='text-center'>Informatica</h2>
-                    <div>
-                        <button onClick={handleOpenModal} className='btn btn-primary '>Publicar</button>
-                    </div>
                     {
                         publication.map(({_id, user, image, empress, location, phone, description, time}, i) => {
                             return(
@@ -65,7 +53,6 @@ export const PublicacionPage = () => {
                     <Favorite />
                 </div>
             </div>
-            <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal}></ModalAddPublication>
         </>
     )
 }

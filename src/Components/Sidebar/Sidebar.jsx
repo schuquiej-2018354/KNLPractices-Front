@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import User from '../../assets/img/User.png'
 import { useNavigate } from 'react-router-dom';
+import { ModalAddPublication } from '../Modal/ModalAddPublication';
 
 export const Sidebar = () => {
     const navigate = useNavigate();
+    const [showModalAddPublication, setShowModalAddPublication] = useState(false);
+
+    const handleOpenModal = () => {
+        setShowModalAddPublication(true);
+    }
+    const handleCloseModal = () => {
+        setShowModalAddPublication(false);
+    }
 
     return (
         <>
-            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{ width: '280px' }}>
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg2" style={{ width: '280px' }}>
                 <center>
                     <img src={User} alt="KNL" style={{ width: '25%' }} />
                 </center>
@@ -18,8 +27,7 @@ export const Sidebar = () => {
                 <div style={{ height: '70vh' }}>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active" aria-current="page">
-                                
+                            <a href="#" class="nav-link text-white" aria-current="page">
                                 Options
                             </a>
                         </li>
@@ -48,6 +56,9 @@ export const Sidebar = () => {
                             </a>
                         </li>
                     </ul>
+                    <div className='d-flex justify-content-center'>
+                        <button onClick={handleOpenModal} className='btn btn-primary '>Post</button>
+                    </div>
                 </div>
                 <hr />
                 <div class="dropdown">
@@ -56,6 +67,7 @@ export const Sidebar = () => {
                     </a>
                 </div>
             </div>
+            <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal} />
         </>
     );
 };

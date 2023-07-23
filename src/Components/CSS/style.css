@@ -3,11 +3,32 @@
 }
 
 .bg2 {
-  background-color: #1d2440;
+  background-color: #1a2633;
+}
+
+.bg3 {
+  background-color: #14202B;
+}
+
+.bg4 {
+  background-color: #1D9BF0;
+}
+
+.bg5 {
+  background-color: #1E2732;
+}
+
+.bg6 {
+  background-color: #263340;
 }
 
 .t {
   margin-top: 2rem;
+}
+
+.tx1 {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.5rem;
 }
 
 /* SIDEBAR */
@@ -360,7 +381,7 @@ main {
   }
 }
 
-.form-select{
+.form-select {
   border-color: white;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
@@ -429,3 +450,8 @@ main {
 
 }
 
+
+
+.scroll-invisible-container::-webkit-scrollbar {
+  display: none;
+}
