@@ -365,11 +365,6 @@ main {
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.form-select::{
-  border-color: white;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-}
-
 /* -------------------Card container-------------------------- */
 
 /* Card user avatar */

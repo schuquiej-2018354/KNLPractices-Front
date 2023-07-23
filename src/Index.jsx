@@ -7,6 +7,7 @@ import { LoginPage } from './Pages/LoginPage';
 import { UserPage } from './Pages/UserPage';
 import { RegisterPage } from './Pages/RegisterPage';
 import { PublicacionPage } from './Pages/PublicacionPage';
+import axios from 'axios';
 
 export const AuthContext = createContext()
 
@@ -19,7 +20,9 @@ export const Index = () => {
         surname: '',
         phone: '',
         email: '',
-        username: ''
+        username: '',
+        career: '',
+        role: ''
     })
 
     const handleLogout = () => {
@@ -30,14 +33,22 @@ export const Index = () => {
             surname: '',
             phone: '',
             email: '',
-            username: ''
+            username: '',
+            career: '',
+            role: ''
         });
     };
 
     useEffect(() => {
         let token = localStorage.getItem('token')
-        if (token) setLoggedIn(true)
-    }, [])
+        if (token) {
+            setLoggedIn(true)
+            // Recupera los datos del usuario de localStorage
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            setDataUser(userData);
+        }
+    }, [loggedIn])
+
 
     const routes = createBrowserRouter([
         {
