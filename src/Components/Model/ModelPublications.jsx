@@ -40,16 +40,15 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
 
   return (
     <>
-      <div class="card" style={{ marginBottom: "10px", marginTop: "10px" }}>
-
-        <div class="row g-0 border rounded overflow-hidden flex-md-row h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
+      <div class="card bg5" style={{ marginBottom: "10px", marginTop: "10px" }}>
+        <div class="row g-0 rounded overflow-hidden flex-md-row h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static text-white">
             <div className="row">
               <div className="col">
-                <strong class="d-inline-block mb-2 text-primary">{user}</strong>
+                <strong class="d-inline-block mb-2 text-primary">@{user}</strong>
               </div>
               <div className="col">
-                <div class="mb-1 text-muted text-end">{time}</div>
+                <div class="mb-1 text-muted text-end" style={{marginRight: '1rem'}}>{time}</div>
               </div>
             </div>
             <div className="row">
@@ -60,7 +59,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
                   </div>
                   <div className="col text-end">
                     <button className="btn" onClick={() => addFavorite(id)}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16" style={{fill: 'white'}}>
                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
                       </svg>
                     </button>
@@ -72,7 +71,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
                   &ensp; -{phone}
                 </p>
                 <p class="card-text mb-auto" style={{ marginTop: '2%', marginBottom: '2%' }}>
-                  &ensp; -{description}
+                  {description}
                 </p>
                 <p class="card-text mb-auto">
                   <p className="card-text">Address:</p>

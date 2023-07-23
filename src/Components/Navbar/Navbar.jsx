@@ -1,14 +1,17 @@
 import React from 'react'
+import logo from '../../assets/img/KNLLogo.png'
 
 export const Navbar = () => {
     return (
         <>
-            <nav className="navbar bg1 d-flex justify-content-center">
-                <div className="container-fluid">
-                    <h2 className="navbar mb-0 text-white">"El Trabajo Bien Hecho"</h2>
+            <nav class="navbar navbar-light bg3">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-white tx1" href="#">
+                        <img src={logo} alt="" width="30" height="30" class="d-inline-block" />
+                            KNL Practices
+                    </a>
                 </div>
             </nav>
-
         </>
     )
 }
