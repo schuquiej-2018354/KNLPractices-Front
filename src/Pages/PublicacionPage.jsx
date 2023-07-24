@@ -17,7 +17,6 @@ export const PublicacionPage = () => {
         }
     }
 
-
     useEffect(()=> { 
         getPublications() 
     }, []);
