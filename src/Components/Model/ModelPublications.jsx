@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+
 export const ModelPublications = ({id, user, image, empress, location, phone, description, time}) => {
 
    const [ img, setImg ] = useState('');
@@ -40,7 +41,7 @@ export const ModelPublications = ({id, user, image, empress, location, phone, de
 
      return (
          <>
-      <div class="card" style={{ marginBottom: "10px", marginTop: "10px" }}>
+      <div class="card" style={{ marginTop: "10px" }}>
         <button onClick={()=> addFavorite(id)}>favoriteeee</button>
         <div class="row g-0 border rounded overflow-hidden flex-md-row h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
@@ -60,8 +61,8 @@ export const ModelPublications = ({id, user, image, empress, location, phone, de
             <p>
                 {empress}
             </p>
-            <a href="#" class="stretched-link">
-              Continue reading
+            <a class="stretched-link">
+              Comments
             </a>
           </div>
           <div class="col-auto d-none d-lg-block">
