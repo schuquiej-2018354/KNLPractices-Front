@@ -48,7 +48,6 @@ export const PublicacionPage = () => {
         }
     }
 
-
     useEffect(()=> { 
         getPublications() 
     }, []);
@@ -59,7 +58,7 @@ export const PublicacionPage = () => {
                 <div className="col col-2" style={{ width: '20%' }}>
                     <Sidebar />
                 </div>
-                <div className="col col-7 overflow-auto" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
+                <div className="col col-7 overflow-auto scroll-invisible-container" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
                     <h2 className='text-center'>Informatica</h2>
                     {
                         publication.map(({_id, user, image, empress, location, phone, description, time}, i) => {
@@ -84,11 +83,8 @@ export const PublicacionPage = () => {
                             )
                         })
                     }
-                    <div>
-                        <button onClick={handleOpenModal}>Publicar</button>
-                    </div>
                 </div>
-                <div className="col t" >
+                <div className="col t">
                     <Favorite />
                 </div>
             </div>
