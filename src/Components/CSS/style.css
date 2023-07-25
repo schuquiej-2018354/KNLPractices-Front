@@ -1,23 +1,28 @@
 .bg1 {
   background-color: #1b325f;
 }
+
 .bg2 {
   background-color: #1a2633;
 }
+
 .bg3 {
   background-color: #14202B;
 }
+
 .bg4 {
   background-color: #1D9BF0;
 }
+
 .bg5 {
   background-color: #1E2732;
 }
+
 .bg6 {
   background-color: #263340;
 }
 
-.lih:hover{
+.lih:hover {
   background-color: #263340;
   border-radius: 20px;
 }
@@ -33,7 +38,7 @@
 
 /* SIDEBAR */
 .body {
-  min-height: 100vh;
+  height: 100vh;
   min-height: -webkit-fill-available;
 }
 
@@ -443,15 +448,51 @@ main {
   padding: 10px;
 }
 
-
 .input-number::-webkit-inner-spin-button,
 .input-number::-webkit-outer-spin-button {
   -webkit-appearance: none;
 
 }
 
-
-
 .scroll-invisible-container::-webkit-scrollbar {
   display: none;
+}
+
+.searchFav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sb {
+  display: flex;
+  align-items: center;
+}
+
+.sbText {
+  font-size: 20px;
+}
+
+.sbD {
+  width: 100%;
+}
+
+.sbDP {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-color: #1a2633;
+}
+
+.sbDP:hover {
+  background-color: #263340;
+  border-radius: 20px;
+  border-color: #1a2633;
+}
+
+.divSBPr {
+  text-align: center;
+  justify-content: center;
 }
