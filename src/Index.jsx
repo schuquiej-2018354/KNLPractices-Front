@@ -9,6 +9,7 @@ import { RegisterPage } from './Pages/RegisterPage';
 import { PublicacionPage } from './Pages/PublicacionPage';
 import axios from 'axios';
 
+
 export const AuthContext = createContext()
 
 export const Index = () => {
@@ -38,6 +39,7 @@ export const Index = () => {
             role: ''
         });
     };
+
 
     useEffect(() => {
         let token = localStorage.getItem('token')
@@ -73,7 +75,7 @@ export const Index = () => {
                     element: <UserPage></UserPage>
                 },
                 {
-                    path: '/publicacion',
+                    path: '/publicacion/:id?',
                     element: <PublicacionPage />
                 },
 

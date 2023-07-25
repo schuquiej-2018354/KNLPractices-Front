@@ -8,7 +8,7 @@ export const Favorite = () => {
 
   const getFavorites = async () => {
     try {
-      const { data } = await axios('http://localhost:3200/favorite/get/64b3380672c4340db65ee5e3');
+      const { data } = await axios('http://localhost:3200/favorite/get/64bf4f106bc13cbab0234b04');
       setFav(data.favorites);
     } catch (e) {
       console.log(e);

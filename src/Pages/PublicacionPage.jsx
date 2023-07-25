@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ModelPublications } from '../Components/Model/ModelPublications';
 import { ModalAddPublication } from '../Components/Modal/ModalAddPublication';
 import { ModalComments } from '../Components/Modal/ModalComments';
+import { useParams } from 'react-router-dom';
 
 export const PublicacionPage = () => {
 
@@ -12,6 +13,8 @@ export const PublicacionPage = () => {
     const [showModalAddPublication, setShowModalAddPublication] = useState(false);
     const [showModalComments, setShowModalComments] = useState(false);
     const [dataComments, setDataComments] = useState({});
+    const [title, setTitle] = useState('');
+    const { id } = useParams();
 
     const handleOpenModal = () => {
         setShowModalAddPublication(true);
@@ -32,25 +35,44 @@ export const PublicacionPage = () => {
             description: description,
             time: time
         }
-
         setDataComments(datos);
     } 
     const handleCloseModalComment = () => {
         setShowModalComments(false);
     }
 
-    const getPublications = async() =>{
+    const getPublicationsAll = async() =>{
         try{
             const { data } = await axios('http://localhost:3200/publication/get');
             setPublication(data.publications);
+            setTitle('All post');
         }catch(e){
             console.log(e);
         }
     }
+    
+    const getPublicationByCarrer = async()=>{
+        try{
+            const { data } = await axios(`http://localhost:3200/publication/getByCarrer/${id}`);
+            setPublication(data.publications);
+            setTitle(data.publications[1].career.name)
+        }catch(e){
+            console.log(e);
+        }
+    }
+    const getPublications = () => {
+        if(id === undefined) {
+            getPublicationsAll();
+        }else{
+            getPublicationByCarrer();
+        }
+    }
+
+
 
     useEffect(()=> { 
         getPublications() 
-    }, []);
+    }, [id]);
 
     return (
         <>
@@ -59,7 +81,7 @@ export const PublicacionPage = () => {
                     <Sidebar />
                 </div>
                 <div className="col col-7 overflow-auto scroll-invisible-container" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
-                    <h2 className='text-center'>Informatica</h2>
+                    <h2 className='text-center text-white t mb-5'>{title}</h2>
                     {
                         publication.map(({_id, user, image, empress, location, phone, description, time}, i) => {
                             return(
@@ -75,9 +97,9 @@ export const PublicacionPage = () => {
                                         description={description}
                                         time={time}
                                         ></ModelPublications>
-                                    </div>
                                     <div style={{marginBottom: '1.5rem'}}>
                                         <button onClick={()=>handleOpenModalComment(_id, image, user?.name, empress, location, phone, description, time)}>Show comments</button>
+                                    </div>
                                     </div>
                                 </>
                             )

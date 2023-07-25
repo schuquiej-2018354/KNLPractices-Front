@@ -19,7 +19,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
   const addFavorite = async (publication) => {
     try {
       let datos = {
-        owner: '64b3380672c4340db65ee5e3',
+        owner: '64bf4f106bc13cbab0234b04',
         publication: publication
       }
       const { data } = await axios.post('http://localhost:3200/favorite/add', datos);

@@ -31,6 +31,7 @@ export const DropCarrers = () => {
                             return (
                                 <div key={i}>
                                     <ModelCarrers
+                                        id={_id}
                                         name={name}
                                     ></ModelCarrers>
                                 </div>
