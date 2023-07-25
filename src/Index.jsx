@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HomePage } from './Pages/HomePage';
 import { App } from './App';
@@ -7,14 +7,11 @@ import { LoginPage } from './Pages/LoginPage';
 import { UserPage } from './Pages/UserPage';
 import { RegisterPage } from './Pages/RegisterPage';
 import { PublicacionPage } from './Pages/PublicacionPage';
-import axios from 'axios';
 
-
-export const AuthContext = createContext()
+export const AuthContext = createContext();
 
 export const Index = () => {
-
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false);
     const [dataUser, setDataUser] = useState({
         id: '',
         name: '',
@@ -24,7 +21,7 @@ export const Index = () => {
         username: '',
         career: '',
         role: ''
-    })
+    });
 
     const handleLogout = () => {
         setLoggedIn(false);
@@ -42,15 +39,14 @@ export const Index = () => {
 
 
     useEffect(() => {
-        let token = localStorage.getItem('token')
+        let token = localStorage.getItem('token');
         if (token) {
-            setLoggedIn(true)
+            setLoggedIn(true);
             // Recupera los datos del usuario de localStorage
             const userData = JSON.parse(localStorage.getItem('userData'));
             setDataUser(userData);
         }
-    }, [loggedIn])
-
+    }, [loggedIn]);
 
     const routes = createBrowserRouter([
         {
@@ -60,7 +56,7 @@ export const Index = () => {
             children: [
                 {
                     path: '/',
-                    element: <HomePage></HomePage>,
+                    element: <HomePage></HomePage>
                 },
                 {
                     path: '/register',
@@ -77,14 +73,13 @@ export const Index = () => {
                 {
                     path: '/publicacion/:id?',
                     element: <PublicacionPage />
-                },
-
+                }
             ]
         }
-    ])
+    ]);
     return (
         <AuthContext.Provider value={{ loggedIn, setLoggedIn, dataUser, setDataUser, handleLogout }}>
             <RouterProvider router={routes} />
         </AuthContext.Provider>
-    )
-}
+    );
+};

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { Sidebar } from '../Components/Sidebar/Sidebar'
-import { Favorite } from '../Components/Favorite/Favorite'
+import React, { useEffect, useState } from 'react';
+import { Sidebar } from '../Components/Sidebar/Sidebar';
+import { Favorite } from '../Components/Favorite/Favorite';
 import axios from 'axios';
 import { ModelPublications } from '../Components/Model/ModelPublications';
 import { ModalAddPublication } from '../Components/Modal/ModalAddPublication';
@@ -8,8 +8,7 @@ import { ModalComments } from '../Components/Modal/ModalComments';
 import { useParams } from 'react-router-dom';
 
 export const PublicacionPage = () => {
-
-    const [publication, setPublication] = useState([{}]);
+	const [publication, setPublication] = useState([{}]);
     const [showModalAddPublication, setShowModalAddPublication] = useState(false);
     const [showModalComments, setShowModalComments] = useState(false);
     const [dataComments, setDataComments] = useState({});

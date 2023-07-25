@@ -15,5 +15,5 @@ export const ModelCarrers = ({ id ,name}) => {
                 </Dropdown.Item>
             </li>
         </>
-    )
-}
+    );
+};
