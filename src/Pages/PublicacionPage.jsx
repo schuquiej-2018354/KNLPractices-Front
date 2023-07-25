@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Sidebar } from '../Components/Sidebar/Sidebar';
-import { Favorite } from '../Components/Favorite/Favorite';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Favorite } from '../Components/Favorite/Favorite';
 import { ModelPublications } from '../Components/Model/ModelPublications';
+import { Sidebar } from '../Components/Sidebar/Sidebar';
 
 export const PublicacionPage = () => {
 	const [publication, setPublication] = useState([{}]);

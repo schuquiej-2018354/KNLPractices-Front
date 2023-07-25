@@ -1,10 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Modal, ModalFooter } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Index';
 
 export const ModalAddPublication = ({ isOpen, onClose, update }) => {
     const navigate = useNavigate();
+    const { dataUser } = useContext(AuthContext)
     const [form, setForm] = useState({
         image: null,
         empress: '',
@@ -18,7 +20,7 @@ export const ModalAddPublication = ({ isOpen, onClose, update }) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value,
-            user: '64b3380672c4340db65ee5e3'
+            user: dataUser.id
         });
     };
 
@@ -29,13 +31,6 @@ export const ModalAddPublication = ({ isOpen, onClose, update }) => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-        } catch (e) {
-            console.log(e);
-        }
-    };
-
-    const get = async (e) => {
-        try {
         } catch (e) {
             console.log(e);
         }

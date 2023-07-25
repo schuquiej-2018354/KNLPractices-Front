@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import imgFond from '../assets/img/register.png';
-import logo from '../assets/img/KNLLogo.png';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { useEffect } from 'react';
+import logo from '../assets/img/KNLLogo.png';
+import imgFond from '../assets/img/register.png';
 
 export const RegisterPage = () => {
     const navigate = useNavigate();
@@ -99,7 +98,7 @@ export const RegisterPage = () => {
                                                     <input type='password' placeholder='Password' onChange={registerHandleChange} name='password' required />
                                                 </div>
                                                 <div className='input-box'>
-                                                    <select class='form-select' aria-label='Default select example' name='career' value={form.career} onChange={registerHandleChange}>
+                                                    <select className='form-select' aria-label='Default select example' name='career' value={form.career} onChange={registerHandleChange}>
                                                         <option defaultValue={'Select to career'}>Select to career</option>
                                                         {
                                                             career.map(({ _id, name }, i) => {

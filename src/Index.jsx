@@ -12,7 +12,9 @@ export const AuthContext = createContext();
 
 export const Index = () => {
     const [loggedIn, setLoggedIn] = useState(false);
+    const [contextData, setContextData] = useState(null)
     const [dataUser, setDataUser] = useState({
+        image: '',
         id: '',
         name: '',
         surname: '',
@@ -23,19 +25,6 @@ export const Index = () => {
         role: ''
     });
 
-    const handleLogout = () => {
-        setLoggedIn(false);
-        setDataUser({
-            id: '',
-            name: '',
-            surname: '',
-            phone: '',
-            email: '',
-            username: '',
-            career: '',
-            role: ''
-        });
-    };
 
     useEffect(() => {
         let token = localStorage.getItem('token');
@@ -46,6 +35,21 @@ export const Index = () => {
             setDataUser(userData);
         }
     }, [loggedIn]);
+
+    const handleLogout = () => {
+        setLoggedIn(false);
+        setDataUser({
+            image: '',
+            id: '',
+            name: '',
+            surname: '',
+            phone: '',
+            email: '',
+            username: '',
+            career: '',
+            role: ''
+        });
+    };
 
     const routes = createBrowserRouter([
         {
