@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 export const ModelPublications = ({ id, user, image, empress, location, phone, description, time }) => {
     const [img, setImg] = useState('');
@@ -64,17 +64,21 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
                                     </div>
                                 </div>
                                 <hr />
-                                <p className='card-text mb-auto'>
-                                    <p className='card-text'>Telephone:</p>
-                                    &ensp; -{phone}
-                                </p>
+                                <div className='card-text mb-auto'>
+                                    <p className='card-text'>
+                                        Telephone:
+                                    </p>
+                                    &ensp; - {phone}
+                                </div>
                                 <p className='card-text mb-auto' style={{ marginTop: '2%', marginBottom: '2%' }}>
                                     {description}
                                 </p>
-                                <p className='card-text mb-auto'>
-                                    <p className='card-text'>Address:</p>
-                                    &ensp; -{location}
-                                </p>
+                                <div className='card-text mb-auto'>
+                                    <p className='card-text'>
+                                        Address:
+                                    </p>
+                                    &ensp; - {location}
+                                </div>
                                 <a href='#'>Continue reading</a>
                             </div>
                             <div className='col'>

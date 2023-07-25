@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
-import imgFond from '../assets/img/logimg.jpg';
-import logo from '../assets/img/KNLLogoS.png';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AuthContext } from '../Index';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Index';
+import logo from '../assets/img/KNLLogoS.png';
+import imgFond from '../assets/img/logimg.jpg';
 
 export const LoginPage = () => {
     const navigate = useNavigate();
@@ -30,11 +30,11 @@ export const LoginPage = () => {
             if (data.token) {
                 setLoggedIn(true);
                 localStorage.setItem('token', data.token);
-
                 //Se guardan los datos en el LocalStorage
                 localStorage.setItem(
                     'userData',
                     JSON.stringify({
+                        image: data.userLogged.image,
                         id: data.userLogged.id,
                         name: data.userLogged.name,
                         username: data.userLogged.username,

@@ -1,36 +1,63 @@
-import React from 'react';
-import user from '../assets/img/User.png';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Background from '../assets/img/fondoLogin.png';
-import { useContext } from 'react';
+import { ModalUpdateImage } from '../Components/Modal/ModalUpdateImage';
 import { AuthContext } from '../Index';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import Background from '../assets/img/fondoLogin.png';
+import user from '../assets/img/User.png'
 
 export const UserPage = () => {
     const navigate = useNavigate();
 
-    const { dataUser } = useContext(AuthContext);
+    const { dataUser, userLogged, setDataUser } = useContext(AuthContext);
+    const [showModalUpdateIMG, setShowModalUpdateIMG] = useState(false);
+    const [isLoadingImage, setIsLoadingImage] = useState(true);
+    const [image, setImage] = useState('')
+
+    const getImage = async () => {
+        try {
+            if (dataUser.image) {
+                const { data } = await axios(`http://localhost:3200/user/get-image/${dataUser.image}`, {
+                    responseType: 'blob'
+                });
+                setImage(URL.createObjectURL(data))
+                setIsLoadingImage(false)
+            } else {
+                setIsLoadingImage(false);
+            }
+        } catch (e) {
+            console.log(e);
+            setIsLoadingImage(false);
+        }
+    }
+
+    const handleOpenModal = () => {
+        setShowModalUpdateIMG(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModalUpdateIMG(false);
+    };
+
+    useEffect(() => {
+        getImage()
+    }, [dataUser.image])
 
     return (
         <>
             <div style={{ backgroundImage: `url(${Background})`, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundSize: 'cover', padding: '30px' }}>
                 <div className='card1 card col-5' style={{ alignItems: 'center' }}>
                     <div className='card1-avatar1'>
-                        <img src={user} alt='User' />
+                        <img src={image} alt='User' />
+                    </div>
+                    <br />
+                    <div>
+                        <button type='button' onClick={handleOpenModal}>
+                            updateImg
+                        </button>
                     </div>
                     <div className='card1-info1'>
-                        <h2>USERNAME</h2>
-                        <br />
-                        <div className='flex-parent jc-center'>
-                            <button type='submit' className='btn btn-outline-danger'>
-                                Delete picture
-                            </button>
-                            &ensp;
-                            <button type='submit' className='btn btn-outline-primary'>
-                                Upload photo
-                            </button>
-                        </div>
+                        <h2>{dataUser.username}</h2>
                         <div>
                             <br />
                             <form action=''></form>
@@ -82,6 +109,7 @@ export const UserPage = () => {
                     </div>
                 </div>
             </div>
+            <ModalUpdateImage isOpen={showModalUpdateIMG} onClose={handleCloseModal} getImage={getImage} />
         </>
     );
 };

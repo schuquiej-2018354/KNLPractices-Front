@@ -28,10 +28,10 @@ export const ModelFavorite = ({ _id, empress, location, phone, update }) => {
                         </div>
                     </div>
                     <div className='card-body'>
-                        <p className='card-text'>
+                        <div className='card-text'>
                             Telefono: {phone}
                             <p className='card-text'>Direccion: {location}</p>
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

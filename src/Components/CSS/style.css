@@ -72,6 +72,17 @@ main {
   fill: currentColor;
 }
 
+.btnLogOut {
+  display: flex;
+  padding: 13px;
+}
+
+.btnLogOut:hover {
+  background-color: rgb(255, 0, 0);
+  border-radius: 40px;
+  cursor: pointer;
+}
+
 .dropdown-toggle {
   outline: 0;
 }
