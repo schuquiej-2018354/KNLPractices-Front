@@ -27,6 +27,7 @@
   border-radius: 20px;
 }
 
+
 .t {
   margin-top: 2rem;
 }
@@ -487,6 +488,11 @@ main {
 .sbD {
   width: 100%;
 }
+.sbD:focus {
+  background-color: #263340;
+  border-radius: 20px;
+  border-color: #1a2633;
+}
 
 .sbDP {
   padding: 0;
@@ -502,8 +508,17 @@ main {
   border-radius: 20px;
   border-color: #1a2633;
 }
+.sbDP:focus {
+  background-color: #263340;
+  border-radius: 20px;
+  border-color: #1a2633;
+}
 
 .divSBPr {
   text-align: center;
   justify-content: center;
+}
+
+.bx{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

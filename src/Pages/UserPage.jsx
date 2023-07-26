@@ -52,8 +52,8 @@ export const UserPage = () => {
                     </div>
                     <br />
                     <div>
-                        <button type='button' onClick={handleOpenModal}>
-                            updateImg
+                        <button type='button' className='btn text-primary' onClick={handleOpenModal}>
+                            Update Image
                         </button>
                     </div>
                     <div className='card1-info1'>
@@ -97,12 +97,12 @@ export const UserPage = () => {
                         </div>
                         <br />
                         <div className='flex-parent jc-center'>
-                            <button onClick={() => navigate('/')} type='submit' className='btn btn-danger'>
+                            <button onClick={() => navigate('/publicacion')} type='submit' className='btn btn-danger'>
                                 Exit
                             </button>
                             &ensp;
                             <button type='submit' className='btn btn-primary'>
-                                Save
+                                Update
                             </button>
                         </div>
                         <br />
