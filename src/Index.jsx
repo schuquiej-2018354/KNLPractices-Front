@@ -7,6 +7,7 @@ import { LoginPage } from './Pages/LoginPage';
 import { UserPage } from './Pages/UserPage';
 import { RegisterPage } from './Pages/RegisterPage';
 import { PublicacionPage } from './Pages/PublicacionPage';
+import { ForumPage } from './Pages/ForumPage';
 
 export const AuthContext = createContext();
 
@@ -76,6 +77,10 @@ export const Index = () => {
                 {
                     path: '/publicacion',
                     element: <PublicacionPage />
+                },
+                {
+                    path: '/forum',
+                    element: <ForumPage />
                 }
             ]
         }

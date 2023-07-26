@@ -46,9 +46,9 @@ export const Sidebar = () => {
             <div className='d-flex flex-column flex-shrink-0 p-3 text-white bg2' style={{ width: '280px', height: '90vh' }}>
                 <div className='divSBPr mt-2'>
                     <div>
-                        <img src={image} alt='KNL' style={{ width: '30%' }} />
+                        <img src={image} alt='KNL' style={{ width: '30%', borderRadius: '50%' }} />
                     </div>
-                    <div className='mt-3'>
+                    <div className='mt-3 '>
                         <span className='fs-4'>@{dataUser.username}</span>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ export const Sidebar = () => {
                             <div className='sbText'>Profile</div>
                         </li>
                         <DropCarrers />
-                        <li className='sb nav-item lih' style={{ cursor: 'pointer' }}>
+                        <li className='sb nav-item lih' onClick={()=> navigate('/forum')} style={{ cursor: 'pointer' }}>
                             <div>
                                 <a href='#' className='nav-link text-white' aria-current='page'>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' className='bi bi-question-circle-fill' viewBox='0 0 16 16'>
