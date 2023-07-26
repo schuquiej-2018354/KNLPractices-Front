@@ -1,13 +1,15 @@
+import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Dropdown } from 'react-bootstrap'; // Importa el componente Dropdown de Bootstrap
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import User from '../../assets/img/User.png';
 import { DropCarrers } from '../Dropdown/DropCarrers';
 import { ModalAddPublication } from '../Modal/ModalAddPublication';
 
-export const Sidebar = () => {
+export const Sidebar = ({ getPublication }) => {
     const navigate = useNavigate();
     const [showModalAddPublication, setShowModalAddPublication] = useState(false);
+    const { id } = useParams();
 
     const handleOpenModal = () => {
         setShowModalAddPublication(true);
@@ -15,6 +17,34 @@ export const Sidebar = () => {
     const handleCloseModal = () => {
         setShowModalAddPublication(false);
     };
+
+    /* const getPublicationsAll = async() =>{
+        try{
+            const { data } = await axios('http://localhost:3200/publication/get');
+            setPublication(data.publications);
+            setTitle('All post');
+        }catch(e){
+            console.log(e);
+        }
+    }
+    
+    const getPublicationByCarrer = async()=>{
+        try{
+            const { data } = await axios(`http://localhost:3200/publication/getByCarrer/${id}`);
+            setPublication(data.publications);
+            setTitle(data.publications[1].career.name)
+        }catch(e){
+            console.log(e);
+        }
+    }
+    const getPublications = () => {
+        console.log('entrada');
+        if(id === undefined) {
+            getPublicationsAll();
+        }else{
+            getPublicationByCarrer();
+        }
+    } */
 
     return (
         <>
@@ -85,7 +115,7 @@ export const Sidebar = () => {
                     </a>
                 </div>
             </div>
-            <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal} />
+            <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal} getPublications={getPublication}/>
         </>
     );
 };

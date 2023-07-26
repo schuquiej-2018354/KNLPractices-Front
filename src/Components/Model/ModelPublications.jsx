@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import { AuthContext } from '../../Index';
+import { useParams } from 'react-router-dom';
 
 export const ModelPublications = ({ id, user, image, empress, location, phone, description, time }) => {
     const [img, setImg] = useState('');
+    const { dataUser } = useContext(AuthContext);
 
     const getImage = async () => {
         try {
@@ -19,7 +22,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
     const addFavorite = async (publication) => {
         try {
             let datos = {
-                owner: '64b3380672c4340db65ee5e3',
+                owner: dataUser.id,
                 publication: publication
             };
             const { data } = await axios.post('http://localhost:3200/favorite/add', datos);

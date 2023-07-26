@@ -521,3 +521,15 @@ main {
   text-align: center;
   justify-content: center;
 }
+
+.selectCareer {
+  border: none;
+  color: #7d7f85;
+}
+
+.selectCareer:focus {
+  background-color: #263340;
+  outline: none;
+  color: #7d7f85;
+}
+

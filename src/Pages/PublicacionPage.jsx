@@ -3,24 +3,16 @@ import { Sidebar } from '../Components/Sidebar/Sidebar';
 import { Favorite } from '../Components/Favorite/Favorite';
 import axios from 'axios';
 import { ModelPublications } from '../Components/Model/ModelPublications';
-import { ModalAddPublication } from '../Components/Modal/ModalAddPublication';
 import { ModalComments } from '../Components/Modal/ModalComments';
 import { useParams } from 'react-router-dom';
 
 export const PublicacionPage = () => {
 	const [publication, setPublication] = useState([{}]);
-    const [showModalAddPublication, setShowModalAddPublication] = useState(false);
     const [showModalComments, setShowModalComments] = useState(false);
     const [dataComments, setDataComments] = useState({});
     const [title, setTitle] = useState('');
     const { id } = useParams();
 
-    const handleOpenModal = () => {
-        setShowModalAddPublication(true);
-    } 
-    const handleCloseModal = () => {
-        setShowModalAddPublication(false);
-    }
 
     const handleOpenModalComment = (id, image, user, empress, location, phone, description, time) => {
         setShowModalComments(true);
@@ -60,14 +52,13 @@ export const PublicacionPage = () => {
         }
     }
     const getPublications = () => {
+        console.log('entrada');
         if(id === undefined) {
             getPublicationsAll();
         }else{
             getPublicationByCarrer();
         }
     }
-
-
 
     useEffect(()=> { 
         getPublications() 
@@ -77,7 +68,7 @@ export const PublicacionPage = () => {
         <>
             <div className="row">
                 <div className="col col-2" style={{ width: '20%' }}>
-                    <Sidebar />
+                    <Sidebar getPublication={getPublications}></Sidebar>
                 </div>
                 <div className="col col-7 overflow-auto scroll-invisible-container" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
                     <h2 className='text-center text-white t mb-5'>{title}</h2>
@@ -95,6 +86,7 @@ export const PublicacionPage = () => {
                                         phone={phone}
                                         description={description}
                                         time={time}
+                                        
                                         ></ModelPublications>
                                     <div style={{marginBottom: '1.5rem'}}>
                                         <button onClick={()=>handleOpenModalComment(_id, image, user?.name, empress, location, phone, description, time)}>Show comments</button>
@@ -109,7 +101,6 @@ export const PublicacionPage = () => {
                     <Favorite />
                 </div>
             </div>
-            <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal}></ModalAddPublication>
             <ModalComments 
                 isOpen={showModalComments}
                 onClose={handleCloseModalComment} 

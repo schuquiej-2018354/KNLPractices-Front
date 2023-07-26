@@ -1,26 +1,40 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Modal, ModalFooter } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Index';
 
-export const ModalAddPublication = ({ isOpen, onClose, update }) => {
+export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
     const navigate = useNavigate();
+    const { userData } = useContext(AuthContext);
+    const [careers, setCareers] = useState([{}]);
     const [form, setForm] = useState({
         image: null,
         empress: '',
         location: '',
         phone: '',
         description: '',
-        user: ''
+        user: '',
+        career: ''
     });
 
     const registerHandleChange = (e) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value,
-            user: '64b3380672c4340db65ee5e3'
+            user: '64bf4f106bc13cbab0234b04'
         });
+        console.log(form);
     };
+
+    const getCarrers = async () => {
+        try {
+            const { data } = await axios('http://localhost:3200/career/get');
+            setCareers(data.careers);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     const save = async (e) => {
         try {
@@ -29,26 +43,17 @@ export const ModalAddPublication = ({ isOpen, onClose, update }) => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            getPublications();
+            onClose();
         } catch (e) {
             console.log(e);
         }
     };
 
-    const get = async (e) => {
-        try {
-        } catch (e) {
-            console.log(e);
-        }
-    };
 
-    const getUsers = async () => {
-        try {
-            const { data } = await axios.get('http://localhost:3200/user/get');
-            setUser(data.users);
-        } catch (e) {
-            console.log(e);
-        }
-    };
+    useEffect(()=> {
+        getCarrers()
+    }, [])
 
     return (
         <>
@@ -64,11 +69,32 @@ export const ModalAddPublication = ({ isOpen, onClose, update }) => {
                 <Modal.Body className='bg2 text-white'>
                     <form action='#' encType='multipart/form-data'>
                         <div>
-                            <div>
-                                <label className='form-label' htmlFor='inputName'>
-                                    Name
-                                </label>
-                                <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your name' name='name' onChange={registerHandleChange} required />
+                            <div className='row'>
+                                <div className="col">
+                                    <div>
+                                        <label className='form-label' htmlFor='inputName'>
+                                            Name
+                                        </label>
+                                        <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your name' name='name' onChange={registerHandleChange} required />
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <label className='form-label' htmlFor='inputCareer'>
+                                        Career
+                                    </label>
+                                    <select class='form-control bg6 selectCareer' aria-label='Default select example' name='career' value={form.career} onChange={registerHandleChange}>
+                                        <option className='form-control' defaultValue={'Select to career'}>Select to career</option>
+                                        {
+                                            careers.map(({ _id, name }, i) => {
+                                                return (
+                                                    <option key={i} value={_id} className='form-control bg5 text-white'>
+                                                        {name}
+                                                    </option>
+                                                );
+                                            })
+                                        }
+                                    </select>
+                                </div>
                             </div>
                             <div className='row'>
                                 <div className='col'>
