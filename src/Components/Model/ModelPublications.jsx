@@ -39,7 +39,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
 
     return (
         <>
-            <div className='card bg5' style={{ marginBottom: '10px', marginTop: '10px' }}>
+            <div className='card bx bg5' style={{ marginBottom: '10px', marginTop: '10px' }}>
                 <div className='row g-0 rounded overflow-hidden flex-md-row h-md-250 position-relative'>
                     <div className='col p-4 d-flex flex-column position-static text-white'>
                         <div className='row'>
@@ -67,17 +67,21 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
                                     </div>
                                 </div>
                                 <hr />
-                                <p className='card-text mb-auto'>
-                                    <p className='card-text'>Telephone:</p>
-                                    &ensp; -{phone}
-                                </p>
+                                <div className='card-text mb-auto'>
+                                    <p className='card-text'>
+                                        Telephone:
+                                    </p>
+                                    &ensp; - {phone}
+                                </div>
                                 <p className='card-text mb-auto' style={{ marginTop: '2%', marginBottom: '2%' }}>
                                     {description}
                                 </p>
-                                <p className='card-text mb-auto'>
-                                    <p className='card-text'>Address:</p>
-                                    &ensp; -{location}
-                                </p>
+                                <div className='card-text mb-auto'>
+                                    <p className='card-text'>
+                                        Address:
+                                    </p>
+                                    &ensp; - {location}
+                                </div>
                                 <a href='#'>Continue reading</a>
                             </div>
                             <div className='col'>

@@ -1,19 +1,21 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../Index'
 import { ModelComments } from '../Model/ModelComments'
 import { ModelPublications } from '../Model/ModelPublications'
 
-export const ModalComments = ({ isOpen, onClose, id, image, user, empress, location, phone, description, time}) => {
+export const ModalComments = ({ isOpen, onClose, _id, image, user, empress, location, phone, description, time}) => {
     const navigate = useNavigate();
     const [comments, setCommemts] = useState([{}]);
     const [functionExecuted, setFunctionExecuted] = useState(false);
+    const { dataUser } = useContext(AuthContext);
 
     const getComments = async() => {
         try{
             if(!functionExecuted){
-                const { data } = await axios(`http://localhost:3200/comment/getComments/${id}`);
+                const { data } = await axios(`http://localhost:3200/comment/getComments/${_id}`);
                 setCommemts(data.comments);
                 setFunctionExecuted(true);
             }
@@ -26,10 +28,10 @@ export const ModalComments = ({ isOpen, onClose, id, image, user, empress, locat
     const addComent = async() => {
         try{
             let datos = {
-                user: '64bf4f106bc13cbab0234b04',
+                user: dataUser.id,
                 description: document.getElementById('textarea').value,
-                time: '2023/01/11',
-                publication: id
+                time: '',
+                publication: _id
             }
             const { data } = await axios.post(`http://localhost:3200/comment/add`, datos);
             document.getElementById('textarea').value = '';
@@ -51,7 +53,7 @@ export const ModalComments = ({ isOpen, onClose, id, image, user, empress, locat
                 </Modal.Header>
                 <Modal.Body className='bg2 text-white'>
                 <ModelPublications
-                    id={id}
+                    id={_id}
                     image={image}
                     user={user}
                     empress={empress}

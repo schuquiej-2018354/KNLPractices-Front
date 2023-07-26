@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Sidebar } from '../Components/Sidebar/Sidebar';
-import { Favorite } from '../Components/Favorite/Favorite';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Favorite } from '../Components/Favorite/Favorite';
 import { ModelPublications } from '../Components/Model/ModelPublications';
 import { ModalComments } from '../Components/Modal/ModalComments';
 import { useParams } from 'react-router-dom';
+import { Sidebar } from '../Components/Sidebar/Sidebar';
+import { Navbar } from '../Components/Navbar/Navbar';
 
 export const PublicacionPage = () => {
 	const [publication, setPublication] = useState([{}]);
@@ -52,7 +53,6 @@ export const PublicacionPage = () => {
         }
     }
     const getPublications = () => {
-        console.log('entrada');
         if(id === undefined) {
             getPublicationsAll();
         }else{
@@ -66,6 +66,7 @@ export const PublicacionPage = () => {
 
     return (
         <>
+            <Navbar/>
             <div className="row">
                 <div className="col col-2" style={{ width: '20%' }}>
                     <Sidebar getPublication={getPublications}></Sidebar>
@@ -104,7 +105,7 @@ export const PublicacionPage = () => {
             <ModalComments 
                 isOpen={showModalComments}
                 onClose={handleCloseModalComment} 
-                id={dataComments.id} 
+                _id={dataComments.id} 
                 image={dataComments.image} 
                 user={dataComments.user}
                 empress={dataComments.empress}

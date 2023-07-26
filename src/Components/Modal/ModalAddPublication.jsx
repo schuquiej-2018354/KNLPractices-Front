@@ -8,6 +8,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
     const navigate = useNavigate();
     const { userData } = useContext(AuthContext);
     const [careers, setCareers] = useState([{}]);
+    const { dataUser } = useContext(AuthContext)
     const [form, setForm] = useState({
         image: null,
         empress: '',
@@ -22,7 +23,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value,
-            user: '64bf4f106bc13cbab0234b04'
+            user: dataUser.id
         });
         console.log(form);
     };

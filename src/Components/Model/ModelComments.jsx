@@ -8,8 +8,8 @@ export const ModelComments = ({id, user, description, time}) => {
       <div className="card flex-row bg6 mb-3 comment-container" style={{width: 'auto', marginLeft: '0.5rem'}}>
         <div className="card-body">
             <div className="d-flex justify-content-between">
-                <p>{user} </p>
-                <p>{time}</p>
+                <p style={{marginRight: '1rem'}}>{user}</p>
+                <small>{time}</small>
             </div>
             <div>
                 <p>{description}</p>

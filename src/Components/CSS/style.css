@@ -27,6 +27,7 @@
   border-radius: 20px;
 }
 
+
 .t {
   margin-top: 2rem;
 }
@@ -70,6 +71,17 @@ main {
   vertical-align: -.125em;
   pointer-events: none;
   fill: currentColor;
+}
+
+.btnLogOut {
+  display: flex;
+  padding: 13px;
+}
+
+.btnLogOut:hover {
+  background-color: rgb(255, 0, 0);
+  border-radius: 40px;
+  cursor: pointer;
 }
 
 .dropdown-toggle {
@@ -501,6 +513,11 @@ main {
 .sbD {
   width: 100%;
 }
+.sbD:focus {
+  background-color: #263340;
+  border-radius: 20px;
+  border-color: #1a2633;
+}
 
 .sbDP {
   padding: 0;
@@ -512,6 +529,11 @@ main {
 }
 
 .sbDP:hover {
+  background-color: #263340;
+  border-radius: 20px;
+  border-color: #1a2633;
+}
+.sbDP:focus {
   background-color: #263340;
   border-radius: 20px;
   border-color: #1a2633;
@@ -533,3 +555,6 @@ main {
   color: #7d7f85;
 }
 
+.bx{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

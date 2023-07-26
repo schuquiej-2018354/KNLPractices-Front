@@ -14,7 +14,7 @@ export const ModelFavorite = ({ _id, empress, location, phone, update }) => {
     return (
         <>
             <div className='d-flex justify-content-center '>
-                <div className='card text-white bg5 mb-3' style={{ width: '95%' }}>
+                <div className='card bx text-white bg5 mb-3' style={{ width: '95%' }}>
                     <div className='card-header d-flex justify-content-between '>
                         <div className=''>
                             <h5 style={{ marginTop: '7%' }}>{empress}</h5>
@@ -28,10 +28,10 @@ export const ModelFavorite = ({ _id, empress, location, phone, update }) => {
                         </div>
                     </div>
                     <div className='card-body'>
-                        <p className='card-text'>
+                        <div className='card-text'>
                             Telefono: {phone}
                             <p className='card-text'>Direccion: {location}</p>
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

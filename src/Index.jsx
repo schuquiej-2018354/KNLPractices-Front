@@ -7,12 +7,15 @@ import { LoginPage } from './Pages/LoginPage';
 import { UserPage } from './Pages/UserPage';
 import { RegisterPage } from './Pages/RegisterPage';
 import { PublicacionPage } from './Pages/PublicacionPage';
+import { ForumPage } from './Pages/ForumPage';
 
 export const AuthContext = createContext();
 
 export const Index = () => {
     const [loggedIn, setLoggedIn] = useState(false);
+    const [contextData, setContextData] = useState(null)
     const [dataUser, setDataUser] = useState({
+        image: '',
         id: '',
         name: '',
         surname: '',
@@ -23,19 +26,6 @@ export const Index = () => {
         role: ''
     });
 
-    const handleLogout = () => {
-        setLoggedIn(false);
-        setDataUser({
-            id: '',
-            name: '',
-            surname: '',
-            phone: '',
-            email: '',
-            username: '',
-            career: '',
-            role: ''
-        });
-    };
 
 
     useEffect(() => {
@@ -47,6 +37,21 @@ export const Index = () => {
             setDataUser(userData);
         }
     }, [loggedIn]);
+
+    const handleLogout = () => {
+        setLoggedIn(false);
+        setDataUser({
+            image: '',
+            id: '',
+            name: '',
+            surname: '',
+            phone: '',
+            email: '',
+            username: '',
+            career: '',
+            role: ''
+        });
+    };
 
     const routes = createBrowserRouter([
         {
@@ -73,6 +78,10 @@ export const Index = () => {
                 {
                     path: '/publicacion/:id?',
                     element: <PublicacionPage />
+                },
+                {
+                    path: '/forum',
+                    element: <ForumPage />
                 }
             ]
         }
