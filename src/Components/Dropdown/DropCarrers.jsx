@@ -27,14 +27,19 @@ export const DropCarrers = () => {
                     </a>
                     <div className='sbText'>Careers</div>
                 </Dropdown.Toggle>
-                <Dropdown.Menu className='bg3'>
-                    {careers.map(({ _id, name }, i) => {
-                        return (
-                            <div key={i}>
-                                <ModelCarrers name={name} ></ModelCarrers>
-                            </div>
-                        );
-                    })}
+                <Dropdown.Menu className="bg3">
+                    {
+                        careers.map(({ _id, name }, i) => {
+                            return (
+                                <div key={i}>
+                                    <ModelCarrers
+                                        id={_id}
+                                        name={name}
+                                    ></ModelCarrers>
+                                </div>
+                            )
+                        })
+                    }
                 </Dropdown.Menu>
             </Dropdown>
         </>

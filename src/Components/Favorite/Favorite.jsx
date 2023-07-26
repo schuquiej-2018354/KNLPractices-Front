@@ -1,14 +1,16 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Index";
 import { ModelFavorite } from "../Model/ModelFavorite";
 
 export const Favorite = () => {
 
     const [fav, setFav] = useState([{}]);
+    const { dataUser } = useContext(AuthContext);
 
     const getFavorites = async () => {
         try {
-            const { data } = await axios('http://localhost:3200/favorite/get/64b3380672c4340db65ee5e3');
+            const { data } = await axios(`http://localhost:3200/favorite/get/${dataUser.id}`);
             setFav(data.favorites);
         } catch (e) {
             console.log(e);
@@ -23,9 +25,10 @@ export const Favorite = () => {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => { if(dataUser.id) {
         getFavorites()
-    }, []);
+    }
+    }, [dataUser]);
 
     return (
         <>

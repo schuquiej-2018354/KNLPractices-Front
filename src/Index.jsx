@@ -27,6 +27,7 @@ export const Index = () => {
     });
 
 
+
     useEffect(() => {
         let token = localStorage.getItem('token');
         if (token) {
@@ -75,7 +76,7 @@ export const Index = () => {
                     element: <UserPage></UserPage>
                 },
                 {
-                    path: '/publicacion',
+                    path: '/publicacion/:id?',
                     element: <PublicacionPage />
                 },
                 {

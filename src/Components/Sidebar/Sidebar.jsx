@@ -6,7 +6,7 @@ import { DropCarrers } from '../Dropdown/DropCarrers';
 import { ModalAddPublication } from '../Modal/ModalAddPublication';
 import axios from 'axios';
 
-export const Sidebar = () => {
+export const Sidebar = ({ getPublication }) => {
     const navigate = useNavigate();
     const { dataUser } = useContext(AuthContext);
     const [image, setImage] = useState('')
@@ -110,7 +110,7 @@ export const Sidebar = () => {
                     </a>
                 </div>
             </div>
-            <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal} />
+            <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal} getPublications={getPublication}/>
         </>
     );
 };
