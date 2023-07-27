@@ -46,7 +46,7 @@ export const Sidebar = ({ getPublication }) => {
             <div className='d-flex flex-column flex-shrink-0 p-3 text-white bg2' style={{ width: '280px', height: '90vh' }}>
                 <div className='divSBPr mt-2'>
                     <div>
-                        <img src={image} alt='KNL' style={{ width: '30%', borderRadius: '50%' }} />
+                        <img src={image} alt='KNL' className='rounded-circle' style={{ width: '5rem', height: '5rem' }} />
                     </div>
                     <div className='mt-3 '>
                         <span className='fs-4'>@{dataUser.username}</span>
@@ -107,8 +107,8 @@ export const Sidebar = ({ getPublication }) => {
                             <div className='sbText'>Info</div>
                         </li>
                     </ul>
-                    <div className='d-flex justify-content-center'>
-                        <button onClick={handleOpenModal} className='btn btn-primary '>
+                    <div className='d-flex justify-content-center' style={{marginTop: '2rem'}}>
+                        <button onClick={handleOpenModal} className='btnComent '>
                             Post
                         </button>
                     </div>
