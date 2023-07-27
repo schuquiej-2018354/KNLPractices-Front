@@ -558,3 +558,13 @@ main {
 .bx{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.containerP {
+  display: flex;
+  height: 100vh;
+}
+.i{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -8,7 +8,7 @@ import { Sidebar } from '../Components/Sidebar/Sidebar';
 import { Navbar } from '../Components/Navbar/Navbar';
 
 export const PublicacionPage = () => {
-	const [publication, setPublication] = useState([{}]);
+    const [publication, setPublication] = useState([{}]);
     const [showModalComments, setShowModalComments] = useState(false);
     const [dataComments, setDataComments] = useState({});
     const [title, setTitle] = useState('');
@@ -28,57 +28,58 @@ export const PublicacionPage = () => {
             time: time
         }
         setDataComments(datos);
-    } 
+    }
     const handleCloseModalComment = () => {
         setShowModalComments(false);
     }
 
-    const getPublicationsAll = async() =>{
-        try{
+    const getPublicationsAll = async () => {
+        try {
             const { data } = await axios('http://localhost:3200/publication/get');
             setPublication(data.publications);
             setTitle('All post');
-        }catch(e){
+        } catch (e) {
             console.log(e);
         }
     }
-    
-    const getPublicationByCarrer = async()=>{
-        try{
+
+    const getPublicationByCarrer = async () => {
+        try {
             const { data } = await axios(`http://localhost:3200/publication/getByCarrer/${id}`);
             setPublication(data.publications);
             setTitle(data.publications[1].career.name)
-        }catch(e){
+        } catch (e) {
             console.log(e);
         }
     }
     const getPublications = () => {
-        if(id === undefined) {
+        if (id === undefined) {
             getPublicationsAll();
-        }else{
+        } else {
             getPublicationByCarrer();
         }
     }
 
-    useEffect(()=> { 
-        getPublications() 
+    useEffect(() => {
+        getPublications()
     }, [id]);
 
     return (
         <>
-            <Navbar/>
-            <div className="row">
-                <div className="col col-2" style={{ width: '20%' }}>
+            <Navbar />
+            <div className="containerP">
+                <div className="t i" style={{ width: '20%' }}>
                     <Sidebar getPublication={getPublications}></Sidebar>
                 </div>
-                <div className="col col-7 overflow-auto scroll-invisible-container" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
+                <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem' }}>
                     <h2 className='text-center text-white t mb-5'>{title}</h2>
+
                     {
-                        publication.map(({_id, user, image, empress, location, phone, description, time}, i) => {
-                            return(
-                                <>
-                                    <div key={i}>
-                                        <ModelPublications
+                        publication.map(({ _id, user, image, empress, location, phone, description, time }, i) => {
+                            return (
+
+                                <div key={i}>
+                                    <ModelPublications
                                         id={_id}
                                         image={image}
                                         user={user?.name}
@@ -87,33 +88,21 @@ export const PublicacionPage = () => {
                                         phone={phone}
                                         description={description}
                                         time={time}
-                                        
-                                        ></ModelPublications>
-                                    <div style={{marginBottom: '1.5rem'}}>
-                                        <button onClick={()=>handleOpenModalComment(_id, image, user?.name, empress, location, phone, description, time)}>Show comments</button>
+                                    ></ModelPublications>
+                                    <div style={{ marginBottom: '1.5rem' }}>
+                                        <button onClick={() => handleOpenModalComment(_id, image, user?.name, empress, location, phone, description, time)}>Show comments</button>
                                     </div>
-                                    </div>
-                                </>
+                                </div>
+
                             )
                         })
                     }
                 </div>
-                <div className="col t">
+                <div className="t i" style={{ width: '20%', marginLeft: '1rem' }}>
                     <Favorite />
                 </div>
             </div>
-            <ModalComments 
-                isOpen={showModalComments}
-                onClose={handleCloseModalComment} 
-                _id={dataComments.id} 
-                image={dataComments.image} 
-                user={dataComments.user}
-                empress={dataComments.empress}
-                location={dataComments.location}
-                phone={dataComments.phone}
-                description={dataComments.description}
-                time={dataComments.time}
-            ></ModalComments>
+            <ModalComments isOpen={showModalComments} onClose={handleCloseModalComment} _id={dataComments.id} image={dataComments.image} user={dataComments.user} empress={dataComments.empress} location={dataComments.location} phone={dataComments.phone} description={dataComments.description} time={dataComments.time} />
         </>
     )
 }

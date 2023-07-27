@@ -25,9 +25,10 @@ export const Favorite = () => {
         }
     }
 
-    useEffect(() => { if(dataUser.id) {
-        getFavorites()
-    }
+    useEffect(() => {
+        if (dataUser.id) {
+            getFavorites()
+        }
     }, [dataUser]);
 
     return (
@@ -52,8 +53,8 @@ export const Favorite = () => {
                         </button>
                     </div>
                 </div>
-                    <h1 className="text-center tx1 text-white" style={{fontSize: '2rem'}}>FAVORITES</h1>
-                <div className="overflow-auto scroll-invisible-container" style={{ height: "88vh", maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin' }}>
+                <h1 className="text-center tx1 text-white" style={{ fontSize: '2rem' }}>FAVORITES</h1>
+                <div className="overflow-auto scroll-invisible-container" style={{ height: "88vh"}}>
                     {
                         fav.map(({ _id, owner, publication }, i) => {
                             return (
