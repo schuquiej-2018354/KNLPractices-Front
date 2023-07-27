@@ -558,3 +558,47 @@ main {
 .bx{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+/* estilos boton de comentarios */
+
+.btnComent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  background-color: #263340;
+  outline: none;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+  color: white;
+  width: 100%;
+}
+
+
+.btnComent .text {
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  transition: 400ms;
+}
+
+.btnComent svg path {
+  transition: 400ms;
+}
+
+.btnComent:hover {
+  background-color: #181717;
+  color: white;
+}
+
+
+
+
+
+ 
+
+

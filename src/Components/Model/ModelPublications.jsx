@@ -30,6 +30,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
             console.log(e);
         }
     };
+    
     useEffect(() => {
         if (image === undefined) {
         } else {
@@ -39,7 +40,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
 
     return (
         <>
-            <div className='card bx bg5' style={{ marginBottom: '10px', marginTop: '10px' }}>
+            <div className='card bx bg5'>
                 <div className='row g-0 rounded overflow-hidden flex-md-row h-md-250 position-relative'>
                     <div className='col p-4 d-flex flex-column position-static text-white'>
                         <div className='row'>
