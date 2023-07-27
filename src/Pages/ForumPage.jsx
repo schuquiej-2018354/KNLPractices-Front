@@ -52,11 +52,11 @@ export const ForumPage = () => {
     return (
         <>
             <Navbar />
-            <div className='row'>
-                <div className='col col-2' style={{ width: '20%' }}>
+            <div className='containerP'>
+                <div className='t i' style={{ width: '20%' }}>
                     <Sidebar />
                 </div>
-                <div className='col col-7 overflow-auto scroll-invisible-container' style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
+                <div className='overflow-auto scroll-invisible-container' style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem'}}>
                     <button className='btn bg1 col-12' onClick={handleOpenModalAddForum}>ADD QUESTION</button>
                     {
                         questions.map(({ _id, user, question, description, time }, index) => {
@@ -75,7 +75,7 @@ export const ForumPage = () => {
                         })
                     }
                 </div>
-                <div className='col t'>
+                <div className='t i' style={{ width: '20%', marginLeft:'1rem' }}>
                     <Favorite />
                 </div>
             </div >

@@ -83,11 +83,10 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
                                     </p>
                                     &ensp; - {location}
                                 </div>
-                                <a href='#'>Continue reading</a>
                             </div>
                             <div className='col'>
                                 <div className='col-auto d-none d-lg-block'>
-                                    <img src={img} alt='' style={{ width: '14rem', height: '14rem' }} />
+                                    <img src={img} alt='' style={{ width: '13.5rem', height: '13.5rem' }} />
                                 </div>
                             </div>
                         </div>

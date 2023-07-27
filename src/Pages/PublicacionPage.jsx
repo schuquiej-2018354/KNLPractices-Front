@@ -67,12 +67,13 @@ export const PublicacionPage = () => {
     return (
         <>
             <Navbar />
-            <div className="row">
-                <div className="col col-2" style={{ width: '20%' }}>
+            <div className="containerP">
+                <div className="t i" style={{ width: '20%' }}>
                     <Sidebar getPublication={getPublications}></Sidebar>
                 </div>
-                <div className="col col-7 overflow-auto scroll-invisible-container" style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
+                <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem' }}>
                     <h2 className='text-center text-white t mb-5'>{title}</h2>
+
                     {
                         publication.map(({ _id, user, image, empress, location, phone, description, time }, i) => {
                             return (
@@ -102,7 +103,7 @@ export const PublicacionPage = () => {
                         })
                     }
                 </div>
-                <div className="col t">
+                <div className="t i" style={{ width: '20%', marginLeft: '1rem' }}>
                     <Favorite />
                 </div>
             </div>
