@@ -82,7 +82,6 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
                                     </p>
                                     &ensp; - {location}
                                 </div>
-                                <a href='#'>Continue reading</a>
                             </div>
                             <div className='col'>
                                 <div className='col-auto d-none d-lg-block'>

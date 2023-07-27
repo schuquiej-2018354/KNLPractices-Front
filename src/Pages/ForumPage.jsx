@@ -7,11 +7,11 @@ export const ForumPage = () => {
     return (
         <>
             <Navbar />
-            <div className='row'>
-                <div className='col col-2' style={{ width: '20%' }}>
+            <div className='containerP'>
+                <div className='t i' style={{ width: '20%' }}>
                     <Sidebar />
                 </div>
-                <div className='col col-7 overflow-auto scroll-invisible-container' style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }}>
+                <div className='overflow-auto scroll-invisible-container' style={{maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem'}}>
                     <button className='btn bg1 col-12'>ADD QUESTION</button>
                     <div className='card bx bg5' style={{ marginBottom: '10px', marginTop: '10px' }}>
                         <div className='row g-0 rounded overflow-hidden flex-md-row h-md-250 position-relative'>
@@ -36,7 +36,7 @@ export const ForumPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col t'>
+                <div className='t i' style={{ width: '20%', marginLeft:'1rem' }}>
                     <Favorite />
                 </div>
             </div >
