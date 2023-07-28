@@ -3,13 +3,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Favorite } from '../Components/Favorite/Favorite';
 import { ModalUpdateImage } from '../Components/Modal/ModalUpdateImage';
+import { ModalUpdateProfile } from '../Components/Modal/ModalUpdateProfile';
 import { ModalUserPage } from '../Components/Modal/ModalUserPage';
+import { ModelForum } from '../Components/Model/ModelForum';
+import { ModelPublications } from '../Components/Model/ModelPublications';
+import { Navbar } from '../Components/Navbar/Navbar';
 import { SidebarProfile } from '../Components/Sidebar/SidebarProfile';
 import { AuthContext } from '../Index';
-import { Navbar } from '../Components/Navbar/Navbar';
-import { ModelPublications } from '../Components/Model/ModelPublications';
-import portada from '../assets/img/portada.jpg'
-import { ModalUpdateProfile } from '../Components/Modal/ModalUpdateProfile';
+import portada from '../assets/img/portada.jpg';
 
 export const UserPage = () => {
 
@@ -17,9 +18,10 @@ export const UserPage = () => {
 
     const { dataUser } = useContext(AuthContext);
     const [showModalUpdateIMG, setShowModalUpdateIMG] = useState(false);
-    const [showModalDT, setshowModalDT] = useState(false)
-    const [shoModalUpdateDT, setShoModalUpdateDT] = useState(false)
-    const [publication, setPublication] = useState([{}])
+    const [showModalDT, setshowModalDT] = useState(false);
+    const [shoModalUpdateDT, setShoModalUpdateDT] = useState(false);
+    const [publication, setPublication] = useState([{}]);
+    const [questions, setQuestions] = useState([{}]);
     const { id } = useParams();
 
     const [isLoadingImage, setIsLoadingImage] = useState(true);
@@ -51,6 +53,15 @@ export const UserPage = () => {
         }
     }
 
+    const getQuestionsUser = async () => {
+        try {
+            const { data } = await axios(`http://localhost:3200/question/getById/${id}`);
+            setQuestions(data.questions);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     const handleOpenModalUpIMG = () => {
         setShowModalUpdateIMG(true);
     };
@@ -75,10 +86,10 @@ export const UserPage = () => {
         setShoModalUpdateDT(false)
     }
 
-
     useEffect(() => {
         getPublicationsUser();
         getImage();
+        getQuestionsUser()
     }, [dataUser.image]);
 
     return (
@@ -131,6 +142,21 @@ export const UserPage = () => {
                                             description={description}
                                             time={time}
                                         ></ModelPublications>
+                                    </div>
+                                )
+                            })
+                        } {
+                            questions.map(({ _id, user, question, description, time }, index) => {
+                                return (
+                                    <div key={index}>
+                                        <ModelForum
+                                            id={_id}
+                                            user={user?.name}
+                                            question={question}
+                                            description={description}
+                                            time={time}
+                                        ></ModelForum>
+                                        <button className='btnComent bx' style={{ width: '100%' }} onClick={() => handleOpenModalResponses(_id, user?.name, description, time)}>View Responses</button>
                                     </div>
                                 )
                             })
