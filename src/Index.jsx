@@ -15,7 +15,6 @@ export const AuthContext = createContext();
 
 export const Index = () => {
     const [loggedIn, setLoggedIn] = useState(false);
-    const [contextData, setContextData] = useState(null)
     const [dataUser, setDataUser] = useState({
         image: '',
         id: '',
@@ -27,8 +26,6 @@ export const Index = () => {
         career: '',
         role: ''
     });
-
-
 
     useEffect(() => {
         let token = localStorage.getItem('token');
@@ -63,23 +60,19 @@ export const Index = () => {
             children: [
                 {
                     path: '/',
-                    element: <HomePage></HomePage>
+                    element: <LoginPage></LoginPage>
                 },
                 {
                     path: '/register',
                     element: <RegisterPage></RegisterPage>
                 },
                 {
-                    path: '/login',
-                    element: <LoginPage></LoginPage>
-                },
-                {
-                    path: '/user',
+                    path: '/user/:id',
                     element: <UserPage></UserPage>
                 },
                 {
                     path: '/publicacion/:id?',
-                    element: <PublicacionPage />
+                    element: <PublicacionPage></PublicacionPage>
                 },
                 {
                     path: '/forum',

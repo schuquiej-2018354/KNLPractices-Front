@@ -1,11 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Favorite } from '../Components/Favorite/Favorite';
 import { ModelPublications } from '../Components/Model/ModelPublications';
 import { ModalComments } from '../Components/Modal/ModalComments';
 import { useParams } from 'react-router-dom';
 import { Sidebar } from '../Components/Sidebar/Sidebar';
 import { Navbar } from '../Components/Navbar/Navbar';
+import { AuthContext } from '../Index';
 
 export const PublicacionPage = () => {
     const [publication, setPublication] = useState([{}]);
@@ -13,7 +14,7 @@ export const PublicacionPage = () => {
     const [dataComments, setDataComments] = useState({});
     const [title, setTitle] = useState('');
     const { id } = useParams();
-
+    const { dataUser } = useContext(AuthContext)
 
     const handleOpenModalComment = (id, image, user, empress, location, phone, description, time) => {
         setShowModalComments(true);
@@ -52,6 +53,7 @@ export const PublicacionPage = () => {
             console.log(e);
         }
     }
+
     const getPublications = () => {
         if (id === undefined) {
             getPublicationsAll();

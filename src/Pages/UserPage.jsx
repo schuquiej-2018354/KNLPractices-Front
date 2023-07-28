@@ -1,16 +1,27 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Favorite } from '../Components/Favorite/Favorite';
 import { ModalUpdateImage } from '../Components/Modal/ModalUpdateImage';
+import { ModalUserPage } from '../Components/Modal/ModalUserPage';
+import { SidebarProfile } from '../Components/Sidebar/SidebarProfile';
 import { AuthContext } from '../Index';
-import Background from '../assets/img/fondoLogin.png';
-import user from '../assets/img/User.png'
+import { Navbar } from '../Components/Navbar/Navbar';
+import { ModelPublications } from '../Components/Model/ModelPublications';
+import portada from '../assets/img/portada.jpg'
+import { ModalUpdateProfile } from '../Components/Modal/ModalUpdateProfile';
 
 export const UserPage = () => {
+
     const navigate = useNavigate();
 
-    const { dataUser, userLogged, setDataUser } = useContext(AuthContext);
+    const { dataUser } = useContext(AuthContext);
     const [showModalUpdateIMG, setShowModalUpdateIMG] = useState(false);
+    const [showModalDT, setshowModalDT] = useState(false)
+    const [shoModalUpdateDT, setShoModalUpdateDT] = useState(false)
+    const [publication, setPublication] = useState([{}])
+    const { id } = useParams();
+
     const [isLoadingImage, setIsLoadingImage] = useState(true);
     const [image, setImage] = useState('')
 
@@ -31,85 +42,108 @@ export const UserPage = () => {
         }
     }
 
-    const handleOpenModal = () => {
+    const getPublicationsUser = async () => {
+        try {
+            const { data } = await axios(`http://localhost:3200/publication/getById/${id}`);
+            setPublication(data.publications);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    const handleOpenModalUpIMG = () => {
         setShowModalUpdateIMG(true);
     };
 
-    const handleCloseModal = () => {
+    const handleCloseModalUpIMG = () => {
         setShowModalUpdateIMG(false);
     };
 
+    const handleOpenModalDT = () => {
+        setshowModalDT(true);
+    };
+
+    const handleCloseModalDT = () => {
+        setshowModalDT(false);
+    };
+
+    const handleOpenModalUpdateDT = () => {
+        setShoModalUpdateDT(true)
+    }
+
+    const handleCloseModalUpdateDT = () => {
+        setShoModalUpdateDT(false)
+    }
+
+
     useEffect(() => {
-        getImage()
-    }, [dataUser.image])
+        getPublicationsUser();
+        getImage();
+    }, [dataUser.image]);
 
     return (
         <>
-            <div style={{ backgroundImage: `url(${Background})`, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundSize: 'cover', padding: '30px' }}>
-                <div className='card1 card col-5' style={{ alignItems: 'center' }}>
-                    <div className='card1-avatar1'>
-                        <img src={image} alt='User' />
-                    </div>
-                    <br />
-                    <div>
-                        <button type='button' className='btn text-primary' onClick={handleOpenModal}>
-                            Update Image
-                        </button>
-                    </div>
-                    <div className='card1-info1'>
-                        <h2>{dataUser.username}</h2>
-                        <div>
-                            <br />
-                            <form action=''></form>
-                            <div className='row'>
-                                <div className='col'>
-                                    <span>
-                                        <b>Name:</b>
-                                    </span>
-                                    <input type='text' className='form-control' defaultValue={dataUser.name} required />
-                                </div>
-                                <div className='col'>
-                                    <span>
-                                        <b>Surname:</b>
-                                    </span>
-                                    <input type='text' className='form-control' defaultValue={dataUser.surname} required />
+            <Navbar />
+            <div className='row'>
+                <div className='col col-2' style={{ width: '20%' }}>
+                    <SidebarProfile />
+                </div>
+                <div className='divUP t col' style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }} >
+                    <div className='headUP'>
+                        <div className='headUP-sub'>
+                            <img src={portada} alt="" />
+                        </div>
+                        <div className='cont-headUP'>
+                            <div className='contHeadUP1'>
+                                <div className='headUPIMG'>
+                                    <img src={image} alt='' />
                                 </div>
                             </div>
-                            <br />
-                            <label htmlFor='Name'>
-                                <b>Career:</b>
-                            </label>
-                            <br />
-                            <input type='text' className='form-control' defaultValue={dataUser.career} required />
-                            <br />
-                            <label htmlFor='Name'>
-                                <b>Email:</b>
-                            </label>
-                            <br />
-                            <input type='email' className='form-control' defaultValue={dataUser.email} required />
-                            <br />
-                            <label htmlFor='Name'>
-                                <b>Phone:</b>
-                            </label>
-                            <br />
-                            <input type='number' className='form-control' defaultValue={dataUser.phone} required />
-                            <br />
+                            <div className='contHeadUP2'>
+                                <div className='contHeadUP2-text2'>
+                                    <h3>@{dataUser.username}</h3>
+                                </div>
+                                <div className='contHeadUP2-text1'>
+                                    <h1>{dataUser.name + ' ' + dataUser.surname}</h1>
+                                </div>
+                            </div>
+                            <div className='contHeadUP3'>
+                                <div className='contHeadUP3-BTNS'>
+                                    <input type='button' className='btn btn1 ' value='Editar Foto' onClick={handleOpenModalUpIMG} />
+                                    <input type='button' className='btn btn2' value='Editar Perfil' onClick={handleOpenModalUpdateDT} />
+                                    <input type='button' className='btn btn3' value='...' onClick={handleOpenModalDT} />
+                                </div>
+                            </div>
                         </div>
-                        <br />
-                        <div className='flex-parent jc-center'>
-                            <button onClick={() => navigate('/publicacion')} type='submit' className='btn btn-danger'>
-                                Exit
-                            </button>
-                            &ensp;
-                            <button type='submit' className='btn btn-primary'>
-                                Update
-                            </button>
-                        </div>
-                        <br />
                     </div>
+                    <div>
+                        {
+                            publication.map(({ _id, user, image, empress, location, phone, description, time }, index) => {
+                                return (
+                                    <div key={index}>
+                                        <ModelPublications
+                                            id={_id}
+                                            image={image}
+                                            user={user?.name}
+                                            empress={empress}
+                                            location={location}
+                                            phone={phone}
+                                            description={description}
+                                            time={time}
+                                        ></ModelPublications>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div >
+                <div className='col col-2 t' style={{ width: '20%' }}>
+                    <Favorite />
                 </div>
-            </div>
-            <ModalUpdateImage isOpen={showModalUpdateIMG} onClose={handleCloseModal} getImage={getImage} />
+            </div >
+            <ModalUpdateImage isOpen={showModalUpdateIMG} onClose={handleCloseModalUpIMG} getImage={getImage} />
+            <ModalUserPage isOpen={showModalDT} onClose={handleCloseModalDT} />
+            <ModalUpdateProfile isOpen={shoModalUpdateDT} onClose={handleCloseModalUpdateDT} />
         </>
     );
 };

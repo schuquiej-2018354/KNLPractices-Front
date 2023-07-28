@@ -50,7 +50,7 @@ export const LoginPage = () => {
                     title: data.message
                 });
             }
-            navigate('/user');
+            navigate('/publicacion');
         } catch (err) {
             console.log(err);
         }
