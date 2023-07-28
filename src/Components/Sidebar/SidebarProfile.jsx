@@ -1,13 +1,13 @@
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../Index';
-import User from '../../assets/img/User.png';
 import { DropCarrers } from '../Dropdown/DropCarrers';
 import { ModalAddPublication } from '../Modal/ModalAddPublication';
-import axios from 'axios';
-import Swal from 'sweetalert2';
 
-export const Sidebar = ({ getPublication }) => {
+export const SidebarProfile = ({ getPublication }) => {
+
     const navigate = useNavigate();
     const { dataUser, handleLogout } = useContext(AuthContext);
     const [image, setImage] = useState('')
@@ -48,7 +48,7 @@ export const Sidebar = ({ getPublication }) => {
                 );
                 localStorage.clear();
                 handleLogout();
-                navigate('/login');
+                navigate('/');
             }
         });
     }
@@ -56,6 +56,7 @@ export const Sidebar = ({ getPublication }) => {
     const handleOpenModal = () => {
         setShowModalAddPublication(true);
     };
+    
     const handleCloseModal = () => {
         setShowModalAddPublication(false);
     };
@@ -67,14 +68,6 @@ export const Sidebar = ({ getPublication }) => {
     return (
         <>
             <div className='d-flex flex-column flex-shrink-0 p-3 text-white bg2'>
-                <div className='divSBPr mt-2'>
-                    <div>
-                        <img src={image} alt='KNL' style={{ width: '40%', height: '110px', borderRadius: '50%' }} />
-                    </div>
-                    <div className='mt-3 '>
-                        <span className='fs-4'>@{dataUser.username}</span>
-                    </div>
-                </div>
                 <hr />
                 <div className='p-3'>
                     <ul className='nav nav-pills flex-column mb-auto'>
@@ -88,7 +81,7 @@ export const Sidebar = ({ getPublication }) => {
                             </div>
                             <div className='sbText'>Home</div>
                         </li>
-                        <li className='sb nav-item lih' onClick={() => navigate(`/user/${dataUser.id}`)} style={{ cursor: 'pointer' }}>
+                        <li className='sb nav-item lih' onClick={() => navigate('/user')} style={{ cursor: 'pointer' }}>
                             <div>
                                 <a href='#' className='nav-link text-white' aria-current='page'>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' className='bi bi-person-fill' viewBox='0 0 16 16'>
@@ -135,5 +128,5 @@ export const Sidebar = ({ getPublication }) => {
             </div>
             <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal} getPublications={getPublication} />
         </>
-    );
-};
+    )
+}

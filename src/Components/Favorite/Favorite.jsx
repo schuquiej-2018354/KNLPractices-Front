@@ -25,16 +25,17 @@ export const Favorite = () => {
         }
     }
 
-    useEffect(() => { if(dataUser.id) {
-        getFavorites()
-    }
+    useEffect(() => {
+        if (dataUser.id) {
+            getFavorites()
+        }
     }, [dataUser]);
 
     return (
         <>
-            <div style={{ width: '98%' }}>
-                <div className="row" style={{ marginBottom: '5px' }}>
-                    <div className="col-8">
+            <div className="row" style={{ width: '100%' }}>
+                <div style={{ marginBottom: '20px', display: 'flex' }} >
+                    <div className="col-8" style={{ width: '75%' }}>
                         <input
                             className="form-control bg6"
                             type="text"
@@ -44,15 +45,15 @@ export const Favorite = () => {
                             style={{ borderColor: '#263340' }}
                         />
                     </div>
-                    <div className="col">
-                        <button className="btn btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                            </svg>
-                        </button>
+                    <button className="btn btn-primary" style={{ width: '25%' }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                    <div className="col" >
                     </div>
-                </div>
-                    <h1 className="text-center tx1 text-white" style={{fontSize: '2rem'}}>FAVORITES</h1>
+                </div >
+                <h1 className="text-center tx1 text-white" style={{ fontSize: '2rem' }}>Favorites</h1>
                 <div className="overflow-auto scroll-invisible-container" style={{ height: "88vh", maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin' }}>
                     {
                         fav.map(({ _id, owner, publication }, i) => {
@@ -72,7 +73,7 @@ export const Favorite = () => {
                         })
                     }
                 </div>
-            </div>
+            </div >
         </>
     );
 };

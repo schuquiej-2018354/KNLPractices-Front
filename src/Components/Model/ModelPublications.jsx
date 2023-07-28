@@ -30,6 +30,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
             console.log(e);
         }
     };
+    
     useEffect(() => {
         if (image === undefined) {
         } else {

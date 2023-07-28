@@ -32,10 +32,7 @@
   margin-top: 2rem;
 }
 
-.tx1 {
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 1.5rem;
-}
+
 
 /* SIDEBAR */
 .body {
@@ -472,20 +469,24 @@ main {
 
 /* Modal Comments */
 
-.comment-container{
+.comment-container {
   border-radius: 1.5rem;
 }
 
 .custom-modal .modal-body {
-  max-height: 500px; 
-  overflow-y: auto; 
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .textarea {
-  background-color: white; /* Cambia el color de fondo del textarea */
-  color: #333; /* Cambia el color del texto dentro del textarea */
-  border: none; /* Cambia el estilo del borde del textarea */
-  padding: 8px; /* Añade un espacio interno alrededor del contenido del textarea */
+  background-color: white;
+  /* Cambia el color de fondo del textarea */
+  color: #333;
+  /* Cambia el color del texto dentro del textarea */
+  border: none;
+  /* Cambia el estilo del borde del textarea */
+  padding: 8px;
+  /* Añade un espacio interno alrededor del contenido del textarea */
   width: 100%;
   border-radius: 0.5rem;
   text-indent: 1rem;
@@ -513,6 +514,7 @@ main {
 .sbD {
   width: 100%;
 }
+
 .sbD:focus {
   background-color: #263340;
   border-radius: 20px;
@@ -533,6 +535,7 @@ main {
   border-radius: 20px;
   border-color: #1a2633;
 }
+
 .sbDP:focus {
   background-color: #263340;
   border-radius: 20px;
@@ -555,6 +558,117 @@ main {
   color: #7d7f85;
 }
 
-.bx{
+.bx {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/*UserProfile*/
+
+.divUP {
+  width: 100%;
+}
+
+.headUP {
+  width: 100%;
+  height: 41%;
+  border-radius: 30px 30px 0 0;
+  position: relative;
+}
+
+.headUP-sub {
+  width: 100%;
+  height: 70%;
+  display: flex;
+}
+
+.headUP-sub img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px 30px 0 0;
+}
+
+.headUP-sub1 {
+  width: 100%;
+}
+
+.contHeadUP1 {
+  height: 100%;
+  width: 25%;
+}
+
+.headUPIMG {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headUPIMG img {
+  width: 75%;
+  height: 60%;
+  border-radius: 50%;
+  border: #1a2633 8px solid;
+}
+
+.contHeadUP2 {
+  height: 70%;
+  width: 42%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.contHeadUP2-text1,
+.contHeadUP2-text2 {
+  width: 100%;
+}
+
+.contHeadUP2-text1 h1 {
+  color: white;
+  font-size: 33px;
+}
+
+.contHeadUP2-text2 h3 {
+  color: white;
+  font-size: 17px;
+}
+
+.contHeadUP3 {
+  height: 80%;
+  width: 30%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.contHeadUP3-BTNS {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.btn1,
+.btn2,
+.btn3 {
+  background-color: yellowgreen;
+  color: white;
+}
+
+.headUP-Por {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+}
+
+.cont-headUP {
+  display: flex;
+  position: absolute;
+  top: 19%;
+  width: 100%;
+  height: 90%;
+}
+
+.dxx{
+  width: 30%;
+  height: 30%;
 }
