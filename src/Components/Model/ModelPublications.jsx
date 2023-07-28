@@ -40,7 +40,7 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
 
     return (
         <>
-            <div className='card bx bg5' style={{ marginBottom: '10px', marginTop: '10px' }}>
+            <div className='card bx bg5'>
                 <div className='row g-0 rounded overflow-hidden flex-md-row h-md-250 position-relative'>
                     <div className='col p-4 d-flex flex-column position-static text-white'>
                         <div className='row'>
@@ -83,11 +83,10 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
                                     </p>
                                     &ensp; - {location}
                                 </div>
-                                <a href='#'>Continue reading</a>
                             </div>
                             <div className='col'>
                                 <div className='col-auto d-none d-lg-block'>
-                                    <img src={img} alt='' style={{ width: '14rem', height: '14rem' }} />
+                                    <img src={img} alt='' style={{ width: '13.5rem', height: '13.5rem' }} />
                                 </div>
                             </div>
                         </div>

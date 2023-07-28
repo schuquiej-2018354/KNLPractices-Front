@@ -8,6 +8,8 @@ import { UserPage } from './Pages/UserPage';
 import { RegisterPage } from './Pages/RegisterPage';
 import { PublicacionPage } from './Pages/PublicacionPage';
 import { ForumPage } from './Pages/ForumPage';
+import { AdminPage } from './Pages/AdminPage';
+import { CareerView } from './Pages/ViewsPage/CareerView';
 
 export const AuthContext = createContext();
 
@@ -74,7 +76,15 @@ export const Index = () => {
                 },
                 {
                     path: '/forum',
-                    element: <ForumPage></ForumPage>
+                    element: <ForumPage />
+                },
+                {
+                    path: '/admin',
+                    element: <AdminPage />
+                },
+                {
+                    path: '/careers',
+                    element: <CareerView />
                 }
             ]
         }

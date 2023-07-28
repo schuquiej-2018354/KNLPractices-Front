@@ -25,7 +25,6 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
             [e.target.name]: e.target.value,
             user: dataUser.id
         });
-        console.log(form);
     };
 
     const getCarrers = async () => {
