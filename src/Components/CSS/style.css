@@ -647,12 +647,6 @@ main {
   width: 100%;
 }
 
-.btn1,
-.btn2,
-.btn3 {
-  background-color: yellowgreen;
-  color: white;
-}
 
 .headUP-Por {
   width: 50%;
@@ -668,10 +662,11 @@ main {
   height: 90%;
 }
 
-.dxx{
+.dxx {
   width: 30%;
   height: 30%;
 }
+
 /* estilos boton de comentarios */
 
 .btnComent {
@@ -704,23 +699,33 @@ main {
 }
 
 .btnComent:hover {
-  background-color: #181717;
+  background-color: #0d6efd;
   color: white;
 }
-
-
-
-
-
- 
 
 
 .containerP {
   display: flex;
   height: 100vh;
 }
-.i{
+
+.i {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+
+.add-question-container {
+  position: sticky;
+  top: 0;
+  background-color: #1a2633;
+  /* Puedes cambiar el color de fondo según tu diseño */
+  padding: 1rem;
+  z-index: 1;
+  /* Asegura que el botón esté por encima de la lista de preguntas */
+}
+
+.tx1{
+  font-family: 'Titillium Web', sans-serif;
 }

@@ -44,7 +44,7 @@ export const ModalForumanswers = ({ isOpen, onClose, _id, user, description, tim
 
     return (
         <>
-            <Modal show={isOpen} onShow={getResponses} size='xl' className="custom-modal">
+            <Modal show={isOpen} onShow={getResponses} size='lg' className="custom-modal">
                 <Modal.Header className='bg2 text-white'>
                     <Modal.Title className=''>Responses</Modal.Title>
                     <button onClick={onClose} type="button" className="btn" data-dismiss="modal" aria-label="Close">

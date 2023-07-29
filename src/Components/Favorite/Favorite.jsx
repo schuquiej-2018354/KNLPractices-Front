@@ -53,7 +53,7 @@ export const Favorite = () => {
                     <div className="col" >
                     </div>
                 </div>
-                <h1 className="text-center tx1 text-white" style={{ fontSize: '2rem' }}>FAVORITES</h1>
+                <h1 className="text-center text-white" style={{ fontSize: '2rem' }}>FAVORITES</h1>
                 <div className="overflow-auto scroll-invisible-container" style={{ height: "88vh"}}>
                     {
                         fav.map(({ _id, owner, publication }, i) => {

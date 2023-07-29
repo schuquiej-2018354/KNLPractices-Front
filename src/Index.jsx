@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { HomePage } from './Pages/HomePage';
 import { App } from './App';
 import { NotFoundPage } from './Pages/NotFoundPage';
 import { LoginPage } from './Pages/LoginPage';
@@ -10,6 +9,7 @@ import { PublicacionPage } from './Pages/PublicacionPage';
 import { ForumPage } from './Pages/ForumPage';
 import { AdminPage } from './Pages/AdminPage';
 import { CareerView } from './Pages/ViewsPage/CareerView';
+import { UsersView } from './Pages/ViewsPage/UsersView';
 
 export const AuthContext = createContext();
 
@@ -85,6 +85,10 @@ export const Index = () => {
                 {
                     path: '/careers',
                     element: <CareerView />
+                },
+                {
+                    path: '/users',
+                    element: <UsersView />
                 }
             ]
         }

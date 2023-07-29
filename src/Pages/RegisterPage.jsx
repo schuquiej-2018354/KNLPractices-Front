@@ -114,7 +114,7 @@ export const RegisterPage = () => {
                                                 <div className='row'>
                                                     <div className='col'>
                                                         <div className='button input-box'>
-                                                            <input onClick={() => navigate('/login')} type='submit' value='Exit' />
+                                                            <input onClick={() => navigate('/')} type='submit' value='Exit' />
                                                         </div>
                                                     </div>
                                                     <div className='col'>
