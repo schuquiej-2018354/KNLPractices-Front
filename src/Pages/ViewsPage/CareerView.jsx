@@ -6,8 +6,10 @@ import axios from 'axios'
 import { ModelTableCareer } from '../../Components/Model/ModelTableCareer'
 import Swal from 'sweetalert2'
 import { ModalPutCareer } from '../../Components/Modal/ModalUpdate/ModalPutCareer'
+import { useNavigate } from 'react-router-dom'
 
 export const CareerView = () => {
+    const navigate = useNavigate();
     const [careers, setCareers] = useState([{}]);
     const [datos, setDatos] =useState({});
     const [showPutCareer, setShowPutCareer] = useState(false)
@@ -78,6 +80,7 @@ export const CareerView = () => {
                     <Sidebar />
                 </div>
                 <div className="t overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '75%', marginRight: '1rem' }}>
+                    <button className='btn btn-danger' onClick={() => navigate('/admin')}>Exit</button>
                     <nav className='navbar navbar-expand-lg '>
                         <div className='container-fluid'>
                             <div className='collapse navbar-collapse justify-content-center' id='navbarCenteredExample' >
