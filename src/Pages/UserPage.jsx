@@ -95,11 +95,11 @@ export const UserPage = () => {
     return (
         <>
             <Navbar />
-            <div className='row'>
-                <div className='col col-2' style={{ width: '20%' }}>
+            <div className='containerP'>
+                <div className='t i' style={{ width: '20%' }}>
                     <SidebarProfile />
                 </div>
-                <div className='divUP t col' style={{ marginRight: '10px', marginLeft: '10px', maxHeight: 'calc(110vh - 100px)', overflowY: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#e4e3eb' }} >
+                <div className='divUP t overflow-auto scroll-invisible-container' style={{maxHeight: 'calc(110vh - 100px)', width: '75%', marginLeft: '2rem'}} >
                     <div className='headUP'>
                         <div className='headUP-sub'>
                             <img src={portada} alt="" />
@@ -120,9 +120,9 @@ export const UserPage = () => {
                             </div>
                             <div className='contHeadUP3'>
                                 <div className='contHeadUP3-BTNS'>
-                                    <input type='button' className='btn btn1 ' value='Editar Foto' onClick={handleOpenModalUpIMG} />
-                                    <input type='button' className='btn btn2' value='Editar Perfil' onClick={handleOpenModalUpdateDT} />
-                                    <input type='button' className='btn btn3' value='...' onClick={handleOpenModalDT} />
+                                    <input type='button' className='btn btn-primary ' value='Editar Foto' onClick={handleOpenModalUpIMG} />
+                                    <input type='button' className='btn btn-primary' value='Editar Perfil' onClick={handleOpenModalUpdateDT} />
+                                    <input type='button' className='btn btn-primary' value='...' onClick={handleOpenModalDT} />
                                 </div>
                             </div>
                         </div>
@@ -142,10 +142,12 @@ export const UserPage = () => {
                                             description={description}
                                             time={time}
                                         ></ModelPublications>
+                                        <br />
                                     </div>
                                 )
                             })
-                        } {
+                        }
+                        {
                             questions.map(({ _id, user, question, description, time }, index) => {
                                 return (
                                     <div key={index}>
@@ -163,9 +165,9 @@ export const UserPage = () => {
                         }
                     </div>
                 </div >
-                <div className='col col-2 t' style={{ width: '20%' }}>
+                {/* <div className='col col-2 t' style={{ width: '20%' }}>
                     <Favorite />
-                </div>
+                </div> */}
             </div >
             <ModalUpdateImage isOpen={showModalUpdateIMG} onClose={handleCloseModalUpIMG} getImage={getImage} />
             <ModalUserPage isOpen={showModalDT} onClose={handleCloseModalDT} />

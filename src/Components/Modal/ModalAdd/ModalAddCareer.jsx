@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Modal, ModalHeader } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 export const ModalAddCareer = ({ isOpen, onClose }) => {
+    const navigate = useNavigate();
 
     const [form, setForm] = useState({
         name: ''
@@ -19,6 +21,7 @@ export const ModalAddCareer = ({ isOpen, onClose }) => {
         try {
             const { data } = await axios.post('http://localhost:3200/career/add', form)
             onClose();
+            navigate('/careers')
         } catch (e) {
             console.log(e);
         }
