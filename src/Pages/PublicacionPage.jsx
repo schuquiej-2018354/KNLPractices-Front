@@ -84,12 +84,12 @@ export const PublicacionPage = () => {
                                         id={_id}
                                         image={image}
                                         user={user?.name}
+                                        userImage={user?.image}
                                         empress={empress}
                                         location={location}
                                         phone={phone}
                                         description={description}
                                         time={time}
-
                                     ></ModelPublications>
                                     <div style={{ marginBottom: '1.5rem' }}>
                                         <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, image, user?.name, empress, location, phone, description, time)}>

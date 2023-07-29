@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../Index';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export const ModelPublications = ({ id, user, image, empress, location, phone, description, time }) => {
+export const ModelPublications = ({ id, user, userImage, image, empress, location, phone, description, time }) => {
     const [img, setImg] = useState('');
+    const [imgUser, setImgUser] = useState('');
     const { dataUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const getImage = async () => {
         try {
@@ -18,6 +20,18 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
             console.log(e);
         }
     };
+
+    const getUserImage = async () => {
+        try {
+          const { data } = await axios(`http://localhost:3200/user/get-image/${userImage}`, {
+            responseType: 'blob'
+          });
+          const imageURL = URL.createObjectURL(data);
+          setImgUser(imageURL);
+        } catch (e) {
+          console.log(e);
+        }
+      };
 
     const addFavorite = async (publication) => {
         try {
@@ -32,20 +46,24 @@ export const ModelPublications = ({ id, user, image, empress, location, phone, d
     };
     
     useEffect(() => {
-        if (image === undefined) {
+        if (image === undefined || userImage === undefined) {
         } else {
             getImage();
+            getUserImage();
         }
-    }, [image]);
+    }, [image, userImage]);
 
     return (
         <>
             <div className='card bx bg5'>
                 <div className='row g-0 rounded overflow-hidden flex-md-row h-md-250 position-relative'>
                     <div className='col p-4 d-flex flex-column position-static text-white'>
-                        <div className='row'>
+                        <div className='row align-items-center'>
+                        <div className='col col-1'>
+                        <img className="rounded-circle imgProfile" src={imgUser} onClick={()=> navigate(`/user/${dataUser.id}`)} />
+                        </div>
                             <div className='col'>
-                                <strong className='d-inline-block mb-2 text-primary'>@{user}</strong>
+                                <strong className='d-inline-block mb-2 text-primary' >@{user}</strong>
                             </div>
                             <div className='col'>
                                 <div className='mb-1 text-muted text-end' style={{ marginRight: '1rem' }}>
