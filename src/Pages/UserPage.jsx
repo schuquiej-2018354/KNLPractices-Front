@@ -136,6 +136,7 @@ export const UserPage = () => {
                                             id={_id}
                                             image={image}
                                             user={user?.name}
+                                            userImage={user?.image}
                                             empress={empress}
                                             location={location}
                                             phone={phone}

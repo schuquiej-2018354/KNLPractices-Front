@@ -605,8 +605,8 @@ main {
 }
 
 .headUPIMG img {
-  width: 75%;
-  height: 60%;
+  width: 11rem;
+  height: 11rem;
   border-radius: 50%;
   border: #1a2633 8px solid;
 }
@@ -729,3 +729,14 @@ main {
 .tx1{
   font-family: 'Titillium Web', sans-serif;
 }
+
+/* estilos foto de perfil en publicaciones */
+
+.imgProfile {
+  width: 3rem;
+  height: 3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
