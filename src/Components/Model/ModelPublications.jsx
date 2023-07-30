@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../../Index';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export const ModelPublications = ({ id, idUser, user, userImage, image, empress, location, phone, description, time }) => {
+export const ModelPublications = ({ id, idUser, user, userImage, image, empress, location, phone, description, time, career }) => {
     const [img, setImg] = useState('');
     const [imgUser, setImgUser] = useState('');
     const { dataUser } = useContext(AuthContext);
@@ -63,7 +63,7 @@ export const ModelPublications = ({ id, idUser, user, userImage, image, empress,
                                 <img className="rounded-circle imgProfile" src={imgUser} onClick={() => navigate(`/userProfile/${idUser}`)} />
                             </div>
                             <div className='col'>
-                                <strong className='d-inline-block mb-2 text-primary' >@{user}</strong>
+                                <strong className='d-inline-block mb-2 text-primary' onClick={() => navigate(`/userProfile/${idUser}`)} style={{cursor: 'pointer'}} >@{user}</strong>
                             </div>
                             <div className='col'>
                                 <div className='mb-1 text-muted text-end' style={{ marginRight: '1rem' }}>
@@ -101,6 +101,7 @@ export const ModelPublications = ({ id, idUser, user, userImage, image, empress,
                                     </p>
                                     &ensp; - {location}
                                 </div>
+                                <p class="card-text text-end text-muted">-{career}</p>
                             </div>
                             <div className='col'>
                                 <div className='col-auto d-none d-lg-block'>
