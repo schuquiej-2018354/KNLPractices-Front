@@ -1,12 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-export const ModelComments = ({ _id, user, description, time, image, update, type }) => {
+export const ModelComments = ({ _id, user, idUser, description, time, image, update, type }) => {
 
     const [img, setImg] = useState('');
-
-    console.log(image);
+    const navigate = useNavigate();
 
     const getImage = async () => {
         try {
@@ -67,7 +67,7 @@ export const ModelComments = ({ _id, user, description, time, image, update, typ
     return (
         <>
             <div className="d-flex align-items-start" style={{ width: '100%', marginTop: '1rem' }}>
-                <img className="rounded-circle" style={{ width: '3rem', height: '3rem', marginTop: '1rem', flex: '0 0 3rem' }} src={img} />
+                <img className="rounded-circle" style={{ width: '3rem', height: '3rem', marginTop: '1rem', flex: '0 0 3rem', cursor: 'pointer' }} src={img} onClick={() => navigate(`/userProfile/${idUser}`)}/>
                 <div className="card flex-row bg6 mb-3 comment-container" style={{ marginLeft: '0.5rem' }}>
                     <div className="card-body" style={{ width: '100%' }}>
                         <div className="d-flex justify-content-between">

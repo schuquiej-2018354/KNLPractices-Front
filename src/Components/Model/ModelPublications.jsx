@@ -9,6 +9,8 @@ export const ModelPublications = ({ id, idUser, user, userImage, image, empress,
     const { dataUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
+    
+
     const getImage = async () => {
         try {
             const { data } = await axios(`http://localhost:3200/publication/get-image/${image}`, {
