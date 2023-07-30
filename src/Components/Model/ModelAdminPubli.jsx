@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
 
-export const ModelAdminPubli = ({ _id, user, userImage, image, empress, location, phone, description, time, update }) => {
+export const ModelAdminPubli = ({ _id, user, userImage, image, empress, location, phone, description, time, career, update }) => {
     const [img, setImg] = useState('');
     const [imgUser, setImgUser] = useState('');
 
@@ -112,6 +112,7 @@ export const ModelAdminPubli = ({ _id, user, userImage, image, empress, location
                                     </p>
                                     &ensp; - {location}
                                 </div>
+                                <p class="card-text text-end text-muted">-{career}</p>
                             </div>
                             <div className='col'>
                                 <div className='col-auto d-none d-lg-block'>
