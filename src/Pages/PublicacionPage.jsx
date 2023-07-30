@@ -1,12 +1,11 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
-import { Favorite } from '../Components/Favorite/Favorite';
-import { ModelPublications } from '../Components/Model/ModelPublications';
-import { ModalComments } from '../Components/Modal/ModalComments';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Sidebar } from '../Components/Sidebar/Sidebar';
+import { Favorite } from '../Components/Favorite/Favorite';
+import { ModalComments } from '../Components/Modal/ModalComments';
+import { ModelPublications } from '../Components/Model/ModelPublications';
 import { Navbar } from '../Components/Navbar/Navbar';
-import { AuthContext } from '../Index';
+import { Sidebar } from '../Components/Sidebar/Sidebar';
 
 export const PublicacionPage = () => {
     const [publication, setPublication] = useState([{}]);
@@ -14,7 +13,8 @@ export const PublicacionPage = () => {
     const [dataComments, setDataComments] = useState({});
     const [title, setTitle] = useState('');
     const { id } = useParams();
-    const { dataUser } = useContext(AuthContext)
+    const [tablePublication, setTablePublication] = useState([{}])
+    const [search, setSearch] = useState('')
 
     const handleOpenModalComment = (id, idUser, image, userImage, user, empress, location, phone, description, time) => {
         setShowModalComments(true);
@@ -32,6 +32,7 @@ export const PublicacionPage = () => {
         }
         setDataComments(datos);
     }
+
     const handleCloseModalComment = () => {
         setShowModalComments(false);
     }
@@ -40,6 +41,7 @@ export const PublicacionPage = () => {
         try {
             const { data } = await axios('http://localhost:3200/publication/get');
             setPublication(data.publications);
+            setTablePublication(data.publications);
             setTitle('All post');
         } catch (e) {
             console.log(e);
@@ -63,9 +65,23 @@ export const PublicacionPage = () => {
             getPublicationByCarrer();
         }
     }
+    
+    const handleSearh = (e) => {
+        setSearch(e.target.value);
+        filtrar(e.target.value);
+    }
+
+    const filtrar = (searchTerm) => {
+        var resultSearch = tablePublication.filter((elemento) => {
+            if (elemento.empress.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
+                elemento.location.toString().toLowerCase().includes(searchTerm.toLowerCase()))
+                return elemento
+        })
+        setPublication(resultSearch)
+    }
 
     useEffect(() => {
-        getPublications()
+        getPublications();
     }, [id]);
 
     return (
@@ -93,6 +109,8 @@ export const PublicacionPage = () => {
                                         id="inputFav"
                                         placeholder="Search in KNL Practices"
                                         style={{ borderColor: '#263340' }}
+                                        value={search}
+                                        onChange={handleSearh}
                                     />
                                 </div>
                             </div>

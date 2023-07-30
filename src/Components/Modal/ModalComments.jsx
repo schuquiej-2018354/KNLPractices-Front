@@ -49,7 +49,6 @@ export const ModalComments = ({ isOpen, onClose, _id, idUser, image, userImage, 
         }
     }
 
-
     return (
         <>
             <Modal show={isOpen} onShow={getComments} className="custom-modal" size='lg'>
