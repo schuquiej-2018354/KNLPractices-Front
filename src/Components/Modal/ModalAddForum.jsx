@@ -19,7 +19,6 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
             [e.target.name]: e.target.value,
             user: dataUser.id
         });
-        console.log(form);
     };
 
     const save = async (e) => {
@@ -53,7 +52,7 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
                         </div>
                         <div>
                             <div className='row'>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <textarea name='description' className="textarea" id="description" rows="3" placeholder='Write a question' onChange={formForumHandleChange}></textarea>
                                 </div>
                             </div>
