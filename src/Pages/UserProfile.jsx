@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Favorite } from '../Components/Favorite/Favorite';
 import { ModalUpdateImage } from '../Components/Modal/ModalUpdateImage';
@@ -11,6 +11,7 @@ import { Navbar } from '../Components/Navbar/Navbar';
 import { SidebarProfile } from '../Components/Sidebar/SidebarProfile';
 import { AuthContext } from '../Index';
 import portada from '../assets/img/portada.jpg';
+import { ModalComments } from '../Components/Modal/ModalComments';
 
 export const UserProfile = () => {
     const { dataUser } = useContext(AuthContext);
@@ -20,10 +21,32 @@ export const UserProfile = () => {
     const [publication, setPublication] = useState([{}]);
     const [questions, setQuestions] = useState([{}]);
     const { id } = useParams();
+    const [showModalComments, setShowModalComments] = useState(false);
+    const [dataComments, setDataComments] = useState({});
 
     const [isLoadingImage, setIsLoadingImage] = useState(true);
     const [image, setImage] = useState('')
     const [dataU, setDataU] = useState('')
+
+    const handleOpenModalComment = (id, idUser, image, userImage, user, empress, location, phone, description, time) => {
+        setShowModalComments(true);
+        let datos = {
+            id: id,
+            idUser: idUser,
+            image: image,
+            userImage: userImage,
+            user: user,
+            empress: empress,
+            location: location,
+            phone: phone,
+            description: description,
+            time: time
+        }
+        setDataComments(datos);
+    }
+    const handleCloseModalComment = () => {
+        setShowModalComments(false);
+    }
 
     const getUserById = async () => {
         try {
@@ -99,7 +122,8 @@ export const UserProfile = () => {
         getImage();
         getQuestionsUser();
         getUserById()
-    }, [dataU.image]);
+    }, [dataU.image, id]);
+
 
     return (
         <>
@@ -152,7 +176,14 @@ export const UserProfile = () => {
                                             description={description}
                                             time={time}
                                         ></ModelPublications>
-                                        <br />
+                                        <div style={{ marginBottom: '1.5rem' }}>
+                                        <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, user?._id, image, user?.image, user?.name, empress, location, phone, description, time)}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
+                                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
+                                            </svg>
+                                            Show comments
+                                        </button>
+                                    </div>
                                     </div>
                                 )
                             })
@@ -179,6 +210,20 @@ export const UserProfile = () => {
             <ModalUpdateImage isOpen={showModalUpdateIMG} onClose={handleCloseModalUpIMG} getImage={getImage} />
             <ModalUserPage isOpen={showModalDT} onClose={handleCloseModalDT} />
             <ModalUpdateProfile isOpen={shoModalUpdateDT} onClose={handleCloseModalUpdateDT} />
+            <ModalComments
+                isOpen={showModalComments}
+                onClose={handleCloseModalComment}
+                _id={dataComments.id}
+                idUser={dataComments.idUser}
+                image={dataComments.image}
+                userImage={dataComments.userImage}
+                user={dataComments.user}
+                empress={dataComments.empress}
+                location={dataComments.location}
+                phone={dataComments.phone}
+                description={dataComments.description}
+                time={dataComments.time}
+            ></ModalComments>
         </>
     );
 }
