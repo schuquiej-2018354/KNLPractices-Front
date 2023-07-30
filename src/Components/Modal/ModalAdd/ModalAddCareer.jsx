@@ -44,7 +44,7 @@ export const ModalAddCareer = ({ isOpen, onClose }) => {
                 <Modal.Body className='bg2 text-white'>
                     <form action='#'>
                         <label className='form-label' htmlFor='inputName'>Name</label>
-                        <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Name Career' name='name' onChange={createHandleChange} required />
+                        <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Name Career' name='name' onChange={createHandleChange} required />
                     </form>
                 </Modal.Body>
                 <Modal.Footer className='bg2 text-white'>

@@ -42,7 +42,7 @@ export const ModalPutCareer = ({isOpen, onClose, datos, update}) => {
                 <Modal.Body className='bg2 text-white'>
                     <form action='#'>
                         <label className='form-label' htmlFor='inputName'>Name</label>
-                        <input defaultValue={datos.name} className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Name Career' name='name' required />
+                        <input defaultValue={datos.name} className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Name Career' name='name' required />
                     </form>
                 </Modal.Body>
                 <Modal.Footer className='bg2 text-white'>
