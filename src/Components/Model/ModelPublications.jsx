@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../../Index';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export const ModelPublications = ({ id, user, userImage, image, empress, location, phone, description, time }) => {
+export const ModelPublications = ({ id, idUser, user, userImage, image, empress, location, phone, description, time }) => {
     const [img, setImg] = useState('');
     const [imgUser, setImgUser] = useState('');
     const { dataUser } = useContext(AuthContext);
@@ -60,7 +60,7 @@ export const ModelPublications = ({ id, user, userImage, image, empress, locatio
                     <div className='col p-4 d-flex flex-column position-static text-white'>
                         <div className='row align-items-center'>
                             <div className='col col-1'>
-                                <img className="rounded-circle imgProfile" src={imgUser} onClick={() => navigate(`/user/${dataUser.id}`)} />
+                                <img className="rounded-circle imgProfile" src={imgUser} onClick={() => navigate(`/userProfile/${idUser}`)} />
                             </div>
                             <div className='col'>
                                 <strong className='d-inline-block mb-2 text-primary' >@{user}</strong>

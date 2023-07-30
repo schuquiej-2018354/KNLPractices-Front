@@ -12,6 +12,7 @@ import { CareerView } from './Pages/ViewsPage/CareerView';
 import { UsersView } from './Pages/ViewsPage/UsersView';
 import { ForumView } from './Pages/ViewsPage/ForumView';
 import { PubliView } from './Pages/ViewsPage/PubliView';
+import { UserProfile } from './Pages/UserProfile';
 
 export const AuthContext = createContext();
 
@@ -71,6 +72,10 @@ export const Index = () => {
                 {
                     path: '/user/:id',
                     element: <UserPage></UserPage>
+                },
+                {
+                    path: '/userProfile/:id',
+                    element: <UserProfile></UserProfile>
                 },
                 {
                     path: '/publicacion/:id?',
