@@ -19,7 +19,6 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
             [e.target.name]: e.target.value,
             user: dataUser.id
         });
-        console.log(form);
     };
 
     const save = async (e) => {

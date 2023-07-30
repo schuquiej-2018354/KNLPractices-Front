@@ -6,15 +6,17 @@ import axios from 'axios'
 import { ModelTableUser } from '../../Components/Model/ModelTableUser'
 import Swal from 'sweetalert2'
 
-
 export const UsersView = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState([{}])
+    const [tableUser, setTableUser] = useState([{}])
+    const [search, setSearch] = useState('')
 
     const getUsers = async () => {
         try {
             const { data } = await axios('http://localhost:3200/user/get')
             setUser(data.users)
+            setTableUser(data.users)
         } catch (e) {
             console.log(e);
         }
@@ -46,6 +48,22 @@ export const UsersView = () => {
         }
     }
 
+    const handleSearh = (e) => {
+        setSearch(e.target.value);
+        filtrar(e.target.value);
+    }
+
+    const filtrar = (searchTerm) => {
+        var resultSearch = tableUser.filter((elemento) => {
+            if (elemento.username.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
+                elemento.name.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
+                elemento.surname.toString().toLowerCase().includes(searchTerm.toLowerCase()))
+                return elemento
+        })
+        setUser(resultSearch)
+    }
+
+
     useEffect(() => getUsers, [])
 
     return (
@@ -56,6 +74,7 @@ export const UsersView = () => {
                     <Sidebar />
                 </div>
                 <div className="t overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '75%', marginRight: '1rem' }}>
+                    <button className='btn btn-danger' onClick={() => navigate('/admin')}>Exit</button>
                     <nav className='navbar navbar-expand-lg '>
                         <div className='container-fluid'>
                             <div className='collapse navbar-collapse justify-content-center' id='navbarCenteredExample' >
@@ -78,6 +97,8 @@ export const UsersView = () => {
                                     id="inputFav"
                                     placeholder="Search in KNL Practices"
                                     style={{ borderColor: '#263340' }}
+                                    value={search}
+                                    onChange={handleSearh}
                                 />
                             </div>
                         </div>
@@ -127,7 +148,7 @@ export const UsersView = () => {
                                                                             </div> */}
                                                                             <div className='btn btn-sm btn-danger btn-outline-secondary badge'>
                                                                                 <button onClick={() => deleteUser(_id)} className='btn badge' type='button' data-toggle='modal' data-target='#user-form-modal'>
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3" viewBox="0 0 16 16">
                                                                                         <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
                                                                                     </svg>
                                                                                 </button>

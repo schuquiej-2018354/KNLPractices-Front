@@ -8,12 +8,14 @@ import { ModelAdminForum } from '../../Components/Model/ModelAdminForum'
 export const ForumView = () => {
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([{}]);
-
+    const [tableQuestions, setTableQuestions] = useState([{}]);
+    const [search, setSearch] = useState('');
 
     const getQuestions = async () => {
         try {
             const { data } = await axios('http://localhost:3200/question/get');
             setQuestions(data.questions);
+            setTableQuestions(data.questions)
         } catch (e) {
             console.log(e);
         }
@@ -25,6 +27,19 @@ export const ForumView = () => {
         } catch (e) {
             console.log(e);
         }
+    }
+
+    const handleSearh = (e) => {
+        setSearch(e.target.value);
+        filtrar(e.target.value);
+    }
+
+    const filtrar = (searchTerm) => {
+        var resultSearch = tableQuestions.filter((elemento) => {
+            if (elemento.question.toString().toLowerCase().includes(searchTerm.toLowerCase()))
+                return elemento
+        })
+        setQuestions(resultSearch)
     }
 
     useEffect(() => {
@@ -48,24 +63,26 @@ export const ForumView = () => {
                             </div>
                         </nav>
                         <center>
-                                <div className="col-8">
-                                    <div className="input-group mb-3">
-                                        <span className="input-group-text bg6" style={{ borderColor: '#263340' }}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16" style={{ fill: 'white' }}>
-                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                            </svg>
-                                        </span>
-                                        <input
-                                            className="form-control bg6"
-                                            type="text"
-                                            name=""
-                                            id="inputFav"
-                                            placeholder="Search in KNL Practices"
-                                            style={{ borderColor: '#263340' }}
-                                        />
-                                    </div>
+                            <div className="col-8">
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text bg6" style={{ borderColor: '#263340' }}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16" style={{ fill: 'white' }}>
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg>
+                                    </span>
+                                    <input
+                                        className="form-control bg6"
+                                        type="text"
+                                        name=""
+                                        id="inputFav"
+                                        placeholder="Search in KNL Practices"
+                                        style={{ borderColor: '#263340' }}
+                                        value={search}
+                                        onChange={handleSearh}
+                                    />
                                 </div>
-                            </center>
+                            </div>
+                        </center>
                     </div>
                     {
                         questions.map(({ _id, user, question, description, time }, index) => {
