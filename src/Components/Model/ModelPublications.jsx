@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../../Index';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export const ModelPublications = ({ id, user, userImage, image, empress, location, phone, description, time }) => {
+export const ModelPublications = ({ id, idUser, user, userImage, image, empress, location, phone, description, time }) => {
     const [img, setImg] = useState('');
     const [imgUser, setImgUser] = useState('');
     const { dataUser } = useContext(AuthContext);
@@ -23,15 +23,15 @@ export const ModelPublications = ({ id, user, userImage, image, empress, locatio
 
     const getUserImage = async () => {
         try {
-          const { data } = await axios(`http://localhost:3200/user/get-image/${userImage}`, {
-            responseType: 'blob'
-          });
-          const imageURL = URL.createObjectURL(data);
-          setImgUser(imageURL);
+            const { data } = await axios(`http://localhost:3200/user/get-image/${userImage}`, {
+                responseType: 'blob'
+            });
+            const imageURL = URL.createObjectURL(data);
+            setImgUser(imageURL);
         } catch (e) {
-          console.log(e);
+            console.log(e);
         }
-      };
+    };
 
     const addFavorite = async (publication) => {
         try {
@@ -44,7 +44,7 @@ export const ModelPublications = ({ id, user, userImage, image, empress, locatio
             console.log(e);
         }
     };
-    
+
     useEffect(() => {
         if (image === undefined || userImage === undefined) {
         } else {
@@ -59,9 +59,9 @@ export const ModelPublications = ({ id, user, userImage, image, empress, locatio
                 <div className='row g-0 rounded overflow-hidden flex-md-row h-md-250 position-relative'>
                     <div className='col p-4 d-flex flex-column position-static text-white'>
                         <div className='row align-items-center'>
-                        <div className='col col-1'>
-                        <img className="rounded-circle imgProfile" src={imgUser} onClick={()=> navigate(`/user/${dataUser.id}`)} />
-                        </div>
+                            <div className='col col-1'>
+                                <img className="rounded-circle imgProfile" src={imgUser} onClick={() => navigate(`/userProfile/${idUser}`)} />
+                            </div>
                             <div className='col'>
                                 <strong className='d-inline-block mb-2 text-primary' >@{user}</strong>
                             </div>
