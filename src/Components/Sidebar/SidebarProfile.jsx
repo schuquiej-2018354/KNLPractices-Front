@@ -56,7 +56,7 @@ export const SidebarProfile = ({ getPublication }) => {
     const handleOpenModal = () => {
         setShowModalAddPublication(true);
     };
-    
+
     const handleCloseModal = () => {
         setShowModalAddPublication(false);
     };
@@ -81,7 +81,7 @@ export const SidebarProfile = ({ getPublication }) => {
                             </div>
                             <div className='sbText'>Home</div>
                         </li>
-                        <li className='sb nav-item lih' onClick={() => navigate('/user')} style={{ cursor: 'pointer' }}>
+                        <li className='sb nav-item lih' onClick={() => navigate(`/user/${dataUser.id}`)} style={{ cursor: 'pointer' }}>
                             <div>
                                 <a href='#' className='nav-link text-white' aria-current='page'>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' className='bi bi-person-fill' viewBox='0 0 16 16'>

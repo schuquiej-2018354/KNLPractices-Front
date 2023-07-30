@@ -4,18 +4,30 @@ import { Modal } from 'react-bootstrap'
 import { AuthContext } from '../../Index'
 import { useContext } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 export const ModalUserPage = ({ isOpen, onClose }) => {
 
     const { dataUser } = useContext(AuthContext);
     const [image, setImage] = useState('');
     const [isLoadingImage, setIsLoadingImage] = useState(true);
-    const [career, setCareer] = useState('')
+    const [career, setCareer] = useState('');
+    const [dataU, setDataU] = useState('');
+    const { id } = useParams();
+
+    const getUserById = async () => {
+        try {
+            const { data } = await axios(`http://localhost:3200/user/getById/${id}`)
+            setDataU(data.existsUser)
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     const getImage = async () => {
         try {
-            if (dataUser.image) {
-                const { data } = await axios(`http://localhost:3200/user/get-image/${dataUser.image}`, {
+            if (dataU.image) {
+                const { data } = await axios(`http://localhost:3200/user/get-image/${dataU.image}`, {
                     responseType: 'blob'
                 });
                 setImage(URL.createObjectURL(data))
@@ -31,17 +43,18 @@ export const ModalUserPage = ({ isOpen, onClose }) => {
 
     const getCareer = async () => {
         try {
-            const { data } = await axios(`http://localhost:3200/user/getById/${dataUser.id}`)
-            setCareer(data.message.career.name)
+            const { data } = await axios(`http://localhost:3200/user/getById/${id}`)
+            setCareer(data.existsUser.career.name)
         } catch (e) {
             console.log(e);
         }
     }
 
     useEffect(() => {
-        getImage(),
-            getCareer()
-    }, [dataUser.image])
+        getImage();
+        getCareer();
+        getUserById();
+    }, [dataU.image])
 
     if (!isOpen) {
         return null
@@ -70,13 +83,13 @@ export const ModalUserPage = ({ isOpen, onClose }) => {
                                     <span>
                                         <b>Name:</b>
                                     </span>
-                                    <input type='text' className='form-control' defaultValue={dataUser.name} readOnly />
+                                    <input type='text' className='form-control' defaultValue={dataU.name} readOnly />
                                 </div>
                                 <div className='col'>
                                     <span>
                                         <b>Surname:</b>
                                     </span>
-                                    <input type='text' className='form-control' defaultValue={dataUser.surname} readOnly />
+                                    <input type='text' className='form-control' defaultValue={dataU.surname} readOnly />
                                 </div>
                             </div>
                             <hr />
@@ -85,7 +98,7 @@ export const ModalUserPage = ({ isOpen, onClose }) => {
                                     <span>
                                         <b>User Name:</b>
                                     </span>
-                                    <input type='text' className='form-control' defaultValue={dataUser.username} readOnly />
+                                    <input type='text' className='form-control' defaultValue={dataU.username} readOnly />
                                 </div>
                                 <div className='col'>
                                     <span>
@@ -98,13 +111,13 @@ export const ModalUserPage = ({ isOpen, onClose }) => {
                             <label htmlFor='Name'>
                                 <b>Email:</b>
                             </label>
-                            <input type='email' className='form-control' defaultValue={dataUser.email} readOnly />
+                            <input type='email' className='form-control' defaultValue={dataU.email} readOnly />
                             <hr />
                             <label htmlFor='Name'>
                                 <b>Phone:</b>
                             </label>
                             <br />
-                            <input type='number' className='form-control' defaultValue={dataUser.phone} readOnly />
+                            <input type='number' className='form-control' defaultValue={dataU.phone} readOnly />
                             <br />
                         </div>
                     </div>
