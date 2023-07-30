@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
 import { Modal, ModalFooter } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../Index';
 
 export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
@@ -24,6 +25,11 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
     const save = async (e) => {
         try {
             const { data } = await axios.post('http://localhost:3200/question/add', form);
+            Swal.fire({
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            })
             onClose();
             getQuestions();
         } catch (e) {

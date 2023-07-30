@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Index';
 import { Modal } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 export const ModalUpdateImage = ({ isOpen, onClose, getImage }) => {
     const navigate = useNavigate();
@@ -27,6 +28,11 @@ export const ModalUpdateImage = ({ isOpen, onClose, getImage }) => {
             userData.image = data.message.image
             localStorage.setItem('userData', JSON.stringify(userData))
             setDataUser(userData);
+            Swal.fire({
+                position: 'bottom-start',
+                text: 'Image updating',
+                width: '20rem'
+            })
             getImage();
             onClose();
         } catch (e) {

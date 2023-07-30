@@ -21,8 +21,9 @@ export const ModalUpdateProfile = ({ isOpen, onClose }) => {
             }
             const { data } = await axios.put(`http://localhost:3200/user/update/${dataUser.id}`, profileUpdated)
             Swal.fire({
-                icon: 'success',
-                title: data.message
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
             })
             const userData = JSON.parse(localStorage.getItem('userData'));
             userData.name = profileUpdated.name;

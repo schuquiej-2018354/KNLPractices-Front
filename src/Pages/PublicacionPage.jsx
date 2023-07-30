@@ -1,11 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Favorite } from '../Components/Favorite/Favorite';
 import { ModalComments } from '../Components/Modal/ModalComments';
 import { ModelPublications } from '../Components/Model/ModelPublications';
 import { Navbar } from '../Components/Navbar/Navbar';
 import { Sidebar } from '../Components/Sidebar/Sidebar';
+import { AuthContext } from '../Index';
 
 export const PublicacionPage = () => {
     const [publication, setPublication] = useState([{}]);

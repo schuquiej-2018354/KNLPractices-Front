@@ -669,8 +669,8 @@ main {
 }
 
 .dxx {
-  width: 30%;
-  height: 30%;
+  width: 8rem;
+  height: 8rem;
 }
 
 /* estilos boton de comentarios */
@@ -745,4 +745,3 @@ main {
   margin-bottom: 1rem;
   cursor: pointer;
 }
-
