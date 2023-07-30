@@ -1,11 +1,17 @@
 import axios from 'axios';
 import React from 'react';
+import Swal from 'sweetalert2';
 
 export const ModelFavorite = ({ _id, empress, location, phone, update }) => {
+
     const deleteFav = async (id) => {
         try {
             const { data } = await axios.delete(`http://localhost:3200/favorite/delete/${id}`);
             update();
+            Swal.fire({
+                icon: 'success',
+                title: data.message
+            });
         } catch (e) {
             console.log(e);
         }

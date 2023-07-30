@@ -4,9 +4,6 @@ import React, { useState, useEffect } from "react";
 export const ModelComments = ({ id, user, description, time, image }) => {
 
     const [img, setImg] = useState('');
-
-    console.log(image);
-
     const getImage = async () => {
         try {
             const { data } = await axios(`http://localhost:3200/user/get-image/${image}`, {
