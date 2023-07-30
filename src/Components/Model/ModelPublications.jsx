@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Index';
 
-export const ModelPublications = ({ id, idUser, user, userImage, image, empress, location, phone, description, time, career }) => {
+export const ModelPublications = ({ updateFav, id, idUser, user, userImage, image, empress, location, phone, description, time, career }) => {
     const [img, setImg] = useState('');
     const [imgUser, setImgUser] = useState('');
     const { dataUser } = useContext(AuthContext);
@@ -41,6 +41,7 @@ export const ModelPublications = ({ id, idUser, user, userImage, image, empress,
                 publication: publication
             };
             const { data } = await axios.post('http://localhost:3200/favorite/add', datos);
+            updateFav();
             Swal.fire({
                 icon: 'success',
                 title: data.message

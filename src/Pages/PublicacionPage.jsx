@@ -13,6 +13,12 @@ export const PublicacionPage = () => {
     const [dataComments, setDataComments] = useState({});
     const [title, setTitle] = useState('');
     const { id } = useParams();
+    const { dataUser } = useContext(AuthContext)
+    const [ favoriteKey, setFavoriteKey ] = useState(0);
+
+    const handleResetFavorite = () => {
+        setFavoriteKey((prevKey) => prevKey + 1);
+    }
     const [tablePublication, setTablePublication] = useState([{}])
     const [search, setSearch] = useState('')
 
@@ -121,6 +127,7 @@ export const PublicacionPage = () => {
                             return (
                                 <div key={i}>
                                     <ModelPublications
+                                        updateFav={handleResetFavorite}
                                         id={_id}
                                         image={image}
                                         idUser={user?._id}
@@ -147,7 +154,7 @@ export const PublicacionPage = () => {
                     }
                 </div>
                 <div className="t i" style={{ width: '20%', marginLeft: '1rem' }}>
-                    <Favorite />
+                    <Favorite key={favoriteKey} />
                 </div>
             </div>
             <ModalComments

@@ -76,9 +76,10 @@ export const ModalComments = ({ isOpen, onClose, _id, idUser, image, userImage, 
                                 return (
                                     <div key={i}>
                                         <ModelComments
+                                            onClose={onClose}
                                             _id={_id}
                                             id={_id}
-                                            idUser={idUser}
+                                            idUser={user?._id}
                                             user={user?.name}
                                             description={description}
                                             time={time}
