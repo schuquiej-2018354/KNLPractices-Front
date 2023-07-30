@@ -12,8 +12,9 @@ export const ModalPutCareer = ({isOpen, onClose, datos, update}) => {
             }
             const { data } = await axios.put(`http://localhost:3200/career/update/${datos.id}`, updatedCareer)
             Swal.fire({
-                icon: 'success',
-                title: data.message,
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
             })
             update();
             onClose();

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Modal, ModalHeader } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 export const ModalAddCareer = ({ isOpen, onClose }) => {
     const navigate = useNavigate();
@@ -19,9 +20,13 @@ export const ModalAddCareer = ({ isOpen, onClose }) => {
 
     const create = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3200/career/add', form)
+            const { data } = await axios.post('http://localhost:3200/career/add', form);
+            Swal.fire({
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            });
             onClose();
-            navigate('/careers')
         } catch (e) {
             console.log(e);
         }

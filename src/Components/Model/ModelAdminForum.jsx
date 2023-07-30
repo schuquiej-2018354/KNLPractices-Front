@@ -18,11 +18,11 @@ export const ModelAdminForum = ({ _id, user, time, question, description, update
                 if (result.isConfirmed) {
                     const { data } = await axios.delete(`http://localhost:3200/question/delete/${id}`);
                     update();
-                    Swal.fire(
-                        data.message,
-                        '',
-                        'success'
-                    );
+                    Swal.fire({
+                        position: 'bottom-start',
+                        text: data.message,
+                        width: '20rem'
+                    })
                 }
             });
         } catch (e) {

@@ -40,11 +40,11 @@ export const CareerView = () => {
                 if (result.isConfirmed) {
                     const { data } = await axios.delete(`http://localhost:3200/career/delete/${id}`);
                     getCareers();
-                    Swal.fire(
-                        data.message,
-                        '',
-                        'success'
-                    );
+                    Swal.fire({
+                        position: 'bottom-start',
+                        text: data.message,
+                        width: '20rem'
+                    })
                 }
             });
 

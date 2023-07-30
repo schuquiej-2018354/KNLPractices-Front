@@ -9,9 +9,10 @@ export const ModelFavorite = ({ _id, empress, location, phone, update }) => {
             const { data } = await axios.delete(`http://localhost:3200/favorite/delete/${id}`);
             update();
             Swal.fire({
-                icon: 'success',
-                title: data.message
-            });
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            })
         } catch (e) {
             console.log(e);
         }
