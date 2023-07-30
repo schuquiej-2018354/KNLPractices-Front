@@ -78,28 +78,28 @@ export const PublicacionPage = () => {
                 <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem' }}>
                     <div className="add-question-container">
                         <h2 className='text-center text-white mb-3'>{title}</h2>
-                            <center>
-                                <div className="col-8">
-                                    <div className="input-group mb-3">
-                                        <span className="input-group-text bg6" style={{ borderColor: '#263340' }}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16" style={{ fill: 'white' }}>
-                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                            </svg>
-                                        </span>
-                                        <input
-                                            className="form-control bg6"
-                                            type="text"
-                                            name=""
-                                            id="inputFav"
-                                            placeholder="Search in KNL Practices"
-                                            style={{ borderColor: '#263340' }}
-                                        />
-                                    </div>
+                        <center>
+                            <div className="col-8">
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text bg6" style={{ borderColor: '#263340' }}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16" style={{ fill: 'white' }}>
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg>
+                                    </span>
+                                    <input
+                                        className="form-control bg6"
+                                        type="text"
+                                        name=""
+                                        id="inputFav"
+                                        placeholder="Search in KNL Practices"
+                                        style={{ borderColor: '#263340' }}
+                                    />
                                 </div>
-                            </center>
+                            </div>
+                        </center>
                     </div>
                     {
-                        publication.map(({ _id, user, image, empress, location, phone, description, time }, i) => {
+                        publication.map(({ _id, user, image, empress, location, phone, description, time, career }, i) => {
                             return (
                                 <div key={i}>
                                     <ModelPublications
@@ -113,6 +113,7 @@ export const PublicacionPage = () => {
                                         phone={phone}
                                         description={description}
                                         time={time}
+                                        career={career?.name}
                                     ></ModelPublications>
                                     <div style={{ marginBottom: '1.5rem' }}>
                                         <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, user?._id, image, user?.image, user?.name, empress, location, phone, description, time)}>

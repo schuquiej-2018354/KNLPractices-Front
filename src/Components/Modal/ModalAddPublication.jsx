@@ -51,7 +51,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
     };
 
 
-    useEffect(()=> {
+    useEffect(() => {
         getCarrers()
     }, [])
 
@@ -69,16 +69,16 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                 <Modal.Body className='bg2 text-white'>
                     <form action='#' encType='multipart/form-data'>
                         <div>
-                            <div className='row'>
-                                <div className="col">
-                                    <div>
-                                        <label className='form-label' htmlFor='inputName'>
-                                            Name
-                                        </label>
-                                        {/* <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your name' name='name' onChange={registerHandleChange} required /> */}
-                                    </div>
+                            <div>
+                                <div>
+                                    <label className='form-label' htmlFor='inputUsername'>
+                                        Empresa
+                                    </label>
+                                    <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputUsername' placeholder='Enter your username' name='empress' onChange={registerHandleChange} required />
                                 </div>
-                                <div className="col">
+                            </div>
+                            <div className='row'>
+                                <div className='col'>
                                     <label className='form-label' htmlFor='inputCareer'>
                                         Career
                                     </label>
@@ -94,16 +94,6 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                                             })
                                         }
                                     </select>
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='col'>
-                                    <div>
-                                        <label className='form-label' htmlFor='inputUsername'>
-                                            Empresa
-                                        </label>
-                                        <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputUsername' placeholder='Enter your username' name='empress' onChange={registerHandleChange} required />
-                                    </div>
                                 </div>
                                 <div className='col'>
                                     <div>
