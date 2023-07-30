@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../Index';
-import { useNavigate, useParams } from 'react-router-dom';
 
 export const ModelPublications = ({ updateFav, id, idUser, user, userImage, image, empress, location, phone, description, time, career }) => {
     const [img, setImg] = useState('');
@@ -41,6 +42,10 @@ export const ModelPublications = ({ updateFav, id, idUser, user, userImage, imag
             };
             const { data } = await axios.post('http://localhost:3200/favorite/add', datos);
             updateFav();
+            Swal.fire({
+                icon: 'success',
+                title: data.message
+            });
         } catch (e) {
             console.log(e);
         }
@@ -64,7 +69,7 @@ export const ModelPublications = ({ updateFav, id, idUser, user, userImage, imag
                                 <img className="rounded-circle imgProfile" src={imgUser} onClick={() => navigate(`/userProfile/${idUser}`)} />
                             </div>
                             <div className='col'>
-                                <strong className='d-inline-block mb-2 text-primary' onClick={() => navigate(`/userProfile/${idUser}`)} style={{cursor: 'pointer'}} >@{user}</strong>
+                                <strong className='d-inline-block mb-2 text-primary' onClick={() => navigate(`/userProfile/${idUser}`)} style={{ cursor: 'pointer' }} >@{user}</strong>
                             </div>
                             <div className='col'>
                                 <div className='mb-1 text-muted text-end' style={{ marginRight: '1rem' }}>
