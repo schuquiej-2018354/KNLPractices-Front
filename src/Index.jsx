@@ -10,6 +10,8 @@ import { ForumPage } from './Pages/ForumPage';
 import { AdminPage } from './Pages/AdminPage';
 import { CareerView } from './Pages/ViewsPage/CareerView';
 import { UsersView } from './Pages/ViewsPage/UsersView';
+import { ForumView } from './Pages/ViewsPage/ForumView';
+import { PubliView } from './Pages/ViewsPage/PubliView';
 import { UserProfile } from './Pages/UserProfile';
 
 export const AuthContext = createContext();
@@ -94,6 +96,14 @@ export const Index = () => {
                 {
                     path: '/users',
                     element: <UsersView />
+                },
+                {
+                    path: '/questions',
+                    element: <ForumView />
+                },
+                {
+                    path: '/adminpubli',
+                    element: <PubliView />
                 }
             ]
         }
