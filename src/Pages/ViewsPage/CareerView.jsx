@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 export const CareerView = () => {
     const navigate = useNavigate();
     const [careers, setCareers] = useState([{}]);
-    const [datos, setDatos] =useState({});
+    const [datos, setDatos] = useState({});
     const [showPutCareer, setShowPutCareer] = useState(false)
 
     const getCareers = async () => {
@@ -44,7 +44,7 @@ export const CareerView = () => {
                     );
                 }
             });
-            
+
         } catch (e) {
             console.log(e);
         }
@@ -58,15 +58,15 @@ export const CareerView = () => {
         }
     }
 
-    const openModalCareer = (id, name) =>{
-        let datosCareer ={
+    const openModalCareer = (id, name) => {
+        let datosCareer = {
             id: id,
             name: name
         }
         setDatos(datosCareer);
         setShowPutCareer(true)
     }
-    const closeModalCareer = () =>{
+    const closeModalCareer = () => {
         setShowPutCareer(false)
     }
 
@@ -88,6 +88,25 @@ export const CareerView = () => {
                             </div>
                         </div>
                     </nav>
+                    <center>
+                        <div className="col-8">
+                            <div className="input-group mb-3">
+                                <span className="input-group-text bg6" style={{ borderColor: '#263340' }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16" style={{ fill: 'white' }}>
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                </span>
+                                <input
+                                    className="form-control bg6"
+                                    type="text"
+                                    name=""
+                                    id="inputFav"
+                                    placeholder="Search in KNL Practices"
+                                    style={{ borderColor: '#263340' }}
+                                />
+                            </div>
+                        </div>
+                    </center>
                     <section className=''>
                         <div className='row justify-content-center'>
                             <div className='col-8'>
@@ -142,7 +161,7 @@ export const CareerView = () => {
                     </section >
                 </div>
             </div>
-            <ModalPutCareer isOpen={showPutCareer} onClose={closeModalCareer} datos={datos} update={updateData}/>
+            <ModalPutCareer isOpen={showPutCareer} onClose={closeModalCareer} datos={datos} update={updateData} />
         </>
     )
 }

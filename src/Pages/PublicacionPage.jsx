@@ -16,11 +16,13 @@ export const PublicacionPage = () => {
     const [tablePublication, setTablePublication] = useState([{}])
     const [search, setSearch] = useState('')
 
-    const handleOpenModalComment = (id, image, user, empress, location, phone, description, time) => {
+    const handleOpenModalComment = (id, idUser, image, userImage, user, empress, location, phone, description, time) => {
         setShowModalComments(true);
         let datos = {
             id: id,
+            idUser: idUser,
             image: image,
+            userImage: userImage,
             user: user,
             empress: empress,
             location: location,
@@ -115,7 +117,7 @@ export const PublicacionPage = () => {
                         </center>
                     </div>
                     {
-                        publication.map(({ _id, user, image, empress, location, phone, description, time }, i) => {
+                        publication.map(({ _id, user, image, empress, location, phone, description, time, career }, i) => {
                             return (
                                 <div key={i}>
                                     <ModelPublications
@@ -129,9 +131,10 @@ export const PublicacionPage = () => {
                                         phone={phone}
                                         description={description}
                                         time={time}
+                                        career={career?.name}
                                     ></ModelPublications>
                                     <div style={{ marginBottom: '1.5rem' }}>
-                                        <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, image, user?.name, empress, location, phone, description, time)}>
+                                        <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, user?._id, image, user?.image, user?.name, empress, location, phone, description, time)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
                                                 <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
                                             </svg>
@@ -151,7 +154,9 @@ export const PublicacionPage = () => {
                 isOpen={showModalComments}
                 onClose={handleCloseModalComment}
                 _id={dataComments.id}
+                idUser={dataComments.idUser}
                 image={dataComments.image}
+                userImage={dataComments.userImage}
                 user={dataComments.user}
                 empress={dataComments.empress}
                 location={dataComments.location}

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Index';
 
-export const ModelPublications = ({ id, idUser, user, userImage, image, empress, location, phone, description, time }) => {
+export const ModelPublications = ({ id, idUser, user, userImage, image, empress, location, phone, description, time, career }) => {
     const [img, setImg] = useState('');
     const [imgUser, setImgUser] = useState('');
     const { dataUser } = useContext(AuthContext);
@@ -106,6 +106,7 @@ export const ModelPublications = ({ id, idUser, user, userImage, image, empress,
                                     </p>
                                     &ensp; - {location}
                                 </div>
+                                <p class="card-text text-end text-muted">-{career}</p>
                             </div>
                             <div className='col'>
                                 <div className='col-auto d-none d-lg-block'>
