@@ -74,7 +74,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                                     <label className='form-label' htmlFor='inputUsername'>
                                         Empresa
                                     </label>
-                                    <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputUsername' placeholder='Enter your username' name='empress' onChange={registerHandleChange} required />
+                                    <input className='form-control bg6 ip' style={{ borderColor: '#263340' }} type='text' id='inputUsername' placeholder='Enter your username' name='empress' onChange={registerHandleChange} required />
                                 </div>
                             </div>
                             <div className='row'>
@@ -87,7 +87,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                                         {
                                             careers.map(({ _id, name }, i) => {
                                                 return (
-                                                    <option key={i} value={_id} className='form-control bg5 text-white'>
+                                                    <option key={i} value={_id} className='form-control bg5 ip text-white'>
                                                         {name}
                                                     </option>
                                                 );
@@ -100,7 +100,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                                         <label className='form-label' htmlFor='inputPhone'>
                                             Phone Number
                                         </label>
-                                        <input className='form-control input-number bg6' style={{ borderColor: '#263340' }} type='number' id='inputPhone' placeholder='Telephone' name='phone' onChange={registerHandleChange} required />
+                                        <input className='form-control input-number ip bg6' style={{ borderColor: '#263340' }} type='number' id='inputPhone' placeholder='Telephone' name='phone' onChange={registerHandleChange} required />
                                     </div>
                                 </div>
                             </div>
@@ -108,19 +108,19 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                                 <label className='form-label' htmlFor='inputEmail'>
                                     Location
                                 </label>
-                                <textarea className='form-control bg6' style={{ borderColor: '#263340' }} type='email' id='inputEmail' placeholder='Location' name='location' onChange={registerHandleChange} required />
+                                <textarea className='form-control ip bg6' style={{ borderColor: '#263340' }} type='email' id='inputEmail' placeholder='Location' name='location' onChange={registerHandleChange} required />
                             </div>
                             <div>
                                 <label className='form-label' htmlFor='inputDescriptiony'>
                                     Description
                                 </label>
-                                <textarea className='form-control bg6' style={{ borderColor: '#263340' }} type='number' id='inputDescriptiony' placeholder='Description' name='description' onChange={registerHandleChange} required />
+                                <textarea className='form-control ip  bg6' style={{ borderColor: '#263340' }} type='number' id='inputDescriptiony' placeholder='Description' name='description' onChange={registerHandleChange} required />
                             </div>
                             <div>
                                 <label className='form-label' htmlFor='inputImage'>
                                     Imge
                                 </label>
-                                <input className='form-control bg6' style={{ borderColor: '#263340' }} type='file' id='inputImage' placeholder='Enter your Image' name='image'
+                                <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='file' id='inputImage' placeholder='Enter your Image' name='image'
                                     onChange={(e) => {
                                         setForm({
                                             ...form,

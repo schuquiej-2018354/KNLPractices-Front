@@ -29,6 +29,13 @@
 .lih2:hover {
   background-color: #263340;
 }
+.ip:focus{
+  background-color: #1E2732;
+  color: white;
+}
+.ip{
+  color: white;
+}
 
 
 .t {
@@ -482,14 +489,10 @@ main {
 }
 
 .textarea {
-  background-color: white;
-  /* Cambia el color de fondo del textarea */
-  color: #333;
-  /* Cambia el color del texto dentro del textarea */
-  border: none;
-  /* Cambia el estilo del borde del textarea */
+  background-color: #263340;
+  color: white;
+  border: 15px;
   padding: 8px;
-  /* Añade un espacio interno alrededor del contenido del textarea */
   width: 100%;
   border-radius: 0.5rem;
   text-indent: 1rem;

@@ -49,13 +49,14 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
                             <label className='form-label' htmlFor='inputName'>
                                 Question
                             </label>
-                            <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your question' name='question' onChange={formForumHandleChange} required />
+                            <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your question' name='question' onChange={formForumHandleChange} required />
                         </div>
                         <div>
-                            <div className='row'>
-                                <div class="form-group">
-                                    <textarea name='description' className="textarea" id="description" rows="3" placeholder='Write a question' onChange={formForumHandleChange}></textarea>
-                                </div>
+                            <div class="form-group">
+                                <label className='form-label' htmlFor='inputName'>
+                                    Description
+                                </label>
+                                <textarea name='description' className="textarea" id="description" placeholder='Write a question' onChange={formForumHandleChange}></textarea>
                             </div>
                         </div>
                     </form>
