@@ -34,6 +34,26 @@ export const Favorite = () => {
     return (
         <>
             <div className="row" style={{ width: '100%' }}>
+                <h1 className="text-center text-white" style={{ fontSize: '2rem' }}>FAVORITES</h1>
+                <div className="overflow-auto scroll-invisible-container" style={{ height: "75vh"}}>
+                    {
+                        fav.map(({ _id, owner, publication }, i) => {
+                            return (
+                                <div key={i}>
+                                    <ModelFavorite
+                                        _id={_id}
+                                        user={owner?.name}
+                                        empress={publication?.empress}
+                                        location={publication?.location}
+                                        phone={publication?.phone}
+                                        description={publication?.description}
+                                        update={updateData}
+                                    ></ModelFavorite>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
                 <div style={{ marginBottom: '20px', display: 'flex' }} >
                     <div className="col-8" style={{ width: '75%' }}>
                         <input
@@ -52,26 +72,6 @@ export const Favorite = () => {
                     </button>
                     <div className="col" >
                     </div>
-                </div>
-                <h1 className="text-center text-white" style={{ fontSize: '2rem' }}>FAVORITES</h1>
-                <div className="overflow-auto scroll-invisible-container" style={{ height: "88vh"}}>
-                    {
-                        fav.map(({ _id, owner, publication }, i) => {
-                            return (
-                                <div key={i}>
-                                    <ModelFavorite
-                                        _id={_id}
-                                        user={owner?.name}
-                                        empress={publication?.empress}
-                                        location={publication?.location}
-                                        phone={publication?.phone}
-                                        description={publication?.description}
-                                        update={updateData}
-                                    ></ModelFavorite>
-                                </div>
-                            )
-                        })
-                    }
                 </div>
             </div >
         </>

@@ -75,7 +75,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                                         <label className='form-label' htmlFor='inputName'>
                                             Name
                                         </label>
-                                        <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your name' name='name' onChange={registerHandleChange} required />
+                                        {/* <input className='form-control bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your name' name='name' onChange={registerHandleChange} required /> */}
                                     </div>
                                 </div>
                                 <div className="col">

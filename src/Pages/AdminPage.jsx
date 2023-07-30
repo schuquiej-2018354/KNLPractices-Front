@@ -72,7 +72,7 @@ export const AdminPage = () => {
                                         <ul className="list-unstyled mt-3 mb-4">
                                             <img src={Publication} alt="Accounts Image" className="card-img" style={{ width: "20rem", height: "13rem" }} />
                                         </ul>
-                                        <button onClick={() => navigate('/profile/viewRooms')} type="button" className="w-100 btn btn-lg btn-outline-success" >View</button>
+                                        <button onClick={() => navigate('/adminpubli')} type="button" className="w-100 btn btn-lg btn-outline-success" >View</button>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@ export const AdminPage = () => {
                                         <ul className="list-unstyled mt-3 mb-4">
                                             <img src={Forum} alt="Cellars Image" className='card-img' style={{ width: "20rem", height: "13rem" }} />
                                         </ul>
-                                        <button onClick={() => navigate('/profile/viewEventType')} type='button' className='w-100 btn btn-lg btn-outline-success'>View</button>
+                                        <button onClick={() => navigate('/questions')} type='button' className='w-100 btn btn-lg btn-outline-success'>View</button>
                                     </div>
                                 </div>
                             </div>
