@@ -22,10 +22,11 @@ export const ForumPage = () => {
         setShowModalAddForum(false);
     }
 
-    const handleOpenModalResponses = (id, user, description, time) => {
+    const handleOpenModalResponses = (id, idUser, user, description, time) => {
         setShowModalResponses(true);
         let datos = {
             id: id,
+            idUser: idUser,
             user: user,
             description: description,
             time: time
@@ -71,7 +72,7 @@ export const ForumPage = () => {
                                         description={description}
                                         time={time}
                                     ></ModelForum>
-                                    <button className='btnComent bx' style={{ width: '100%' }} onClick={() => handleOpenModalResponses(_id, user?.name, description, time)}>View Responses</button>
+                                    <button className='btnComent bx' style={{ width: '100%' }} onClick={() => handleOpenModalResponses(_id, user?._id,user?.name, description, time)}>View Responses</button>
                                 </div>
                             )
                         })
@@ -86,6 +87,7 @@ export const ForumPage = () => {
                 isOpen={showModalResponses}
                 onClose={handleCloseModalResponses}
                 _id={dataForum.id}
+                idUser={dataForum.idUser}
                 user={dataForum.user}
                 description={dataForum.description}
                 time={dataForum.time}

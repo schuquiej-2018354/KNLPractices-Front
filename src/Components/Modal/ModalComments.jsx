@@ -6,7 +6,7 @@ import { AuthContext } from '../../Index'
 import { ModelComments } from '../Model/ModelComments'
 import { ModelPublications } from '../Model/ModelPublications'
 
-export const ModalComments = ({ isOpen, onClose, _id, image, user, empress, location, phone, description, time }) => {
+export const ModalComments = ({ isOpen, onClose, _id, idUser, image, userImage, user, empress, location, phone, description, time }) => {
     const navigate = useNavigate();
     const [comments, setCommemts] = useState([{}]);
     const [functionExecuted, setFunctionExecuted] = useState(false);
@@ -19,7 +19,7 @@ export const ModalComments = ({ isOpen, onClose, _id, image, user, empress, loca
                 setCommemts(data.comments);
                 setFunctionExecuted(true);
             }
-            setFunctionExecuted(false)
+            setFunctionExecuted(false);
         } catch (e) {
             console.log(e);
         }
@@ -55,6 +55,8 @@ export const ModalComments = ({ isOpen, onClose, _id, image, user, empress, loca
                         <ModelPublications
                             id={_id}
                             image={image}
+                            idUser={idUser}
+                            userImage={userImage}
                             user={user}
                             empress={empress}
                             location={location}
@@ -68,6 +70,7 @@ export const ModalComments = ({ isOpen, onClose, _id, image, user, empress, loca
                                     <div key={i}>
                                         <ModelComments
                                             id={_id}
+                                            idUser={idUser}
                                             user={user?.name}
                                             description={description}
                                             time={time}

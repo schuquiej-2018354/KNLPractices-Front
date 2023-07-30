@@ -7,7 +7,7 @@ import { ModelComments } from '../Model/ModelComments'
 import { ModelForum } from '../Model/ModelForum'
 import { ModelPublications } from '../Model/ModelPublications'
 
-export const ModalForumanswers = ({ isOpen, onClose, _id, user, description, time}) => {
+export const ModalForumanswers = ({ isOpen, onClose, _id, idUser, user, description, time}) => {
     const [responses, setResponses] = useState([{}]);
     const [functionExecuted, setFunctionExecuted] = useState(false);
     const { dataUser } = useContext(AuthContext);
@@ -64,6 +64,7 @@ export const ModalForumanswers = ({ isOpen, onClose, _id, user, description, tim
                                     <ModelComments
                                         id={_id}
                                         user={user?.name}
+                                        idUser={idUser}
                                         description={description}
                                         time={time}
                                         image={user?.image}
