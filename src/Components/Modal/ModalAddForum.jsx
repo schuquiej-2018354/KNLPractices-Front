@@ -47,6 +47,7 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
                             &times;
                         </span>
                     </button>
+                    
                 </Modal.Header>
                 <Modal.Body className='bg2 text-white'>
                     <form action='#' encType='multipart/form-data'>
@@ -57,7 +58,7 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
                             <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your question' name='question' onChange={formForumHandleChange} required />
                         </div>
                         <div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label className='form-label' htmlFor='inputName'>
                                     Description
                                 </label>
