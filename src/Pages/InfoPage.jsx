@@ -24,11 +24,11 @@ export const InfoPage = () => {
                 </div>
 
                 <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '80%' }}>
-                    <section class="slider_section ">
-                        <div class="container ">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="detail-box">
+                    <section className="slider_section ">
+                        <div className="container ">
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="detail-box">
                                         <h1>
                                             KNL <br />
                                             <span>
@@ -43,25 +43,25 @@ export const InfoPage = () => {
                                 </a> */}
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="img-box">
+                                <div className="col-md-6">
+                                    <div className="img-box">
                                         <img src={imagest} alt="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section class="about_section">
-                        <div class="container  ">
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="img-box">
+                    <section className="about_section">
+                        <div className="container  ">
+                            <div className="row">
+                                <div className="col-md-6 ">
+                                    <div className="img-box">
                                         <img src={abU} alt="" />
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="detail-box">
-                                        <div class="heading_container">
+                                <div className="col-md-6">
+                                    <div className="detail-box">
+                                        <div className="heading_container">
                                             <h2>
                                                 About <span>Us</span>
                                             </h2>
@@ -78,9 +78,9 @@ export const InfoPage = () => {
                         </div>
                     </section>
                     <section>
-                        <div class="containerOptions">
-                            <div class="columns">
-                                <div class="content">
+                        <div className="containerOptions">
+                            <div className="columns">
+                                <div className="content">
                                     <img style={{ height: '150px', marginBottom: '25px' }} src={mision}></img>
                                     <h4 style={{ fontSize: '2em' }}>
                                         Nuestra Misión
@@ -90,8 +90,8 @@ export const InfoPage = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div class="columns">
-                                <div class="content">
+                            <div className="columns">
+                                <div className="content">
                                     <img style={{ height: '180px', marginBottom: '25px' }} src={compro}></img>
                                     <h4 style={{ fontSize: '2em' }}>
                                         Nuestro Compromiso
@@ -100,8 +100,8 @@ export const InfoPage = () => {
                                         Nuestro compromiso es con el crecimiento y desarrollo profesional de nuestros graduandos. Trabajamos incansablemente para ofrecer una plataforma sencilla y eficiente que conecte a nuestros estudiantes con empresas que buscan talento joven y entusiasta. Creemos en el potencial de nuestros graduandos y nos enorgullecemos de ser parte de su camino hacia un futuro exitoso.              </p>
                                 </div>
                             </div>
-                            <div class="columns">
-                                <div class="content">
+                            <div className="columns">
+                                <div className="content">
                                     <img style={{ height: '150px', marginBottom: '20px' }} src={pq}></img>
                                     <h2 style={{ fontSize: '2em' }} >¿Por qué elegirnos?</h2>
                                     <p>

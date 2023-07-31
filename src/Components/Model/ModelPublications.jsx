@@ -49,12 +49,12 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                 publication: publication
             };
             const { data } = await axios.post('http://localhost:3200/favorite/add', datos);
-            updateFav();
             Swal.fire({
                 position: 'bottom-start',
                 text: data.message,
                 width: '20rem'
             })
+            updateFav();
         } catch (e) {
             console.log(e);
         }
@@ -187,7 +187,7 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                             </div>
                             <div className='col' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div className='col-auto d-none d-lg-block' >
-                                    <img src={img} alt='' style={{ width: '15.7rem', height: '13.5rem' }} />
+                                    <img src={img} alt='' style={{ width: '13rem', height: '13.5rem' }} />
                                 </div>
                             </div>
                         </div>
