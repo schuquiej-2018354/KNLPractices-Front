@@ -9,6 +9,7 @@ import { SidebarProfile } from '../Components/Sidebar/SidebarProfile';
 import { AuthContext } from '../Index';
 import portada from '../assets/img/portada.jpg';
 import { ModalComments } from '../Components/Modal/ModalComments';
+import { ModalForumanswers } from '../Components/Modal/ModalForumanswers'
 
 export const UserProfile = () => {
     const { dataUser } = useContext(AuthContext);
@@ -18,6 +19,8 @@ export const UserProfile = () => {
     const { id } = useParams();
     const [showModalComments, setShowModalComments] = useState(false);
     const [dataComments, setDataComments] = useState({});
+    const [showModalResponses, setShowModalResponses] = useState(false);
+    const [dataForum, setDataForum] = useState({});
 
     const [isLoadingImage, setIsLoadingImage] = useState(true);
     const [image, setImage] = useState('')
@@ -94,6 +97,23 @@ export const UserProfile = () => {
     const handleCloseModalDT = () => {
         setshowModalDT(false);
     };
+
+
+    const handleOpenModalResponses = (id, idUser, user, description, question, time) => {
+        setShowModalResponses(true);
+        let datos = {
+            id: id,
+            idUser: idUser,
+            user: user,
+            description: description,
+            question: question,
+            time: time
+        }
+        setDataForum(datos);
+    }
+    const handleCloseModalResponses = () => {
+        setShowModalResponses(false);
+    }
 
     useEffect(() => {
         getPublicationsUser();
@@ -198,6 +218,16 @@ export const UserProfile = () => {
                 description={dataComments.description}
                 time={dataComments.time}
             ></ModalComments>
+            <ModalForumanswers
+                isOpen={showModalResponses}
+                onClose={handleCloseModalResponses}
+                _id={dataForum.id}
+                idUser={dataForum.idUser}
+                user={dataForum.user}
+                question={dataForum.question}
+                description={dataForum.description}
+                time={dataForum.time}
+            ></ModalForumanswers>
         </>
     );
 }

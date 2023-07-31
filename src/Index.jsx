@@ -13,6 +13,7 @@ import { UsersView } from './Pages/ViewsPage/UsersView';
 import { ForumView } from './Pages/ViewsPage/ForumView';
 import { PubliView } from './Pages/ViewsPage/PubliView';
 import { UserProfile } from './Pages/UserProfile';
+import { InfoPage } from './Pages/InfoPage';
 
 export const AuthContext = createContext();
 
@@ -104,6 +105,10 @@ export const Index = () => {
                 {
                     path: '/adminpubli',
                     element: <PubliView />
+                },
+                {
+                    path: '/info',
+                    element: <InfoPage/>
                 }
             ]
         }

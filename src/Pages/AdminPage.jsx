@@ -36,7 +36,7 @@ export const AdminPage = () => {
                 <div className="t i" style={{ width: '20%' }}>
                     <Sidebar />
                 </div>
-                <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem' }}>
+                <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '70%', marginRight: '1rem', marginLeft: '4rem' }}>
                     <div className="container py-3">
                         <header>
                             <div className="pricing-header p-3 pb-md-4 mx-auto text-center">
@@ -109,9 +109,6 @@ export const AdminPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="t i" style={{ width: '20%', marginLeft: '1rem' }}>
-                    <Favorite />
                 </div>
             </div>
             <ModalAddCareer isOpen={showModalCareer} onClose={closeModalCareer} />
