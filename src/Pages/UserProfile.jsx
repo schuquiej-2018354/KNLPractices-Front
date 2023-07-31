@@ -12,6 +12,7 @@ import { SidebarProfile } from '../Components/Sidebar/SidebarProfile';
 import { AuthContext } from '../Index';
 import portada from '../assets/img/portada.jpg';
 import { ModalComments } from '../Components/Modal/ModalComments';
+import { ModalForumanswers } from '../Components/Modal/ModalForumanswers'
 
 export const UserProfile = () => {
     const { dataUser } = useContext(AuthContext);
@@ -23,6 +24,8 @@ export const UserProfile = () => {
     const { id } = useParams();
     const [showModalComments, setShowModalComments] = useState(false);
     const [dataComments, setDataComments] = useState({});
+    const [showModalResponses, setShowModalResponses] = useState(false);
+    const [dataForum, setDataForum] = useState({});
 
     const [isLoadingImage, setIsLoadingImage] = useState(true);
     const [image, setImage] = useState('')
@@ -92,15 +95,6 @@ export const UserProfile = () => {
         }
     }
 
-
-    const handleOpenModalUpIMG = () => {
-        setShowModalUpdateIMG(true);
-    };
-
-    const handleCloseModalUpIMG = () => {
-        setShowModalUpdateIMG(false);
-    };
-
     const handleOpenModalDT = () => {
         setshowModalDT(true);
     };
@@ -109,12 +103,20 @@ export const UserProfile = () => {
         setshowModalDT(false);
     };
 
-    const handleOpenModalUpdateDT = () => {
-        setShoModalUpdateDT(true)
+    const handleOpenModalResponses = (id, idUser, user, description, question, time) => {
+        setShowModalResponses(true);
+        let datos = {
+            id: id,
+            idUser: idUser,
+            user: user,
+            description: description,
+            question: question,
+            time: time
+        }
+        setDataForum(datos);
     }
-
-    const handleCloseModalUpdateDT = () => {
-        setShoModalUpdateDT(false)
+    const handleCloseModalResponses = () => {
+        setShowModalResponses(false);
     }
 
     useEffect(() => {
@@ -153,8 +155,6 @@ export const UserProfile = () => {
                             </div>
                             <div className='contHeadUP3'>
                                 <div className='contHeadUP3-BTNS'>
-                                    <input type='button' className='btn btn-primary ' value='Editar Foto' onClick={handleOpenModalUpIMG} />
-                                    <input type='button' className='btn btn-primary' value='Editar Perfil' onClick={handleOpenModalUpdateDT} />
                                     <input type='button' className='btn btn-primary' value='...' onClick={handleOpenModalDT} />
                                 </div>
                             </div>
@@ -207,9 +207,7 @@ export const UserProfile = () => {
                     </div>
                 </div >
             </div >
-            <ModalUpdateImage isOpen={showModalUpdateIMG} onClose={handleCloseModalUpIMG} getImage={getImage} />
             <ModalUserPage isOpen={showModalDT} onClose={handleCloseModalDT} />
-            <ModalUpdateProfile isOpen={shoModalUpdateDT} onClose={handleCloseModalUpdateDT} />
             <ModalComments
                 isOpen={showModalComments}
                 onClose={handleCloseModalComment}
@@ -224,6 +222,16 @@ export const UserProfile = () => {
                 description={dataComments.description}
                 time={dataComments.time}
             ></ModalComments>
+            <ModalForumanswers
+                isOpen={showModalResponses}
+                onClose={handleCloseModalResponses}
+                _id={dataForum.id}
+                idUser={dataForum.idUser}
+                user={dataForum.user}
+                question={dataForum.question}
+                description={dataForum.description}
+                time={dataForum.time}
+            ></ModalForumanswers>
         </>
     );
 }

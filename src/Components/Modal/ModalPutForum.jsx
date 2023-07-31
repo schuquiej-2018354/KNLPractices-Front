@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { Modal } from 'react-bootstrap'
+import Swal from 'sweetalert2'
 
 export const ModalPutForum = ({ isOpen, onClose, dataUp, id, update }) => {
 
@@ -14,6 +15,11 @@ export const ModalPutForum = ({ isOpen, onClose, dataUp, id, update }) => {
             const { data } = await axios.put(`http://localhost:3200/question/update/${id}`, questionUpdate)
             update();
             onClose();
+            Swal.fire({
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            });
         } catch (e) {
             console.log(e);
         }
