@@ -6,6 +6,9 @@ import { ModalComments } from '../Components/Modal/ModalComments';
 import { ModelPublications } from '../Components/Model/ModelPublications';
 import { Navbar } from '../Components/Navbar/Navbar';
 import { Sidebar } from '../Components/Sidebar/Sidebar';
+import { AuthContext } from '../Index';
+import { useContext } from 'react';
+
 
 export const PublicacionPage = () => {
     const [publication, setPublication] = useState([{}]);
@@ -14,7 +17,7 @@ export const PublicacionPage = () => {
     const [title, setTitle] = useState('');
     const { id } = useParams();
     const { dataUser } = useContext(AuthContext)
-    const [ favoriteKey, setFavoriteKey ] = useState(0);
+    const [favoriteKey, setFavoriteKey] = useState(0);
 
     const handleResetFavorite = () => {
         setFavoriteKey((prevKey) => prevKey + 1);
@@ -71,7 +74,7 @@ export const PublicacionPage = () => {
             getPublicationByCarrer();
         }
     }
-    
+
     const handleSearh = (e) => {
         setSearch(e.target.value);
         filtrar(e.target.value);
@@ -88,7 +91,7 @@ export const PublicacionPage = () => {
 
     useEffect(() => {
         getPublications();
-    }, [id]);
+    }, []);
 
     return (
         <>
@@ -139,6 +142,7 @@ export const PublicacionPage = () => {
                                         description={description}
                                         time={time}
                                         career={career?.name}
+                                        update={getPublicationsAll}
                                     ></ModelPublications>
                                     <div style={{ marginBottom: '1.5rem' }}>
                                         <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, user?._id, image, user?.image, user?.name, empress, location, phone, description, time)}>

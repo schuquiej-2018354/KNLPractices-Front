@@ -76,6 +76,15 @@ export const UserPage = () => {
         }
     }
 
+    const updateData = async () => {
+        try {
+            getPublicationsUser()
+            getQuestionsUser()
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     const getQuestionsUser = async () => {
         try {
             const { data } = await axios(`http://localhost:3200/question/getById/${id}`);
@@ -122,7 +131,7 @@ export const UserPage = () => {
                 <div className='t i' style={{ width: '20%' }}>
                     <SidebarProfile />
                 </div>
-                <div className='divUP t overflow-auto scroll-invisible-container' style={{maxHeight: 'calc(110vh - 100px)', width: '75%', marginLeft: '2rem'}} >
+                <div className='divUP t overflow-auto scroll-invisible-container' style={{ maxHeight: 'calc(110vh - 100px)', width: '75%', marginLeft: '2rem' }} >
                     <div className='headUP'>
                         <div className='headUP-sub'>
                             <img src={portada} alt="" />
@@ -158,6 +167,7 @@ export const UserPage = () => {
                                         <ModelPublications
                                             id={_id}
                                             image={image}
+                                            idUser={user?._id}
                                             user={user?.name}
                                             userImage={user?.image}
                                             empress={empress}
@@ -165,15 +175,16 @@ export const UserPage = () => {
                                             phone={phone}
                                             description={description}
                                             time={time}
+                                            update={updateData}
                                         ></ModelPublications>
                                         <div style={{ marginBottom: '1.5rem' }}>
-                                        <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, user?._id, image, user?.image, user?.name, empress, location, phone, description, time)}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
-                                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
-                                            </svg>
-                                            Show comments
-                                        </button>
-                                    </div>
+                                            <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, user?._id, image, user?.image, user?.name, empress, location, phone, description, time)}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat-left-text-fill" viewBox="0 0 16 16">
+                                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
+                                                </svg>
+                                                Show comments
+                                            </button>
+                                        </div>
                                     </div>
                                 )
                             })
@@ -184,10 +195,12 @@ export const UserPage = () => {
                                     <div key={index}>
                                         <ModelForum
                                             id={_id}
+                                            idUser={user?._id}
                                             user={user?.name}
                                             question={question}
                                             description={description}
                                             time={time}
+                                            update={updateData}
                                         ></ModelForum>
                                         <button className='btnComent bx' style={{ width: '100%' }} onClick={() => handleOpenModalResponses(_id, user?.name, description, time)}>View Responses</button>
                                     </div>
@@ -196,9 +209,6 @@ export const UserPage = () => {
                         }
                     </div>
                 </div >
-                {/* <div className='col col-2 t' style={{ width: '20%' }}>
-                    <Favorite />
-                </div> */}
             </div >
             <ModalUpdateImage isOpen={showModalUpdateIMG} onClose={handleCloseModalUpIMG} getImage={getImage} />
             <ModalUserPage isOpen={showModalDT} onClose={handleCloseModalDT} />

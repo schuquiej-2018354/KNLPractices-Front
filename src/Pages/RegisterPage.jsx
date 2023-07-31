@@ -41,6 +41,9 @@ export const RegisterPage = () => {
                 icon: 'success',
                 title: data.message
             });
+            if (data.message == 'User created') {
+                navigate('/')
+            }
         } catch (e) {
             console.log(e);
         }

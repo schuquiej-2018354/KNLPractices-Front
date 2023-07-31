@@ -1,35 +1,23 @@
-import axios from 'axios';
-import React, { useEffect, useState, useContext } from 'react';
-import { Modal, ModalFooter } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../Index';
+import axios from 'axios'
+import React from 'react'
+import { Modal } from 'react-bootstrap'
 
-export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
+export const ModalPutForum = ({ isOpen, onClose, dataUp, id, update }) => {
 
-    const { dataUser } = useContext(AuthContext)
-    const [form, setForm] = useState({
-        user: '',
-        question: '',
-        description: ''
-    });
 
-    const formForumHandleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value,
-            user: dataUser.id
-        });
-    };
-
-    const save = async (e) => {
+    const updateQuestion = async () => {
         try {
-            const { data } = await axios.post('http://localhost:3200/question/add', form);
+            let questionUpdate = {
+                question: document.getElementById('inputQuestion').value,
+                description: document.getElementById('inputDescription').value
+            }
+            const { data } = await axios.put(`http://localhost:3200/question/update/${id}`, questionUpdate)
+            update();
             onClose();
-            getQuestions();
         } catch (e) {
             console.log(e);
         }
-    };
+    }
 
     return (
         <>
@@ -41,7 +29,7 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
                             &times;
                         </span>
                     </button>
-                    
+
                 </Modal.Header>
                 <Modal.Body className='bg2 text-white'>
                     <form action='#' encType='multipart/form-data'>
@@ -49,26 +37,26 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
                             <label className='form-label' htmlFor='inputName'>
                                 Question
                             </label>
-                            <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your question' name='question' onChange={formForumHandleChange} required />
+                            <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputQuestion' placeholder='Enter your question' name='question' defaultValue={dataUp.question} />
                         </div>
                         <div>
-                            <div className="form-group">
+                            <div className='form-group'>
                                 <label className='form-label' htmlFor='inputName'>
                                     Description
                                 </label>
-                                <textarea name='description' className="textarea" id="description" placeholder='Write a question' onChange={formForumHandleChange}></textarea>
+                                <textarea name='description' className='textarea' id='inputDescription' placeholder='Write a question' defaultValue={dataUp.description}></textarea>
                             </div>
                         </div>
                     </form>
                 </Modal.Body>
                 <Modal.Footer className='bg2 text-white'>
                     <div className='reg_btn'>
-                        <button className='btn btn-primary' type='button' onClick={(e) => save(e)}>
-                            Post
+                        <button className='btn btn-primary' type='button' onClick={() => updateQuestion()}>
+                            Update
                         </button>
                     </div>
                 </Modal.Footer>
             </Modal>
         </>
     );
-};
+}

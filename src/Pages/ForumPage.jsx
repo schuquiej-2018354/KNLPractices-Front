@@ -22,13 +22,14 @@ export const ForumPage = () => {
         setShowModalAddForum(false);
     }
 
-    const handleOpenModalResponses = (id, idUser, user, description, time) => {
+    const handleOpenModalResponses = (id, idUser, user, description, question, time) => {
         setShowModalResponses(true);
         let datos = {
             id: id,
             idUser: idUser,
             user: user,
             description: description,
+            question: question,
             time: time
         }
         setDataForum(datos);
@@ -67,12 +68,14 @@ export const ForumPage = () => {
                                 <div key={index}>
                                     <ModelForum
                                         id={_id}
+                                        idUser={user?._id}
                                         user={user?.name}
                                         question={question}
                                         description={description}
                                         time={time}
+                                        update={getQuestions}
                                     ></ModelForum>
-                                    <button className='btnComent bx' style={{ width: '100%' }} onClick={() => handleOpenModalResponses(_id, user?._id,user?.name, description, time)}>View Responses</button>
+                                    <button className='btnComent bx' style={{ width: '100%' }} onClick={() => handleOpenModalResponses(_id, user?._id, user?.name, description, question, time)}>View Responses</button>
                                 </div>
                             )
                         })
@@ -89,6 +92,7 @@ export const ForumPage = () => {
                 _id={dataForum.id}
                 idUser={dataForum.idUser}
                 user={dataForum.user}
+                question={dataForum.question}
                 description={dataForum.description}
                 time={dataForum.time}
             ></ModalForumanswers>
