@@ -99,7 +99,7 @@ export const PublicacionPage = () => {
                 <div className="t i" style={{ width: '20%' }}>
                     <Sidebar getPublication={getPublications}></Sidebar>
                 </div>
-                <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem' }}>
+                <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem', height: '90vh' }}>
                     <div className="add-question-container">
                         <h2 className='text-center text-white mb-3'>{title}</h2>
                         <center>

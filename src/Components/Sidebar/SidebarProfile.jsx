@@ -133,11 +133,13 @@ export const SidebarProfile = ({ getPublication }) => {
                         </button>
                     </div>
                 </div>
-                <hr />
-                <div className='btnLogOut' onClick={logOut}>
-                    <a href='#' className='d-flex align-items-center text-white text-decoration-none' data-bs-toggle='dropdown' aria-expanded='false'>
-                        <strong>LogOut</strong>
-                    </a>
+                <div style={{ marginTop: '8rem' }}>
+                    <hr />
+                    <div className='btnLogOut' onClick={logOut}>
+                        <a href='#' className='d-flex align-items-center text-white text-decoration-none' data-bs-toggle='dropdown' aria-expanded='false'>
+                            <strong>LogOut</strong>
+                        </a>
+                    </div>
                 </div>
             </div>
             <ModalAddPublication isOpen={showModalAddPublication} onClose={handleCloseModal} getPublications={getPublication} />

@@ -117,7 +117,7 @@ export const ModalUserPage = ({ isOpen, onClose }) => {
                                 <b>Phone:</b>
                             </label>
                             <br />
-                            <input type='number' className='form-control' defaultValue={dataU.phone} readOnly />
+                            <input type='text' className='form-control' defaultValue={dataU.phone} readOnly />
                             <br />
                         </div>
                     </div>

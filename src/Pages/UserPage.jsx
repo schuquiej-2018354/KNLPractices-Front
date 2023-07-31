@@ -131,7 +131,7 @@ export const UserPage = () => {
                 <div className='t i' style={{ width: '20%' }}>
                     <SidebarProfile />
                 </div>
-                <div className='divUP t overflow-auto scroll-invisible-container' style={{ maxHeight: 'calc(110vh - 100px)', width: '75%', marginLeft: '2rem' }} >
+                <div className='divUP t overflow-auto scroll-invisible-container' style={{ maxHeight: 'calc(110vh - 100px)', width: '75%', marginLeft: '2rem', height: '85vh' }} >
                     <div className='headUP'>
                         <div className='headUP-sub'>
                             <img src={portada} alt="" />
@@ -152,8 +152,14 @@ export const UserPage = () => {
                             </div>
                             <div className='contHeadUP3'>
                                 <div className='contHeadUP3-BTNS'>
-                                    <input type='button' className='btn btn-primary ' value='Editar Foto' onClick={handleOpenModalUpIMG} />
-                                    <input type='button' className='btn btn-primary' value='Editar Perfil' onClick={handleOpenModalUpdateDT} />
+                                    {
+                                        dataUser.role != 'ADMIN' ? (
+                                            <div>
+                                                <input type='button' className='btn btn-primary ' value='Editar Foto' onClick={handleOpenModalUpIMG} />
+                                                <input type='button' className='btn btn-primary' value='Editar Perfil' onClick={handleOpenModalUpdateDT} />
+                                            </div>
+                                        ) : <></>
+                                    }
                                     <input type='button' className='btn btn-primary' value='...' onClick={handleOpenModalDT} />
                                 </div>
                             </div>
