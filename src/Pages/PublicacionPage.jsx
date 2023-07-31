@@ -140,6 +140,7 @@ export const PublicacionPage = () => {
                                         phone={phone}
                                         description={description}
                                         time={time}
+                                        idCareer={career?._id}
                                         career={career?.name}
                                         update={getPublicationsAll}
                                     ></ModelPublications>

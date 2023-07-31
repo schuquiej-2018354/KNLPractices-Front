@@ -3,7 +3,7 @@ import { Modal } from 'react-bootstrap'
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
-export const ModalPutPublication = ({ isOpen, onClose, id, dataPu }) => {
+export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => {
     const [career, setCareer] = useState([{}])
 
     const getCareers = async (e) => {
@@ -18,6 +18,7 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu }) => {
     const updatePublication = async () => {
         try {
             const formData = new FormData();
+            console.log(document.getElementById('inputCareer').value);
             formData.append('empress', document.getElementById('inputEmpress').value);
             formData.append('career', document.getElementById('inputCareer').value);
             formData.append('phone', document.getElementById('inputPhone').value);
@@ -37,6 +38,7 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu }) => {
                 text: data.message,
                 width: '20rem'
             })
+            update();
             onClose();
         } catch (e) {
             console.log(e);
@@ -80,7 +82,7 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu }) => {
                                         Career
                                     </label>
                                     <select className='form-control bg6 selectCareer' aria-label='Default select example' name='career' id='inputCareer'  >
-                                        <option className='form-control' >{dataPu.career}</option>
+                                        <option className='form-control' value={dataPu.idCareer} >{dataPu.career}</option>
                                         {
                                             career.map(({ _id, name }, i) => {
                                                 return (

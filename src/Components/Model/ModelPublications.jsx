@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../Index';
 import { ModalPutPublication } from '../Modal/ModalUpdate/ModalPutPublication'
 
-export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage, image, empress, location, phone, description, time, career, update, type }) => {
+export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage, image, empress, location, phone, description, time, idCareer, career, update, type }) => {
     const [img, setImg] = useState('');
     const [imgUser, setImgUser] = useState('');
     const { dataUser } = useContext(AuthContext);
@@ -183,7 +183,7 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                     </div>
                 </div>
             </div >
-            <ModalPutPublication isOpen={showModalUpdate} onClose={handleCloseModalUp} dataPu={{ empress, location, phone, description, career, image }} id={id} />
+            <ModalPutPublication isOpen={showModalUpdate} onClose={handleCloseModalUp} dataPu={{ empress, location, phone, description, career, image, idCareer }} update={update} id={id} />
         </>
     );
 };
