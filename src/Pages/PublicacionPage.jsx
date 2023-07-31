@@ -19,6 +19,7 @@ export const PublicacionPage = () => {
 
     const handleResetFavorite = () => {
         setFavoriteKey((prevKey) => prevKey + 1);
+        /* aumentamos setFavorite utilizando una funcion de flecha de una linea, el cual tiene el valor prevKey que es 0 y le aumente en 1 */ 
     }
     const [tablePublication, setTablePublication] = useState([{}])
     const [search, setSearch] = useState('')
@@ -158,7 +159,7 @@ export const PublicacionPage = () => {
                     }
                 </div>
                 <div className="t i" style={{ width: '20%', marginLeft: '1rem' }}>
-                    <Favorite key={favoriteKey} />
+                    <Favorite key={favoriteKey} /> { /* cada vez que cambia favoriteKey se reinicia el componente */ }
                 </div>
             </div>
             <ModalComments
