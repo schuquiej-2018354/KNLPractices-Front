@@ -158,6 +158,7 @@ export const UserPage = () => {
                                         <ModelPublications
                                             id={_id}
                                             image={image}
+                                            idUser={user?._id}
                                             user={user?.name}
                                             userImage={user?.image}
                                             empress={empress}

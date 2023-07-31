@@ -1,9 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Favorite } from '../Components/Favorite/Favorite';
-import { ModalUpdateImage } from '../Components/Modal/ModalUpdateImage';
-import { ModalUpdateProfile } from '../Components/Modal/ModalUpdateProfile';
 import { ModalUserPage } from '../Components/Modal/ModalUserPage';
 import { ModelForum } from '../Components/Model/ModelForum';
 import { ModelPublications } from '../Components/Model/ModelPublications';
@@ -15,9 +12,7 @@ import { ModalComments } from '../Components/Modal/ModalComments';
 
 export const UserProfile = () => {
     const { dataUser } = useContext(AuthContext);
-    const [showModalUpdateIMG, setShowModalUpdateIMG] = useState(false);
     const [showModalDT, setshowModalDT] = useState(false);
-    const [shoModalUpdateDT, setShoModalUpdateDT] = useState(false);
     const [publication, setPublication] = useState([{}]);
     const [questions, setQuestions] = useState([{}]);
     const { id } = useParams();
@@ -92,15 +87,6 @@ export const UserProfile = () => {
         }
     }
 
-
-    const handleOpenModalUpIMG = () => {
-        setShowModalUpdateIMG(true);
-    };
-
-    const handleCloseModalUpIMG = () => {
-        setShowModalUpdateIMG(false);
-    };
-
     const handleOpenModalDT = () => {
         setshowModalDT(true);
     };
@@ -108,14 +94,6 @@ export const UserProfile = () => {
     const handleCloseModalDT = () => {
         setshowModalDT(false);
     };
-
-    const handleOpenModalUpdateDT = () => {
-        setShoModalUpdateDT(true)
-    }
-
-    const handleCloseModalUpdateDT = () => {
-        setShoModalUpdateDT(false)
-    }
 
     useEffect(() => {
         getPublicationsUser();
@@ -153,8 +131,6 @@ export const UserProfile = () => {
                             </div>
                             <div className='contHeadUP3'>
                                 <div className='contHeadUP3-BTNS'>
-                                    <input type='button' className='btn btn-primary ' value='Editar Foto' onClick={handleOpenModalUpIMG} />
-                                    <input type='button' className='btn btn-primary' value='Editar Perfil' onClick={handleOpenModalUpdateDT} />
                                     <input type='button' className='btn btn-primary' value='...' onClick={handleOpenModalDT} />
                                 </div>
                             </div>
@@ -207,9 +183,7 @@ export const UserProfile = () => {
                     </div>
                 </div >
             </div >
-            <ModalUpdateImage isOpen={showModalUpdateIMG} onClose={handleCloseModalUpIMG} getImage={getImage} />
             <ModalUserPage isOpen={showModalDT} onClose={handleCloseModalDT} />
-            <ModalUpdateProfile isOpen={shoModalUpdateDT} onClose={handleCloseModalUpdateDT} />
             <ModalComments
                 isOpen={showModalComments}
                 onClose={handleCloseModalComment}
