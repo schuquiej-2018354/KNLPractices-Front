@@ -116,7 +116,7 @@ export const SidebarProfile = ({ getPublication }) => {
                             </div>
                             <div className='sbText'>Forum</div>
                         </li>
-                        <li className='sb nav-item lih' style={{ cursor: 'pointer' }}>
+                        <li className='sb nav-item lih' style={{ cursor: 'pointer' }} onClick={()=> navigate('/info')}>
                             <div>
                                 <a href='#' className='nav-link text-white' aria-current='page'>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' className='bi bi-info-circle-fill' viewBox='0 0 16 16'>

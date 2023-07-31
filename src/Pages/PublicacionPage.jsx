@@ -175,6 +175,7 @@ export const PublicacionPage = () => {
                 phone={dataComments.phone}
                 description={dataComments.description}
                 time={dataComments.time}
+                updateFavorite={handleResetFavorite}
             ></ModalComments>
         </>
     )

@@ -17,7 +17,7 @@ export const ModalUserPage = ({ isOpen, onClose }) => {
 
     const getUserById = async () => {
         try {
-            const { data } = await axios(`http://localhost:3200/user/getById/${id}`)
+            const { data } = await axios(`http://localhost:3200/user/getById/${id || dataUser.id}`)
             setDataU(data.existsUser)
         } catch (e) {
             console.log(e);
