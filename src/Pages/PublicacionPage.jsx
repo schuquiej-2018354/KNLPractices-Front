@@ -91,7 +91,7 @@ export const PublicacionPage = () => {
 
     useEffect(() => {
         getPublications();
-    }, []);
+    }, [id]);
 
     return (
         <>

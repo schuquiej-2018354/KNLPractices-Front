@@ -167,16 +167,16 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                                     </div>
                                 </div>
                                 <hr />
-                                <div className='card-text mb-auto'>
+                                <p className='card-text mb-auto' style={{ marginTop: '2%', marginBottom: '2%' }}>
+                                    {description}
+                                </p>
+                                <hr />
+                                <div className='card-text mb-2'>
                                     <p className='card-text'>
                                         Telephone:
                                     </p>
                                     &ensp; - {phone}
                                 </div>
-                                <p className='card-text mb-auto' style={{ marginTop: '2%', marginBottom: '2%' }}>
-                                    {description}
-                                </p>
-                                <br />
                                 <div className='card-text mb-auto'>
                                     <p className='card-text'>
                                         Address:
@@ -187,7 +187,7 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                             </div>
                             <div className='col' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <div className='col-auto d-none d-lg-block' >
-                                    <img src={img} alt='' style={{ width: '16rem', height: '13.5rem' }} />
+                                    <img src={img} alt='' style={{ width: '15.7rem', height: '13.5rem' }} />
                                 </div>
                             </div>
                         </div>
