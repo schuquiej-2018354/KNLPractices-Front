@@ -154,10 +154,10 @@ export const UserPage = () => {
                                 <div className='contHeadUP3-BTNS'>
                                     {
                                         dataUser.role != 'ADMIN' ? (
-                                            <div>
+                                            <>
                                                 <input type='button' className='btn btn-primary ' value='Editar Foto' onClick={handleOpenModalUpIMG} />
                                                 <input type='button' className='btn btn-primary' value='Editar Perfil' onClick={handleOpenModalUpdateDT} />
-                                            </div>
+                                            </>
                                         ) : <></>
                                     }
                                     <input type='button' className='btn btn-primary' value='...' onClick={handleOpenModalDT} />
