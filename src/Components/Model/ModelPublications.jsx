@@ -27,9 +27,14 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
 
     const getUserImage = async () => {
         try {
+            /* El segundo parámetro del objeto de configuración 
+            se utiliza para especificar que la respuesta debe tratarse como unblob
+            ` (objeto binario grande), que se usa comúnmente para manejar archivos binarios 
+            como imágenes. */
             const { data } = await axios(`http://localhost:3200/user/get-image/${userImage}`, {
                 responseType: 'blob'
             });
+            /* Aquí estamos utilizando URL.createObjectURL() para crear un enlace (URL) que representa el contenido binario recibido en la respuesta (data). Esto es necesario para mostrar la imagen en la interfaz de usuario.*/
             const imageURL = URL.createObjectURL(data);
             setImgUser(imageURL);
         } catch (e) {
