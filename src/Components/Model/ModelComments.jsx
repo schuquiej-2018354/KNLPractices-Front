@@ -23,7 +23,11 @@ export const ModelComments = ({ onClose, _id, user, idUser, description, time, i
     };
 
     const navigateUserPage = () => {
-        navigate(`/userProfile/${idUser}`);
+        if(dataUser.id == idUser){
+            navigate(`/user/${idUser}`);
+        }else{
+            navigate(`/userProfile/${idUser}`);
+        }
         onClose();
     }
 
