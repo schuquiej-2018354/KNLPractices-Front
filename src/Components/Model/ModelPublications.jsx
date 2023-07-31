@@ -46,9 +46,10 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
             const { data } = await axios.post('http://localhost:3200/favorite/add', datos);
             updateFav();
             Swal.fire({
-                icon: 'success',
-                title: data.message
-            });
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            })
         } catch (e) {
             console.log(e);
         }

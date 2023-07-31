@@ -26,13 +26,13 @@ export const ModalAddUser = ({ isOpen, onClose }) => {
 
     const register = async (e) => {
         try {
-            const { data } = await axios.post('http://localhost:3200/user/add', form);
+            const { data } = await axios.post('http://localhost:3200/user/save', form);
             Swal.fire({
-                icon: 'success',
-                title: data.message
-            });
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            })
             onClose();
-            navigate('/users')
         } catch (e) {
             console.log(e);
         }

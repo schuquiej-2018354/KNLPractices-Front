@@ -42,19 +42,19 @@ export const ModelComments = ({ onClose, _id, user, idUser, description, time, i
                     if (type == 'publication') {
                         const { data } = await axios.delete(`http://localhost:3200/comment/delete/${id}`);
                         update();
-                        Swal.fire(
-                            data.message,
-                            '',
-                            'success'
-                        );
+                        Swal.fire({
+                            position: 'bottom-start',
+                            text: data.message,
+                            width: '20rem'
+                        })
                     } else {
                         const { data } = await axios.delete(`http://localhost:3200/questionResponse/delete/${id}`);
                         update();
-                        Swal.fire(
-                            data.message,
-                            '',
-                            'success'
-                        );
+                        Swal.fire({
+                            position: 'bottom-start',
+                            text: data.message,
+                            width: '20rem'
+                        })
                     }
                 }
             });

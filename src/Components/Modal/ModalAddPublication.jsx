@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
 import { Modal, ModalFooter } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../Index';
 
 export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
@@ -43,6 +44,11 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
+            Swal.fire({
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            })
             getPublications();
             onClose();
         } catch (e) {

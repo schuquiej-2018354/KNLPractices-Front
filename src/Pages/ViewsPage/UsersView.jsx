@@ -36,11 +36,11 @@ export const UsersView = () => {
                 if (result.isConfirmed) {
                     const { data } = await axios.delete(`http://localhost:3200/user/delete/${id}`);
                     getUsers();
-                    Swal.fire(
-                        data.message,
-                        '',
-                        'success'
-                    );
+                    Swal.fire({
+                        position: 'bottom-start',
+                        text: data.message,
+                        width: '20rem'
+                    })
                 }
             });
         } catch (e) {
