@@ -55,6 +55,15 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
         }
     };
 
+    const navigateUserPage = () => {
+        if(dataUser.id == idUser){
+            navigate(`/user/${idUser}`);
+        }else{
+            navigate(`/userProfile/${idUser}`);
+        }
+        onClose();
+    }
+
     const deletePublication = async (id) => {
         try {
             Swal.fire({
@@ -105,10 +114,10 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                     <div className='col p-4 d-flex flex-column position-static text-white'>
                         <div className='row align-items-center'>
                             <div className='col col-1'>
-                                <img className="rounded-circle imgProfile" src={imgUser} onClick={() => navigate(`/userProfile/${idUser}`)} />
+                                <img className="rounded-circle imgProfile" src={imgUser} onClick={navigateUserPage} />
                             </div>
                             <div className='col'>
-                                <strong className='d-inline-block mb-2 text-primary' onClick={() => navigate(`/userProfile/${idUser}`)} style={{ cursor: 'pointer' }} >@{user}</strong>
+                                <strong className='d-inline-block mb-2 text-primary' onClick={navigateUserPage} style={{ cursor: 'pointer' }} >@{user}</strong>
                             </div>
                             <div className='col'>
                                 <div className='mb-1 text-muted text-end' style={{ marginRight: '1rem' }}>

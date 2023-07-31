@@ -59,6 +59,7 @@ export const PublicacionPage = () => {
         try {
             const { data } = await axios(`http://localhost:3200/publication/getByCarrer/${id}`);
             setPublication(data.publications);
+            console.log(id);
             setTitle(data.publications[1].career.name)
         } catch (e) {
             console.log(e);

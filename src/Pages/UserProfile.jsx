@@ -1,9 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Favorite } from '../Components/Favorite/Favorite';
-import { ModalUpdateImage } from '../Components/Modal/ModalUpdateImage';
-import { ModalUpdateProfile } from '../Components/Modal/ModalUpdateProfile';
 import { ModalUserPage } from '../Components/Modal/ModalUserPage';
 import { ModelForum } from '../Components/Model/ModelForum';
 import { ModelPublications } from '../Components/Model/ModelPublications';
@@ -16,9 +13,7 @@ import { ModalForumanswers } from '../Components/Modal/ModalForumanswers'
 
 export const UserProfile = () => {
     const { dataUser } = useContext(AuthContext);
-    const [showModalUpdateIMG, setShowModalUpdateIMG] = useState(false);
     const [showModalDT, setshowModalDT] = useState(false);
-    const [shoModalUpdateDT, setShoModalUpdateDT] = useState(false);
     const [publication, setPublication] = useState([{}]);
     const [questions, setQuestions] = useState([{}]);
     const { id } = useParams();
@@ -102,6 +97,7 @@ export const UserProfile = () => {
     const handleCloseModalDT = () => {
         setshowModalDT(false);
     };
+
 
     const handleOpenModalResponses = (id, idUser, user, description, question, time) => {
         setShowModalResponses(true);
