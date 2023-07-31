@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Modal } from 'react-bootstrap'
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => {
     const [career, setCareer] = useState([{}])
@@ -32,10 +33,20 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => 
                     'Content-Type': 'multipart/form-data',
                 }
             })
+            Swal.fire({
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            })
             update();
             onClose();
         } catch (e) {
             console.log(e);
+            Swal.fire({
+                position: 'bottom-start',
+                text: data.message,
+                width: '20rem'
+            })
         }
     }
 
