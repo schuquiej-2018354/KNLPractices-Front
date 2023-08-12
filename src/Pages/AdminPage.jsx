@@ -35,14 +35,14 @@ export const AdminPage = () => {
         <>
             <Navbar />
             <div className="containerP">
-                <div className="t i" style={{ width: '20%' }}>
+                <div className="i" style={{ width: '20%' }}>
                     <Sidebar />
                 </div>
                 <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '70%', marginRight: '1rem', marginLeft: '4rem' }}>
                     <div className="container py-3">
                         <header>
                             <div className="pricing-header p-3 pb-md-4 mx-auto text-center">
-                                <h1 className="display-4 fw-normal text-white">{`OPTIONS ${dataUser.role}`}</h1>
+                                <h1 className="display-4 fw-normal text-black">{`OPTIONS ${dataUser.role}`}</h1>
                                 <p className="fs-5 text-muted">Unique option of the Administrator. Where you can enter the crud of the storage you can edit, delete and add</p>
                             </div>
                         </header>
@@ -50,7 +50,7 @@ export const AdminPage = () => {
                             <div className="col">
                                 {
                                     dataUser.role == 'ADMIN' ? (
-                                        <div className="card mb-4 rounded-3 bx bg5 text-white">
+                                        <div className="card mb-4 rounded-3 bx text-black">
                                             <div className="card-header py-3">
                                                 <h4 className="my-0 fw-normal">Users</h4>
                                             </div>
@@ -70,7 +70,7 @@ export const AdminPage = () => {
                                         </div>
                                     ) : 
                                     (
-                                    <div className="card mb-4 rounded-3 bx bg5 text-white">
+                                    <div className="card mb-4 rounded-3 bx text-black">
                                         <div className="card-header py-3">
                                             <h4 className="my-0 fw-normal">Publications</h4>
                                         </div>
@@ -88,7 +88,7 @@ export const AdminPage = () => {
                                 {
                                     dataUser.role == 'ADMIN' ? 
                                     (
-                                        <div className="card mb-4 rounded-3 bx bg5 text-white">
+                                        <div className="card mb-4 rounded-3 bx text-black">
                                             <div className="card-header py-3">
                                                 <h4 className="my-0 fw-normal">Careers</h4>
                                             </div>
@@ -108,7 +108,7 @@ export const AdminPage = () => {
                                         </div>
                                     ) : 
                                     (
-                                        <div className="card mb-4 rounded-3 bx bg5 text-white">
+                                        <div className="card mb-4 rounded-3 bx text-black">
                                             <div className="card-header py-3">
                                                 <h4 className="my-0 fw-normal">Forum</h4>
                                             </div>
