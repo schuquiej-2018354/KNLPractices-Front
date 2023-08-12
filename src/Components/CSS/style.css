@@ -23,17 +23,21 @@
 }
 
 .lih:hover {
-  background-color: #263340;
+  background-color: #0d6efd;
   border-radius: 20px;
 }
 
 .lih2:hover {
-  background-color: #263340;
+  background-color: #0d6efd;
 }
 
 .ip:focus {
   background-color: #1E2732;
   color: white;
+}
+.ip2{
+  background-color: #E5E8E8;
+  /* color: white; */
 }
 
 .ip {
@@ -48,14 +52,7 @@
 
 
 /* SIDEBAR */
-.body {
-  height: 100vh;
-  min-height: -webkit-fill-available;
-}
 
-html {
-  height: -webkit-fill-available;
-}
 
 main {
   display: flex;
@@ -536,19 +533,19 @@ main {
   display: flex;
   align-items: center;
   width: 100%;
-  border-color: #1a2633;
+  border-color: #f8f8f8;
 }
 
 .sbDP:hover {
   background-color: #263340;
   border-radius: 20px;
-  border-color: #1a2633;
+  border-color: #f8f8f8;
 }
 
 .sbDP:focus {
   background-color: #263340;
   border-radius: 20px;
-  border-color: #1a2633;
+  border-color: #f8f8f8;
 }
 
 .divSBPr {
@@ -617,7 +614,7 @@ main {
   width: 11rem;
   height: 11rem;
   border-radius: 50%;
-  border: #1a2633 8px solid;
+  border: #1a2633 3px solid;
 }
 
 .contHeadUP2 {
@@ -728,7 +725,7 @@ main {
 .add-question-container {
   position: sticky;
   top: 0;
-  background-color: #1a2633;
+  background-color: #c8ced4;
   /* Puedes cambiar el color de fondo según tu diseño */
   padding: 1rem;
   z-index: 1;

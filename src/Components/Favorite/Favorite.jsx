@@ -50,7 +50,7 @@ export const Favorite = () => {
     return (
         <>
             <div className='row' style={{ width: '100%' }}>
-                <h1 className='text-center text-white' style={{ fontSize: '2rem' }}>FAVORITES</h1>
+                <h1 className='text-center text-black' style={{ fontSize: '2rem' }}>FAVORITES</h1>
                 <div className='overflow-auto scroll-invisible-container' style={{ height: '75vh' }}>
                     {
                         fav.map(({ _id, owner, publication }, i) => {
@@ -71,14 +71,24 @@ export const Favorite = () => {
                     }
                 </div>
                 <div style={{ display: 'flex' }} >
-                    <div className='col-8' style={{ width: '75%' }}>
-                        <input className='form-control bg6' type='text' name='' id='inputFav' placeholder='Search' style={{ borderColor: '#263340' }} value={search} onChange={handleSearh} />
+                    <div className="">
+                        <div className="input-group mb-3">
+                            <input
+                                className="form-control ip2"
+                                type="text"
+                                name=""
+                                id="inputFav"
+                                placeholder="Search in Favorites"
+                                value={search}
+                                onChange={handleSearh}
+                            />
+                            <span className="input-group-text bg6" style={{ backgroundColor: '#5D6D7E' }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16" style={{ fill: 'white' }}>
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </span>
+                        </div>
                     </div>
-                    <button className='btn btn-primary' style={{ width: '25%' }}>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' className='bi bi-search' viewBox='0 0 16 16'>
-                            <path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z' />
-                        </svg>
-                    </button>
                 </div>
             </div >
         </>

@@ -18,7 +18,8 @@ export const ModalPutForum = ({ isOpen, onClose, dataUp, id, update }) => {
             Swal.fire({
                 position: 'bottom-start',
                 text: data.message,
-                width: '20rem'
+                width: '20rem',
+                showConfirmButton: false
             });
         } catch (e) {
             console.log(e);
@@ -35,7 +36,6 @@ export const ModalPutForum = ({ isOpen, onClose, dataUp, id, update }) => {
                             &times;
                         </span>
                     </button>
-
                 </Modal.Header>
                 <Modal.Body className='bg2 text-white'>
                     <form action='#' encType='multipart/form-data'>

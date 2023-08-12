@@ -47,7 +47,8 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
             Swal.fire({
                 position: 'bottom-start',
                 text: data.message,
-                width: '20rem'
+                width: '20rem',
+                showConfirmButton: false
             })
             getPublications();
             onClose();
