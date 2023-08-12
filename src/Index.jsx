@@ -80,7 +80,7 @@ export const Index = () => {
                 },
                 {
                     path: '/publicacion/:id?',
-                    element: <PublicacionPage></PublicacionPage>
+                    element: dataUser.role == 'MODERATOR' ?  <AdminPage></AdminPage> :<PublicacionPage></PublicacionPage>
                 },
                 {
                     path: '/forum',

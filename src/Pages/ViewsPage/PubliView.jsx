@@ -13,7 +13,7 @@ export const PubliView = () => {
 
     const getPublicationsAll = async () => {
         try {
-            const { data } = await axios('http://localhost:3200/publication/get');
+            const { data } = await axios('http://localhost:3200/publication/getByReports');
             setPublication(data.publications);
             setTablePublication(data.publications)
         } catch (e) {
@@ -86,7 +86,7 @@ export const PubliView = () => {
                         </center>
                     </div>
                     {
-                        publication.map(({ _id, user, image, empress, location, phone, description, time, career }, i) => {
+                        publication.map(({ _id, user, image, empress, location, phone, description, time, career, reports }, i) => {
                             return (
                                 <div key={i}>
                                     <ModelAdminPubli
@@ -101,6 +101,7 @@ export const PubliView = () => {
                                         time={time}
                                         career={career?.name}
                                         update={updateData}
+                                        reports={reports}
                                     ></ModelAdminPubli>
                                 </div>
                             )

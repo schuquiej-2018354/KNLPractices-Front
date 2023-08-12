@@ -13,7 +13,7 @@ export const ForumView = () => {
 
     const getQuestions = async () => {
         try {
-            const { data } = await axios('http://localhost:3200/question/get');
+            const { data } = await axios('http://localhost:3200/question/getByReports');
             setQuestions(data.questions);
             setTableQuestions(data.questions)
         } catch (e) {
@@ -84,7 +84,7 @@ export const ForumView = () => {
                         </center>
                     </div>
                     {
-                        questions.map(({ _id, user, question, description, time }, index) => {
+                        questions.map(({ _id, user, question, description, time, reports }, index) => {
                             return (
                                 <div key={index}>
                                     <ModelAdminForum
@@ -94,6 +94,7 @@ export const ForumView = () => {
                                         description={description}
                                         time={time}
                                         update={updateData}
+                                        reports={reports}
                                     ></ModelAdminForum>
                                 </div>
                             )

@@ -109,6 +109,8 @@ export const ModalAddUser = ({ isOpen, onClose }) => {
                                     <option selected>Select to role</option>
                                     <option value='ADMIN'>Admin</option>
                                     <option value='USER'>User</option>
+                                    <option value='COMPANY'>Company</option>
+                                    <option value='MODERATOR'>Moderator</option>
                                 </select>
                             </div>
                         </div>
