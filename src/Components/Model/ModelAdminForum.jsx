@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import Swal from 'sweetalert2';
 
-export const ModelAdminForum = ({ _id, user, time, question, description, update }) => {
+export const ModelAdminForum = ({ _id, user, time, question, description, reports, update }) => {
 
     const deleteQuestion = async (id) => {
         try {
@@ -49,6 +49,7 @@ export const ModelAdminForum = ({ _id, user, time, question, description, update
                                 <h3 className='mb-0'>{question}</h3>
                             </div>
                             <div className='col text-end'>
+                            <strong style={{color: 'red', fontSize: '1rem'}}>{`Reports: ${reports}`}</strong>
                                 <div className='btn'>
                                     <button onClick={() => deleteQuestion(_id)} className='btn badge' type='button' data-toggle='modal' data-target='#user-form-modal'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-trash3" viewBox="0 0 16 16">

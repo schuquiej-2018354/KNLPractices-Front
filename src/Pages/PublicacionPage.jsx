@@ -144,6 +144,7 @@ export const PublicacionPage = () => {
                                         idCareer={career?._id}
                                         career={career?.name}
                                         update={getPublicationsAll}
+                                        verified={user?.verified}
                                     ></ModelPublications>
                                     <div style={{ marginBottom: '1.5rem' }}>
                                         <button className='btnComent bx' onClick={() => handleOpenModalComment(_id, user?._id, image, user?.image, user?.name, empress, location, phone, description, time)}>

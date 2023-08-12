@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../Index';
 import { ModalPutPublication } from '../Modal/ModalUpdate/ModalPutPublication'
 
-export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage, image, empress, location, phone, description, time, idCareer, career, update, type }) => {
+export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage, image, empress, location, phone, description, time, verified, idCareer, career, update, type }) => {
     const [img, setImg] = useState('');
     const [imgUser, setImgUser] = useState('');
     const { dataUser } = useContext(AuthContext);
@@ -72,7 +72,7 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
     const deletePublication = async (id) => {
         try {
             Swal.fire({
-                title: 'Do you want to delete this Question?',
+                title: 'Do you want to delete this publication?',
                 text: "You won't be able to revert this!",
                 icon: 'warning',
                 showCancelButton: true,
@@ -91,6 +91,32 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                 }
             })
         } catch (e) {
+            console.log(e);
+        }
+    }
+
+    const report = (id) => {
+        try{
+            Swal.fire({
+                title: 'Do you want to report this publication?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, report this publication!'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    const { data } = await axios.put(`http://localhost:3200/publication/report/${id}`);
+                    Swal.fire({
+                        position: 'bottom-start',
+                        text: data.message,
+                        width: '20rem'
+                    })
+                    update();
+                }
+            })
+        }catch(e){
             console.log(e);
         }
     }
@@ -122,7 +148,14 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                                 <img className="rounded-circle imgProfile" src={imgUser} onClick={navigateUserPage} />
                             </div>
                             <div className='col'>
-                                <strong className='d-inline-block mb-2 text-primary' onClick={navigateUserPage} style={{ cursor: 'pointer' }} >@{user}</strong>
+                                <strong className='d-inline-block mb-2 text-black' onClick={navigateUserPage} style={{ cursor: 'pointer', marginRight: '1rem' }} >@{user}</strong>
+                                {
+                                verified === true ? (
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16" style={{fill: '#0d6efd'}}>
+                                        <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+                                        </svg>
+                                ) : <></>
+                            }
                             </div>
                             <div className='col'>
 
@@ -139,6 +172,13 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                                                 <button className="btn" onClick={handleOpenModalUp} style={{ cursor: 'pointer', padding: '0' }}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16" style={{ fill: 'white' }}>
                                                         <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                                    </svg>
+                                                </button>
+                                                &ensp;
+                                                <button className='btn' onClick={()=> report(id)} style={{ cursor: 'pointer', padding: '0' }}>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16" style={{fill: '#fff'}}>
+                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                                                     </svg>
                                                 </button>
                                             </div>
