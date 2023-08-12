@@ -36,7 +36,8 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => 
             Swal.fire({
                 position: 'bottom-start',
                 text: data.message,
-                width: '20rem'
+                width: '20rem',
+                showConfirmButton: false
             })
             update();
             onClose();

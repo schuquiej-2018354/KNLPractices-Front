@@ -33,7 +33,7 @@ export const AdminPage = () => {
         <>
             <Navbar />
             <div className="containerP">
-                <div className="t i" style={{ width: '20%' }}>
+                <div className="i" style={{ width: '20%' }}>
                     <Sidebar />
                 </div>
                 <div className="overflow-auto scroll-invisible-container" style={{ maxHeight: 'calc(110vh - 100px)', width: '70%', marginRight: '1rem', marginLeft: '4rem' }}>
@@ -46,7 +46,7 @@ export const AdminPage = () => {
                         </header>
                         <div className="row row-cols-1 row-cols-md-2 mb-2 text-center">
                             <div className="col">
-                                <div className="card mb-4 rounded-3 bx bg5 text-white">
+                                <div className="card mb-4 rounded-3 bx text-black">
                                     <div className="card-header py-3">
                                         <h4 className="my-0 fw-normal">Users</h4>
                                     </div>
@@ -64,7 +64,7 @@ export const AdminPage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="card mb-4 rounded-3 bx bg5 text-white">
+                                <div className="card mb-4 rounded-3 bx text-black">
                                     <div className="card-header py-3">
                                         <h4 className="my-0 fw-normal">Publications</h4>
                                     </div>
@@ -77,7 +77,7 @@ export const AdminPage = () => {
                                 </div>
                             </div>
                             <div className="col">
-                                <div className="card mb-4 rounded-3 bx bg5 text-white">
+                                <div className="card mb-4 rounded-3 bx text-black">
                                     <div className="card-header py-3">
                                         <h4 className="my-0 fw-normal">Careers</h4>
                                     </div>
@@ -95,7 +95,7 @@ export const AdminPage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="card mb-4 rounded-3 bx bg5 text-white">
+                                <div className="card mb-4 rounded-3 bx text-black">
                                     <div className="card-header py-3">
                                         <h4 className="my-0 fw-normal">Forum</h4>
                                     </div>

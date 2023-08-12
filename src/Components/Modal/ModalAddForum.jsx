@@ -28,7 +28,8 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
             Swal.fire({
                 position: 'bottom-start',
                 text: data.message,
-                width: '20rem'
+                width: '20rem',
+                showConfirmButton: false
             })
             onClose();
             getQuestions();

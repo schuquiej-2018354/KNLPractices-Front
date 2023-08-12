@@ -128,7 +128,7 @@ export const UserPage = () => {
         <>
             <Navbar />
             <div className='containerP'>
-                <div className='t i' style={{ width: '20%' }}>
+                <div className='i' style={{ width: '20%' }}>
                     <SidebarProfile />
                 </div>
                 <div className='divUP t overflow-auto scroll-invisible-container' style={{ maxHeight: 'calc(110vh - 100px)', width: '75%', marginLeft: '2rem', height: '85vh' }} >

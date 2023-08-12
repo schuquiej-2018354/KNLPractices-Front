@@ -55,17 +55,17 @@ export const ForumPage = () => {
         <>
             <Navbar />
             <div className='containerP'>
-                <div className='t i' style={{ width: '20%' }}>
+                <div className='i' style={{ width: '20%' }}>
                     <Sidebar />
                 </div>
-                <div className='t overflow-auto scroll-invisible-container' style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '1rem' }}>
+                <div className='overflow-auto scroll-invisible-container' style={{ maxHeight: 'calc(110vh - 100px)', width: '57%', marginRight: '0.75rem', height: '100vh', marginLeft: '1.75rem' }}>
                     <div className="add-question-container">
                         <button className='btn btn-primary col-12' onClick={handleOpenModalAddForum}>ADD QUESTION</button>
                     </div>
                     {
                         questions.map(({ _id, user, question, description, time }, index) => {
                             return (
-                                <div key={index}>
+                                <div key={index} >
                                     <ModelForum
                                         id={_id}
                                         idUser={user?._id}
@@ -81,7 +81,7 @@ export const ForumPage = () => {
                         })
                     }
                 </div>
-                <div className='t i' style={{ width: '20%', marginLeft: '1rem' }}>
+                <div className='i' style={{ width: '20%', marginLeft: '1rem' }}>
                     <Favorite />
                 </div>
             </div >
