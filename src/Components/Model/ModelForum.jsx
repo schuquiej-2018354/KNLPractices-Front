@@ -55,7 +55,8 @@ export const ModelForum = ({ id, idUser, user, question, description, time, upda
                     Swal.fire({
                         position: 'bottom-start',
                         text: data.message,
-                        width: '20rem'
+                        width: '20rem',
+                        showConfirmButton: false
                     })
                     update();
                 }

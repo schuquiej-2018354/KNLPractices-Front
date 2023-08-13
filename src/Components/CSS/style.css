@@ -32,8 +32,13 @@
 }
 
 .ip:focus {
-  background-color: #1E2732;
-  color: white;
+  background-color: #c8ced4;
+  color: black;
+}
+.ip {
+  background-color: #c8ced4;
+  color: black;
+  border-color: 'none';
 }
 .ip2{
   background-color: #E5E8E8;
@@ -41,7 +46,7 @@
 }
 
 .ip {
-  color: white;
+  color: black;
 }
 
 
@@ -489,8 +494,8 @@ main {
 }
 
 .textarea {
-  background-color: #263340;
-  color: white;
+  background-color: #c8ced4;
+  color: black;
   border: 15px;
   padding: 8px;
   width: 100%;
@@ -553,7 +558,7 @@ main {
   justify-content: center;
 }
 
-.selectCareer {
+/* .selectCareer {
   border: none;
   color: #7d7f85;
 }
@@ -562,7 +567,7 @@ main {
   background-color: #263340;
   outline: none;
   color: #7d7f85;
-}
+} */
 
 .bx {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
