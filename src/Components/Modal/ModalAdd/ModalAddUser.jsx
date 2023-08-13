@@ -51,15 +51,15 @@ export const ModalAddUser = ({ isOpen, onClose }) => {
     return (
         <>
             <Modal show={isOpen}>
-                <Modal.Header className='bg2 text-white'>
+                <Modal.Header className='text-black'>
                     <Modal.Title className=''>Add User</Modal.Title>
                     <button onClick={onClose} type='button' className='btn' data-dismiss='modal' aria-label='Close'>
-                        <span className='text-white' aria-hidden='true'>
+                        <span className='text-black' aria-hidden='true'>
                             &times;
                         </span>
                     </button>
                 </Modal.Header>
-                <Modal.Body className='bg2 text-white'>
+                <Modal.Body className='text-black'>
                     <form id='formm'>
                         <div className='user_details'>
                             <div className='row'>
@@ -116,7 +116,7 @@ export const ModalAddUser = ({ isOpen, onClose }) => {
                         </div>
                     </form>
                 </Modal.Body>
-                <Modal.Footer className='bg2 text-white'>
+                <Modal.Footer className='text-black'>
                     <button className='btn btn-primary' type='button' onClick={() => register()}>
                         Create
                     </button>

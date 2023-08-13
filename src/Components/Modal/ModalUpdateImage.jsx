@@ -31,7 +31,8 @@ export const ModalUpdateImage = ({ isOpen, onClose, getImage }) => {
             Swal.fire({
                 position: 'bottom-start',
                 text: 'Image updating',
-                width: '20rem'
+                width: '20rem',
+                showConfirmButton: false
             })
             getImage();
             onClose();
@@ -47,32 +48,30 @@ export const ModalUpdateImage = ({ isOpen, onClose, getImage }) => {
     return (
         <>
             <Modal show={isOpen}>
-                <Modal.Header className='bg2 text-white'>
+                <Modal.Header className='text-black'>
                     <Modal.Title className=''>Update</Modal.Title>
                     <button onClick={onClose} type='button' className='btn' data-dismiss='modal' aria-label='Close'>
-                        <span className='text-white' aria-hidden='true'>
+                        <span className='text-black' aria-hidden='true'>
                             &times;
                         </span>
                     </button>
                 </Modal.Header>
-                <Modal.Body className='bg2 text-white'>
+                <Modal.Body className='text-black'>
                     <form action='#' encType='multipart/form-data'>
                         <div>
                             <div>
                                 <label className='form-label' htmlFor='inputImage'>
                                     Image
                                 </label>
-                                <input className='form-control bg6' style={{ borderColor: '#263340' }} type='file' id='inputImage' placeholder='Enter your Image' name='image' onChange={handleImageChange} />
+                                <input className='form-control ip' style={{ borderColor: '#263340' }} type='file' id='inputImage' placeholder='Enter your Image' name='image' onChange={handleImageChange} />
                             </div>
                         </div>
                     </form>
                 </Modal.Body>
-                <Modal.Footer className='bg2 text-white'>
-                    <div className='reg_btn'>
-                        <button className='btn btn-primary' type='button' onClick={updateImage}>
-                            Update
-                        </button>
-                    </div>
+                <Modal.Footer className='text-black'>
+                    <button className='btn btn-primary' type='button' onClick={updateImage}>
+                        Update
+                    </button>
                 </Modal.Footer>
             </Modal>
         </>

@@ -58,15 +58,15 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => 
     return (
         <>
             <Modal show={isOpen}>
-                <Modal.Header className='bg2 text-white'>
+                <Modal.Header className='text-black'>
                     <Modal.Title className=''>Update Publication</Modal.Title>
                     <button onClick={onClose} type='button' className='btn' data-dismiss='modal' aria-label='Close'>
-                        <span className='text-white' aria-hidden='true'>
+                        <span className='text-black' aria-hidden='true'>
                             &times;
                         </span>
                     </button>
                 </Modal.Header>
-                <Modal.Body className='bg2 text-white'>
+                <Modal.Body className='text-black'>
                     <form action='#' encType='multipart/form-data'>
                         <div>
                             <div>
@@ -74,7 +74,7 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => 
                                     <label className='form-label' htmlFor='inputUsername'>
                                         Empresa
                                     </label>
-                                    <input className='form-control bg6 ip' style={{ borderColor: '#263340' }} type='text' id='inputEmpress' defaultValue={dataPu.empress} placeholder='Enter your username' name='empress' required />
+                                    <input className='form-control ip' style={{ borderColor: '#263340' }} type='text' id='inputEmpress' defaultValue={dataPu.empress} placeholder='Enter your username' name='empress' required />
                                 </div>
                             </div>
                             <div className='row'>
@@ -82,7 +82,7 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => 
                                     <label className='form-label' htmlFor='inputCareer'>
                                         Career
                                     </label>
-                                    <select className='form-control bg6 selectCareer' aria-label='Default select example' name='career' id='inputCareer'  >
+                                    <select className='form-control ip selectCareer' aria-label='Default select example' name='career' id='inputCareer'  >
                                         <option className='form-control' value={dataPu.idCareer} >{dataPu.career}</option>
                                         {
                                             career.map(({ _id, name }, i) => {
@@ -100,7 +100,7 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => 
                                         <label className='form-label' htmlFor='inputPhone'>
                                             Phone Number
                                         </label>
-                                        <input className='form-control input-number ip bg6' style={{ borderColor: '#263340' }} type='number' id='inputPhone' defaultValue={dataPu.phone} placeholder='Telephone' name='phone' required />
+                                        <input className='form-control input-number ip' style={{ borderColor: '#263340' }} type='number' id='inputPhone' defaultValue={dataPu.phone} placeholder='Telephone' name='phone' required />
                                     </div>
                                 </div>
                             </div>
@@ -108,24 +108,24 @@ export const ModalPutPublication = ({ isOpen, onClose, id, dataPu, update }) => 
                                 <label className='form-label' htmlFor='inputEmail'>
                                     Location
                                 </label>
-                                <textarea className='form-control ip bg6' style={{ borderColor: '#263340' }} type='email' id='inpurtLocation' defaultValue={dataPu.location} placeholder='Location' name='location' required />
+                                <textarea className='form-control ip' style={{ borderColor: '#263340' }} type='email' id='inpurtLocation' defaultValue={dataPu.location} placeholder='Location' name='location' required />
                             </div>
                             <div>
                                 <label className='form-label' htmlFor='inputDescriptiony'>
                                     Description
                                 </label>
-                                <textarea className='form-control ip  bg6' style={{ borderColor: '#263340' }} type='number' id='inputDescription' defaultValue={dataPu.description} placeholder='Description' name='description' required />
+                                <textarea className='form-control ip' style={{ borderColor: '#263340' }} type='number' id='inputDescription' defaultValue={dataPu.description} placeholder='Description' name='description' required />
                             </div>
                             <div>
                                 <label className='form-label' htmlFor='inputImage'>
                                     Imge
                                 </label>
-                                <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='file' id='inputImage' placeholder='Enter your Image' name='image' />
+                                <input className='form-control ip' style={{ borderColor: '#263340' }} type='file' id='inputImage' placeholder='Enter your Image' name='image' />
                             </div>
                         </div>
                     </form>
                 </Modal.Body>
-                <Modal.Footer className='bg2 text-white'>
+                <Modal.Footer className='text-black'>
                     <div className='reg_btn'>
                         <button className='btn btn-primary' type='button' onClick={updatePublication}>
                             Update

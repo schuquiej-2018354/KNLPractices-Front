@@ -65,15 +65,15 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
     return (
         <>
             <Modal show={isOpen}>
-                <Modal.Header className='bg2 text-white'>
+                <Modal.Header className='text-black'>
                     <Modal.Title className=''>New Post</Modal.Title>
                     <button onClick={onClose} type='button' className='btn' data-dismiss='modal' aria-label='Close'>
-                        <span className='text-white' aria-hidden='true'>
+                        <span className='text-black' aria-hidden='true'>
                             &times;
                         </span>
                     </button>
                 </Modal.Header>
-                <Modal.Body className='bg2 text-white'>
+                <Modal.Body className='text-black'>
                     <form action='#' encType='multipart/form-data'>
                         <div>
                             <div>
@@ -81,7 +81,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                                     <label className='form-label' htmlFor='inputUsername'>
                                         Empresa
                                     </label>
-                                    <input className='form-control bg6 ip' style={{ borderColor: '#263340' }} type='text' id='inputUsername' placeholder='Enter your username' name='empress' onChange={registerHandleChange} required />
+                                    <input className='form-control ip' style={{ borderColor: '#263340' }} type='text' id='inputUsername' placeholder='Enter your username' name='empress' onChange={registerHandleChange} required />
                                 </div>
                             </div>
                             <div className='row'>
@@ -89,7 +89,7 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                                     <label className='form-label' htmlFor='inputCareer'>
                                         Career
                                     </label>
-                                    <select class='form-control bg6 selectCareer' aria-label='Default select example' name='career' value={form.career} onChange={registerHandleChange}>
+                                    <select class='form-control selectCareer ip' aria-label='Default select example' name='career' value={form.career} onChange={registerHandleChange}>
                                         <option className='form-control' defaultValue={'Select to career'}>Select to career</option>
                                         {
                                             careers.map(({ _id, name }, i) => {
@@ -139,12 +139,10 @@ export const ModalAddPublication = ({ isOpen, onClose, getPublications }) => {
                         </div>
                     </form>
                 </Modal.Body>
-                <Modal.Footer className='bg2 text-white'>
-                    <div className='reg_btn'>
+                <Modal.Footer className='text-black'>
                         <button className='btn btn-primary' type='button' onClick={(e) => save(e)}>
                             Post
                         </button>
-                    </div>
                 </Modal.Footer>
             </Modal>
         </>

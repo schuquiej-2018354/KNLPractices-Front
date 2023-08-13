@@ -23,7 +23,8 @@ export const ModalUpdateProfile = ({ isOpen, onClose }) => {
             Swal.fire({
                 position: 'bottom-start',
                 text: data.message,
-                width: '20rem'
+                width: '20rem',
+                showConfirmButton: false
             })
             const userData = JSON.parse(localStorage.getItem('userData'));
             userData.name = profileUpdated.name;
@@ -46,15 +47,15 @@ export const ModalUpdateProfile = ({ isOpen, onClose }) => {
     return (
         <>
             <Modal show={isOpen}>
-                <Modal.Header className='bg2 text-white'>
-                    <Modal.Title className=''>Information</Modal.Title>
+                <Modal.Header className='text-black'>
+                    <Modal.Title className=''>Update Data</Modal.Title>
                     <button onClick={onClose} type='button' className='btn' data-dismiss='modal' aria-label='Close'>
-                        <span className='text-white' aria-hidden='true'>
+                        <span className='text-black' aria-hidden='true'>
                             &times;
                         </span>
                     </button>
                 </Modal.Header>
-                <Modal.Body className='bg2 text-white'>
+                <Modal.Body className='text-black'>
                     <div className='card1-info1'>
                         <div>
                             <div className='row'>
@@ -62,13 +63,13 @@ export const ModalUpdateProfile = ({ isOpen, onClose }) => {
                                     <span>
                                         <b>Name:</b>
                                     </span>
-                                    <input type='text' className='form-control' id='inputName' defaultValue={dataUser.name} required />
+                                    <input type='text' className='form-control ip' id='inputName' defaultValue={dataUser.name} required />
                                 </div>
                                 <div className='col'>
                                     <span>
                                         <b>Surname:</b>
                                     </span>
-                                    <input type='text' className='form-control' id='inputSurname' defaultValue={dataUser.surname} required />
+                                    <input type='text' className='form-control ip' id='inputSurname' defaultValue={dataUser.surname} required />
                                 </div>
                             </div>
                             <hr />
@@ -76,29 +77,27 @@ export const ModalUpdateProfile = ({ isOpen, onClose }) => {
                                 <span>
                                     <b>User Name:</b>
                                 </span>
-                                <input type='text' className='form-control' id='inputUsername' defaultValue={dataUser.username} required />
+                                <input type='text' className='form-control ip' id='inputUsername' defaultValue={dataUser.username} required />
                             </div>
                             <hr />
                             <label htmlFor='Name'>
                                 <b>Email:</b>
                             </label>
-                            <input type='email' className='form-control' id='inputEmail' defaultValue={dataUser.email} required />
+                            <input type='email' className='form-control ip' id='inputEmail' defaultValue={dataUser.email} required />
                             <hr />
                             <label htmlFor='Name'>
                                 <b>Phone:</b>
                             </label>
                             <br />
-                            <input type='number' className='form-control' id='inputPhone' defaultValue={dataUser.phone} required />
+                            <input type='number' className='form-control ip' id='inputPhone' defaultValue={dataUser.phone} required />
                             <br />
                         </div>
                     </div>
                 </Modal.Body>
-                <Modal.Footer className='bg2 text-white'>
-                    <div className='reg_btn'>
-                        <button className='btn btn-primary' type='button' onClick={() => updateProfile()}>
-                            Update
-                        </button>
-                    </div>
+                <Modal.Footer className='text-black'>
+                    <button className='btn btn-primary' type='button' onClick={() => updateProfile()}>
+                        Update
+                    </button>
                 </Modal.Footer>
             </Modal >
         </>

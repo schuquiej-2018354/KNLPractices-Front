@@ -41,39 +41,37 @@ export const ModalAddForum = ({ isOpen, onClose, getQuestions }) => {
     return (
         <>
             <Modal show={isOpen}>
-                <Modal.Header className='bg2 text-white'>
+                <Modal.Header className='text-black'>
                     <Modal.Title className=''>New Question</Modal.Title>
                     <button onClick={onClose} type='button' className='btn' data-dismiss='modal' aria-label='Close'>
-                        <span className='text-white' aria-hidden='true'>
+                        <span className='text-black' aria-hidden='true'>
                             &times;
                         </span>
                     </button>
-                    
+
                 </Modal.Header>
-                <Modal.Body className='bg2 text-white'>
+                <Modal.Body className='text-black'>
                     <form action='#' encType='multipart/form-data'>
                         <div className='mb-3'>
                             <label className='form-label' htmlFor='inputName'>
                                 Question
                             </label>
-                            <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your question' name='question' onChange={formForumHandleChange} required />
+                            <input className='form-control ip' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Enter your question' name='question' onChange={formForumHandleChange} required />
                         </div>
                         <div>
                             <div className="form-group">
                                 <label className='form-label' htmlFor='inputName'>
                                     Description
                                 </label>
-                                <textarea name='description' className="textarea" id="description" placeholder='Write a question' onChange={formForumHandleChange}></textarea>
+                                <textarea name='description' className="form-control ip" id="description" placeholder='Write a question' onChange={formForumHandleChange}></textarea>
                             </div>
                         </div>
                     </form>
                 </Modal.Body>
-                <Modal.Footer className='bg2 text-white'>
-                    <div className='reg_btn'>
-                        <button className='btn btn-primary' type='button' onClick={(e) => save(e)}>
-                            Post
-                        </button>
-                    </div>
+                <Modal.Footer className='text-black'>
+                    <button className='btn btn-primary' type='button' onClick={(e) => save(e)}>
+                        Post
+                    </button>
                 </Modal.Footer>
             </Modal>
         </>

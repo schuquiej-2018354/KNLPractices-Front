@@ -70,7 +70,7 @@ export const Favorite = () => {
                         })
                     }
                 </div>
-                <div style={{ display: 'flex' }} >
+                <div style={{ display: 'flex', marginTop: '2rem' }} >
                     <div className="">
                         <div className="input-group mb-3">
                             <input

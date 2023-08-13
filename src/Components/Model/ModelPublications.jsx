@@ -113,7 +113,8 @@ export const ModelPublications = ({ updateFav, id, _id, idUser, user, userImage,
                     Swal.fire({
                         position: 'bottom-start',
                         text: data.message,
-                        width: '20rem'
+                        width: '20rem',
+                        showConfirmButton: false
                     })
                     update();
                 }

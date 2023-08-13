@@ -29,38 +29,36 @@ export const ModalPutForum = ({ isOpen, onClose, dataUp, id, update }) => {
     return (
         <>
             <Modal show={isOpen}>
-                <Modal.Header className='bg2 text-white'>
+                <Modal.Header className='text-black'>
                     <Modal.Title className=''>New Question</Modal.Title>
                     <button onClick={onClose} type='button' className='btn' data-dismiss='modal' aria-label='Close'>
-                        <span className='text-white' aria-hidden='true'>
+                        <span className='text-black' aria-hidden='true'>
                             &times;
                         </span>
                     </button>
                 </Modal.Header>
-                <Modal.Body className='bg2 text-white'>
+                <Modal.Body className='text-black'>
                     <form action='#' encType='multipart/form-data'>
                         <div className='mb-3'>
                             <label className='form-label' htmlFor='inputName'>
                                 Question
                             </label>
-                            <input className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputQuestion' placeholder='Enter your question' name='question' defaultValue={dataUp.question} />
+                            <input className='form-control ip' style={{ borderColor: '#263340' }} type='text' id='inputQuestion' placeholder='Enter your question' name='question' defaultValue={dataUp.question} />
                         </div>
                         <div>
                             <div className='form-group'>
                                 <label className='form-label' htmlFor='inputName'>
                                     Description
                                 </label>
-                                <textarea name='description' className='textarea' id='inputDescription' placeholder='Write a question' defaultValue={dataUp.description}></textarea>
+                                <textarea name='description' className='textarea ip' id='inputDescription' placeholder='Write a question' defaultValue={dataUp.description}></textarea>
                             </div>
                         </div>
                     </form>
                 </Modal.Body>
-                <Modal.Footer className='bg2 text-white'>
-                    <div className='reg_btn'>
-                        <button className='btn btn-primary' type='button' onClick={() => updateQuestion()}>
-                            Update
-                        </button>
-                    </div>
+                <Modal.Footer className='text-black'>
+                    <button className='btn btn-primary' type='button' onClick={() => updateQuestion()}>
+                        Update
+                    </button>
                 </Modal.Footer>
             </Modal>
         </>

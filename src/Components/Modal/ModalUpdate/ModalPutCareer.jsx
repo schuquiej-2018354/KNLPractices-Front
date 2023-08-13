@@ -32,21 +32,21 @@ export const ModalPutCareer = ({isOpen, onClose, datos, update}) => {
     return (
         <>
             <Modal show={isOpen}>
-                <Modal.Header className='bg2 text-white'>
+                <Modal.Header className='text-black'>
                     <Modal.Title className=''>Update Carrer</Modal.Title>
                     <button onClick={onClose} type='button' className='btn' data-dismiss='modal' aria-label='Close'>
-                        <span className='text-white' aria-hidden='true'>
+                        <span className='text-black' aria-hidden='true'>
                             &times;
                         </span>
                     </button>
                 </Modal.Header>
-                <Modal.Body className='bg2 text-white'>
+                <Modal.Body className='text-black'>
                     <form action='#'>
                         <label className='form-label' htmlFor='inputName'>Name</label>
                         <input defaultValue={datos.name} className='form-control ip bg6' style={{ borderColor: '#263340' }} type='text' id='inputName' placeholder='Name Career' name='name' required />
                     </form>
                 </Modal.Body>
-                <Modal.Footer className='bg2 text-white'>
+                <Modal.Footer className='text-black'>
                     <button className='btn btn-primary' type='button' onClick={() => updateCareer()}>
                         Update
                     </button>

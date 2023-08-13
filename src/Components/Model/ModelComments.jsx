@@ -49,7 +49,8 @@ export const ModelComments = ({ onClose, _id, user, idUser, description, time, i
                         Swal.fire({
                             position: 'bottom-start',
                             text: data.message,
-                            width: '20rem'
+                            width: '20rem',
+                            showConfirmButton: false
                         })
                     } else {
                         const { data } = await axios.delete(`http://localhost:3200/questionResponse/delete/${id}`);
@@ -57,7 +58,8 @@ export const ModelComments = ({ onClose, _id, user, idUser, description, time, i
                         Swal.fire({
                             position: 'bottom-start',
                             text: data.message,
-                            width: '20rem'
+                            width: '20rem',
+                            showConfirmButton: false
                         })
                     }
                 }
